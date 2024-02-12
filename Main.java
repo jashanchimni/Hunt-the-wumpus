@@ -81,7 +81,6 @@ class Main implements ActionListener{
     jf.add(p);                                         // Ading panel to frame
 
     
-    Gui gui = new Gui();         //Gui - where input gets sent to b/c Main is static
     
     
     
@@ -165,13 +164,13 @@ class Main implements ActionListener{
       // ---------------------------------------------------------------------------\\
 
 
-        /*  
+
       else if (townChoice.equalsIgnoreCase("s")){
         for(var t = 0; t < 25; t++){
-          prot.inventory[t] = village.Town_Inventory[t + village.value]
+          village.Town_Inventory[t + village.value] = prot.inventory[t] ;
+          prot.inventory[t] = "";
         }
-        */
-        //village.Town_Inventory = prot.inventory
+        village.value += 25;
         
         // Checking to see if the user wanted to go to the shop
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
