@@ -1,0 +1,11 @@
+What do we want to do next:
+1: Add Trivia and Map to conform with the Spec
+2: Add an EXP System
+3: increase the amount and types of Monsters
+4: Add Power Scaling sytems
+5: Add a save File so people can save their game with file wirting 
+6: Wait for Reibeer to teach Flutter are image intergrater
+7: Sound
+
+
+https://replit.com/@OliverDavis4/wumpus
