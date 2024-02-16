@@ -84,12 +84,12 @@ public class Monster {
 
   public void death() {
 
-    this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length + 1)];
+    this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
 
-    prot.inventory[lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
-    if (this.lastID == 24) {
-      this.lastID = 23;
+    prot.inventory[prot.lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
+    if (prot.lastID == 24) {
+      prot.lastID = 23;
       System.out.println(RED + "Your inventory is full! Return to the village to deposit materials.");
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
