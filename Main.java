@@ -171,6 +171,7 @@ class Main implements ActionListener{
           prot.inventory[t] = "";
         }
         village.value += 25;
+        wumpus.lastID = 0;
         
         // Checking to see if the user wanted to go to the shop
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
