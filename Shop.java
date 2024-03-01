@@ -41,6 +41,7 @@ public class Shop {
   Monster wumpus;
   int list;
   String[] doneList = new String[5];
+  int gold;
 
   // ----------------------------- Teirs of Items -----------------------------\\
 
@@ -90,7 +91,13 @@ public class Shop {
 
   String[][] MasterList = {Swords, Knives, Bows, Guns, Specials, Armor, Pick, Axe, Shovel, Helmet};
 
-  // ------------------------------ Main Method -----------------------------\\
+  // TriviaWizard
+  String[] Rank1 = { "What is 5 + 5? ", "What is the color of the Pacific Ocean? ", "What is the largest country in the world? ", "In greek mythology, who was the god of the seas? ", "How many teams are in the NFL? "}
+  String[] Rank2 = { "What is the longest day of the year called? ", }
+  String[] Rank3 = {}
+  String[] Rank4 = {}
+  String[] Rank5 = {}
+   // ------------------------------ Main Method -----------------------------\\
 
   public Shop(int rank, String name, String type) {
 
@@ -145,6 +152,12 @@ public class Shop {
         wares[3] = GREEN + this.Helmet[Protagonist.tier] + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
+      }
+    }
+
+    else {
+      if(this.type.equalsIgnoreCase(anotherString:"tm")) {
+        System.out.println("WELCOME TO THE TRIVIAMASTER");
       }
     }
 

@@ -9,3 +9,14 @@ What do we want to do next:
 
 
 https://replit.com/@OliverDavis4/wumpus
+
+
+notes: 
+
+How the trivia class should be implemented
+    1. use trivia inside of the shop class. instead of weapons, make questions ranked from easy to hard
+    2. based on the questions they answer, they get gold if they get it correct and lose it if they get it wrong.
+    
+
+
+ 

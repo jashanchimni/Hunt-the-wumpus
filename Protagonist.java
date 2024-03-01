@@ -42,6 +42,7 @@ public class Protagonist {
   String[] inventory;
   int cave_X;
   int cave_Y;
+  int gold;
 
   // ------------------------------ Main Method -----------------------------\\
 
