@@ -102,7 +102,7 @@ class Main{
        
         System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
                                                              //Each time through the loop it ask the player what it wants to do.
-        String townChoice = user.next();                     // Getting user input from prevoius question
+        String townChoice = user.next();                     // Getting user input from previous question
 
 
        

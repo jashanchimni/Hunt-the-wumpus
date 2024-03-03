@@ -60,15 +60,7 @@ public class Monster {
     this.prot = prot;
     this.lastID = 0;
     this.basehealth = health;
-    this.wumpusDrops = new String[] { "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn",
-        "Horn", "Horn", "Horn", "Horn",
-        "Horn", "Horn", "Horn", "Teeth", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn",
-        "Horn",
-        "Horn", "Guts", "Guts", "Crown", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts",
-        "Teeth",
-        "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn",
-        "Guts", "Guts", "Guts", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts",
-        "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Crown" };
+    this.wumpusDrops = new String[] { this.type + " Horn",this.type +  " Horn",this.type +  " Horn",this.type +  " Horn",this.type +  " Teeth",this.type +  " Teeth",this.type +  " Teeth",this.type +  " Guts",this.type +  " Guts",this.type +  " Crown"};
   }
 
   // --------------------------- Monster Methods ----------------------------\\
