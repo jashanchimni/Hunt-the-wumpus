@@ -1,40 +1,33 @@
-//Noah Wichman and Cole Anderson
-//Hunt The Wumpus
-//11/21/2023
-//Period 6
+/*
+
+Hunt The Wumpus
+
+Started on 11/21/2023
 
 
-// REiber probaly wants us to have a team of 3 becs that what the slides said 3-8
-// I can be a pseudo-member ig -oliver kemper
+Members (Replit User)
 
-
-// Random Maze
-/* HOW TO MAKE THE RANDOM MAZE
-//Get 3 random location on a 5 by 5 grid (maybe 5 x 5 x 5) 
-//Make sure the 3 random locations ARE NOT one the same tile
-//Define location as a bottom less pit
-//One location as Wumpus
-//One location as Bats
-
+NoahWichman
+ColeAnderson6
+cameronberry
+WileyCase
+JashandeepChimn
+OliverDavis4 (Sudo Member) (Superuser) (Root User)
 
 */
 
-//3 judges 
-//TO THE SPEC
-//CREATIVTY / innovative (???)
-//CODE IS CLEAN
+// ########################################################## //
+// IF YOU ARE READING THIS AND HAVE READ THE PROGRAM WRITE UR NAME //
+// ########################################################## //
+// 
+// Cole
+// Noah
+// Olive oil (you know who)
+// Wiley
+// Jashan
+// Cameron
 
-
-
-
-
-
-
-
-
-
-
-//------------------------- Importing Labs --------------------------------\\
+//------------------------- Importing Libs --------------------------------\\
 
 import java.io.*;
 import java.util.Random;
@@ -43,13 +36,12 @@ import java.awt.*;
 import java.awt.desktop.QuitStrategy;
 import javax.swing.*;
 import java.awt.event.*;
-
 //--------------------------- Main Class -----------------------------------\\
 
-class Main implements ActionListener{
+class Main{
 
   // ------------------------------ COLORS -----------------------------------\\
-// import java.awt.Color;
+  
   static final String BLACK = "\u001B[30m";
   static final String RED = "\u001B[31m";
   static final String GREEN = "\u001B[32m";
@@ -72,71 +64,31 @@ class Main implements ActionListener{
 
   public static void main(String[] args) {
 
-    // ------------------------------ General Frameing -----------------------------\\
-    
-    JFrame jf = new JFrame(" --------------------------------------------------- Hunt the Wumpus! --------------------------------------------------- ");                  
-                                                       // Making frame 
-    JPanel p = new JPanel();                           // Making a Panel 
-    jf.setSize(1366, 768);                              // Making frame visable 
-    jf.add(p);                                         // Ading panel to frame
-
-    
-    
-    
-    
-    MyButton startButton = new MyButton("Start");  //Making a start button
-    p.add(startButton);                                          //Adding start button to panel
-
-    MyButton caveButton = new MyButton("Cave");   //Making a cave button
-    p.add(caveButton);                                          //Adding cave button to panel
-    caveButton.setIcon("Images/Monsters/Wumpus.jpeg", 200, 300);
-
-
-    /*
-    JButton cave = imageBtn("Images/Monsters/Wumpus.jpeg", 200, 300);       // Making Cave button 
-    JButton quit = imageBtn("Images/Meun-Items/Quit.jpg", 200, 300);        // Making Quit button 
-    JButton shop = imageBtn("Images/Meun-Items/Shop.png", 200, 300);       // Making Shop button 
-    JButton upgrade   = imageBtn("Images/Meun-Items/Up.png", 200, 300);    // Making Up button 
-    JButton downgrade = imageBtn("Images/Meun-Items/Down.png", 200, 300);  // Making Down button 
-
-
-    p.add(cave);                                            // Ading button to panel
-    cave.addActionListener(gui);
-    p.add(quit);                                            // Ading button to panel 
-    quit.addActionListener(gui);
-    p.add(shop);                                            // Ading button to panel 
-    p.add(upgrade);                                         // Ading button to panel 
-    p.add(downgrade);                                       // Ading button to panel 
-
-    cave.setLocation(50, 100);                              // Setting the location of the button 
-    quit.setLocation(50, 100);                              // Setting the location of the button 
-    shop.setLocation(50, 100);                              // Setting the location of the button 
-    upgrade.setLocation(50, 100);                           // Setting the location of the button 
-    downgrade.setLocation(50, 100);                         // Setting the location of the button 
-    */
-
-    jf.setVisible(true);                               // Making the frame visable
-    jf.setLayout(null);                                // Setting Layout
-    p.setLayout(null);                                 // Setting Layout
-    
-    //Action listener
-
 
     // ---------------------------------------------------------------------------\\
     
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
      Random RandomN = new Random();                    // Making Random
      boolean playing = true;                           // Making a Boolean
+    
      int[] coordinateList = getRandomLocations();      // Getting A Random Location From a method
+    
      Protagonist prot = new Protagonist(15,40, user);  // Creating the Protagonist
-    Town village = new Town();
+    
+     Town village = new Town();                        // Making the Village
     
      Monster wumpus = new Monster (coordinateList[0], coordinateList[1], 10, 10, "wumpus", RandomN, prot); // Creating the monster 
-     Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating the a shop 
+     Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
 
     
     // ---------------------------------------------------------------------------\\
+
+
+    
      while(playing){                                                              // Playing the game while the boolean is true
+
+
+       
     // ---------------------------------------------------------------------------\\
 
        
@@ -163,17 +115,21 @@ class Main implements ActionListener{
 
       // ---------------------------------------------------------------------------\\
 
-
-
-      else if (townChoice.equalsIgnoreCase("s")){
-        for(var t = 0; t < 25; t++){
-          village.Town_Inventory[t + village.value] = prot.inventory[t] ;
-          prot.inventory[t] = "";
+  
+      
+      else if (townChoice.equalsIgnoreCase("s")){                            // Checking to see if the user wanted to go to the shop
+        for(var t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
+          prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
+          prot.inventory[t] = "";                                            // Setting player inv to nothing
         }
+
         village.value += 25;
         wumpus.lastID = 0;
+
+
         
-        // Checking to see if the user wanted to go to the shop
+
+        
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
                                                                            // Asking the user speficaly which shop he wants to vist
         String shopChoice = user.next();                                   // Getting the user input
@@ -226,7 +182,7 @@ class Main implements ActionListener{
       else{                                               //If the user made a typo
        System.out.println("Sorry, invalid input");        //Telling him to try again
       }
-    }
+    
 
 
 
@@ -250,14 +206,14 @@ class Main implements ActionListener{
     System.out.print(BLUE + "r" + RESET);
     System.out.print(CYAN + "o" + RESET);
     System.out.println(GREEN + "r" + RESET);
-    // Close the scanner so that the program properly ends
-    user.close();
+
   }
 
 
   
   // -------------------- Getting A random Location Method -------------------\\
 
+  }
   public static int[] getRandomLocations() {
     Random RandomN = new Random();                // Creating The Random Object 
     int rand_X = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
@@ -268,10 +224,8 @@ class Main implements ActionListener{
   }
 
 
-  // ------------------------ actionPerformed ------------------------ \\
-  public void actionPerformed(ActionEvent e){
-    System.out.println("buh");
-  }
+
+
 }
 
 // ---------------------------------------------------------------------------\\

@@ -1,11 +1,8 @@
+public class Town {                           //Town.java
 
-// Im not sorting this sorry ;D
-
-public class Town {
-
-  String[]Town_Inventory = new String[1000];
-  int value = 0;
-  public Town() {
+  String[]Town_Inventory = new String[1000];  // Making Town Inv Inf
+  int value = 0;                              // Setting Value to 0
+  public Town() {                             // Town
 
   }
 

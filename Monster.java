@@ -44,6 +44,7 @@ public class Monster {
   int basehealth;
   String drop;
   int lastID;
+  
 
   // ------------------------------ Main Method -----------------------------\\
 
@@ -60,8 +61,6 @@ public class Monster {
     this.prot = prot;
     this.lastID = 0;
     this.basehealth = health;
-    //recommendation:
-    // make a loot table of possible drops and choose with weighted random numbers when you need to have it dop
     this.wumpusDrops = new String[] { "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn",
         "Horn", "Horn", "Horn", "Horn",
         "Horn", "Horn", "Horn", "Teeth", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn",
