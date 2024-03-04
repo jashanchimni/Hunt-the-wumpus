@@ -43,6 +43,7 @@ public class Protagonist {
   int cave_X;
   int cave_Y;
   int lastID;
+  
 
   // ------------------------------ Main Method -----------------------------\\
 
@@ -57,7 +58,7 @@ public class Protagonist {
     this.user = user;
     this.heal = 30;
     this.lastID = 0;
-    this.tier = 3;
+    this.tier = 1;
 
   }
 
