@@ -40,6 +40,7 @@ public class Shop {
   Protagonist prot;
   Monster wumpus;
   int list;
+  String TyPe;
   String[] doneList = new String[5];
 
   // ----------------------------- Teirs of Items -----------------------------\\
@@ -123,6 +124,7 @@ public class Shop {
       wares[2] = PURPLE + this.Knives[Protagonist.tier] + RESET;
       wares[3] = GREEN + this.Guns[Protagonist.tier] + RESET;
       wares[4] = YELLOW + this.Specials[Protagonist.tier] + RESET;
+      this.TyPe = "attack";
       this.list = 0;
     }
 
@@ -134,6 +136,7 @@ public class Shop {
       wares[3] = RED + "None Available" + RESET;
       wares[4] = RED + "None Available" + RESET;
       this.list = 5;
+      this.TyPe = "health";
     }
 
     else {
@@ -145,6 +148,7 @@ public class Shop {
         wares[3] = GREEN + this.Helmet[Protagonist.tier] + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
+        this.TyPe = "attack";
       }
     }
 
@@ -207,6 +211,13 @@ public class Shop {
     // Finding out what they bought and returning it \\
 
     this.purchased = this.wares[choice - 1];
+    if(this.TyPe.equals("attack")){
+      prot.attack += prot.tier;
+    }
+    else{
+        prot.health += prot.tier;
+        prot.truehealth += prot.tier;
+    }
     prot.inventory[wumpus.lastID] = this.purchased;
     if (wumpus.lastID == 24) {
       wumpus.lastID = 23;

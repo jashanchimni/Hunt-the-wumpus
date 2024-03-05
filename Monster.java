@@ -135,6 +135,9 @@ public class Monster {
 
         System.out.println("You heal " + GREEN + prot.heal + " health points" + RESET);
         prot.health += prot.heal;
+        if(prot.health >= prot.truehealth){
+          prot.health = prot.truehealth;
+        }
 
         // Printing out how much health the monster has \\
 
