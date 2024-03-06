@@ -77,7 +77,9 @@ public class Monster {
 
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
-
+    int moneyDrop = (random.nextInt(5)) + 1 * prot.tier;
+    prot.purse += moneyDrop;
+    System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
     prot.inventory[prot.lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     if (prot.lastID == 24) {
       prot.lastID = 23;
