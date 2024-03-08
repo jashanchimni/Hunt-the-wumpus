@@ -192,6 +192,7 @@ public class Shop {
         this.Armor[Protagonist.tier] = "Purchased";
       }
     }
+    
 
     else{
       if (this.choice == 1){
