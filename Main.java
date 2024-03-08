@@ -87,7 +87,7 @@ class Main{
      Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
      Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
-
+    prot.set_Pos(0,0);
     
     // ---------------------------------------------------------------------------\\
 
