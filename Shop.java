@@ -159,7 +159,8 @@ public class Shop {
     }
 
     // Asking what the user wants to buy \\
-
+    boolean validPurchase = false;
+    while(!validPurchase){
     System.out.print(RESET + "What upgrade would you like to ");
     System.out.print(GREEN + "purchase? " + RESET);
     System.out.println("('1', '2', etc) ");
@@ -170,43 +171,63 @@ public class Shop {
 
     /// Changing the Shops So the Purchased items show Purchased \\\
     if(this.type.equalsIgnoreCase("w")){
-      if (this.choice == 1){
+      if (this.choice == 1 && !(this.Swords[Protagonist.tier].equals("Purchased"))){
         this.Swords[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
-      else if (this.choice == 2){
+      else if (this.choice == 2 && !(this.Bows[Protagonist.tier].equals("Purchased"))){
           this.Bows[Protagonist.tier] = "Purchased";
+          validPurchase = true;
         }
-      else if (this.choice == 3){
+      else if (this.choice == 3 && !(this.Knives[Protagonist.tier].equals("Purchased"))){
         this.Knives[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
-      else if (this.choice == 4){
+      else if (this.choice == 4 && !(this.Guns[Protagonist.tier].equals("Purchased"))){
         this.Guns[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
-      else if (this.choice == 5){
+      else if (this.choice == 5 && !(this.Specials[Protagonist.tier].equals("Purchased"))){
         this.Specials[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+      }
+      else{
+        System.out.println("Invalid input, please try again");
       }
     }
 
     else if(this.type.equalsIgnoreCase("a")){
-      if(this.choice == 1){
+      if(this.choice == 1 && !(this.Armor[Protagonist.tier].equals("Purchased"))){
         this.Armor[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+      }
+      else{
+        System.out.println("Invalid input, please try again");
       }
     }
     
 
     else{
-      if (this.choice == 1){
+      if (this.choice == 1 && !(this.Pick[Protagonist.tier].equals("Purchased"))){
         this.Pick[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
-      else if (this.choice == 2){
+      else if (this.choice == 2 && !(this.Axe[Protagonist.tier].equals("Purchased"))){
           this.Axe[Protagonist.tier] = "Purchased";
+          validPurchase = true;
         }
-      else if (this.choice == 3){
+      else if (this.choice == 3 && !(this.Shovel[Protagonist.tier].equals("Purchased"))){
         this.Shovel[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
-      else if (this.choice == 4){
+      else if (this.choice == 4 && !(this.Helmet[Protagonist.tier].equals("Purchased"))){
         this.Helmet[Protagonist.tier] = "Purchased";
+        validPurchase = true;
       }
+      else{
+        System.out.println("Invalid input, please try again");
+      }
+    }
     }
 
     // Finding out what they bought and returning it \\
