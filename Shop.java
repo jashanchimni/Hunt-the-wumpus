@@ -192,7 +192,8 @@ public class Shop {
         validPurchase = true;
       }
       else{
-        System.out.println("Invalid input, please try again");
+        System.out.println("You are either too poor to buy this Item or already have purchased it");
+      break;
       }
     }
 
@@ -202,7 +203,8 @@ public class Shop {
         validPurchase = true;
       }
       else{
-        System.out.println("Invalid input, please try again");
+        System.out.println("You are either too poor to buy this Item or already have purchased it");
+      break;
       }
     }
     
