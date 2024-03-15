@@ -111,7 +111,9 @@ class Main{
 
        int e1;
         if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
-          System.out.print("Here is your inventory ");       // Telling the user what he has in his inv
+          System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
+          System.out.print("Here is your inventory ");
+                 // Telling the user what he has in his inv
           for (int t = 0; t < wumpus.lastID; t++){           // for each item in the user invetory
             System.out.print(prot.inventory[t] + ", ");      // Print the item
           }

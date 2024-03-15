@@ -171,7 +171,12 @@ public class Monster {
       // Checking to see if the player is dead \\
       // strongly recommend: use getters + setters
       if (prot.health <= 0) {
-        System.out.println("You have fallen");
+        int randDrop = random.nextInt(5);
+        System.out.println("You have fallen and dropped " + randDrop + " coins.");
+        prot.purse -= randDrop;
+        if(prot.purse < 0){
+prot.purse = 0;
+        }
         battling = false;
       }
 

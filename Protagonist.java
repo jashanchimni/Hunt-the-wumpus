@@ -60,7 +60,7 @@ public class Protagonist {
     this.heal = 30;
     this.lastID = 0;
     this.tier = 1;
-    this.purse = 25;
+    this.purse = 0;
 
   }
 
