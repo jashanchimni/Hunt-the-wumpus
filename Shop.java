@@ -174,22 +174,27 @@ public class Shop {
       if (this.choice == 1 && !(this.Swords[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Swords[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else if (this.choice == 2 && !(this.Bows[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
           this.Bows[Protagonist.tier] = "Purchased";
           validPurchase = true;
+          prot.purse -= prot.tier*10;
         }
       else if (this.choice == 3 && !(this.Knives[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Knives[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else if (this.choice == 4 && !(this.Guns[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Guns[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else if (this.choice == 5 && !(this.Specials[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Specials[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
@@ -201,6 +206,7 @@ public class Shop {
       if(this.choice == 1 && !(this.Armor[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Armor[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
@@ -213,18 +219,22 @@ public class Shop {
       if (this.choice == 1 && !(this.Pick[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Pick[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else if (this.choice == 2 && !(this.Axe[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
           this.Axe[Protagonist.tier] = "Purchased";
           validPurchase = true;
+          prot.purse -= prot.tier*10;
         }
       else if (this.choice == 3 && !(this.Shovel[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Shovel[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else if (this.choice == 4 && !(this.Helmet[Protagonist.tier].equals("Purchased")) && prot.purse >= prot.tier * 10){
         this.Helmet[Protagonist.tier] = "Purchased";
         validPurchase = true;
+        prot.purse -= prot.tier*10;
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
