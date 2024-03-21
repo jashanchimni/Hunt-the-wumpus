@@ -244,7 +244,7 @@ public class Shop {
     }
 
     // Finding out what they bought and returning it \\
-
+    if(validPurchase){
     this.purchased = this.wares[choice - 1];
     if(this.TyPe.equals("attack")){
       prot.attack += prot.tier;
@@ -260,8 +260,12 @@ public class Shop {
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
     wumpus.lastID += 1;
-    return this.purchased;
+  }
+  else{
+    this.purchased = "";
+  }
 
+    return this.purchased;
   }
 
 }
