@@ -76,16 +76,16 @@ public class Monster {
 
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
-    int moneyDrop = (random.nextInt(5)) + 1 * prot.tier;
+    int moneyDrop = (random.nextInt(5)) + 1 * Protagonist.tier;
     prot.purse += moneyDrop;
     System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
     int gained = this.health * this.damage;
     System.out.println("You gained " + gained + " EXP!!");
     prot.EXP += gained;
-    if(prot.EXP >= 1 * (prot.tier + 1) && prot.tier < 4){
+    if(prot.EXP >= 1 * (Protagonist.tier + 1) && Protagonist.tier < 4){
       prot.EXP = 0;
-      prot.tier += 1;
-      System.out.println("YOU LEVELED UP TO LEVEL " + prot.tier);
+      Protagonist.tier += 1;
+      System.out.println("YOU LEVELED UP TO LEVEL " + Protagonist.tier);
     }
     prot.inventory[prot.lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     if (prot.lastID == 24) {
