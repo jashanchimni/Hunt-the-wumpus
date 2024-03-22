@@ -43,32 +43,7 @@ public class Shop {
   String TyPe;
   String[] doneList = new String[5];
 
-  // ----------------------------- Teirs of Items -----------------------------\\
-
-  // WeaponSmith Items
-  // Teirs of Swords 0: Copper Broadsword 1: Iron Shortsword 2: Double-gripped
-  // Shortsword 3: Hellflame Shortsword 4: Excalibur
-  // Teirs of Bows 0: Wooden Longbow 1: Iron Crossbow 2: Temporal Shortbow 3:
-  // Phantom's Strike 4: Legend's String
-  // Teirs of Knives 0: Common Knife 1: Jagged Shiv 2: Bloodthirsted Knife 3:
-  // Ghostly Stabber 4: Champion's Sai
-  // Teirs of Guns 0: Shock Eagle 1: GLOCKE 99 2: Reaper 3: HO-HO-HEATER 4: BJ-50
-  // Teirs of Specials 0: Ball and Chain 1: Hydro Shurikens 2: The Rimworld 3:
-  // Mirror Shield 4: The Sea Breeze Shield
-
-  // AmourSmith Items \\
-  // Teirs of Armor 0: Chainmail Armor 1: Phantom Armor 2: Prism Armor 3:
-  // Frostspire Gear 4: Champions Mail
-
-  // Toolsmith Items \\
-  // Teirs of Pick 0: Steel Pick 1: Bejeweled Pick 2: Corroded Pick 3: Angelic
-  // Pick 4: Miner's Gear
-  // Teirs of Axe 0: Woodcutter's Axe 1: Hardened Axe 2: Magician's Axe 3: Horn
-  // Hatchet 4: Lumberjacked Axe
-  // Teirs of Shovel 0: Iron Spade 1: Jackhammer 2: Spacial Shovel 3:
-  // Interdimensional Digger 4: Gardner's Spade
-  // Teirs of Helmet 0: Santa Cap 1: Baseball Cap 2: Crown of Thorns 3: Champions
-  // Crown 4: Helicopter Hat
+  
 
   // ----------------------------- Items in shops -----------------------------\\
 
@@ -159,7 +134,8 @@ public class Shop {
     }
 
     // Asking what the user wants to buy \\
-
+    boolean validPurchase = false;
+    while(!validPurchase){
     System.out.print(RESET + "What upgrade would you like to ");
     System.out.print(GREEN + "purchase? " + RESET);
     System.out.println("('1', '2', etc) ");
@@ -170,54 +146,87 @@ public class Shop {
 
     /// Changing the Shops So the Purchased items show Purchased \\\
     if(this.type.equalsIgnoreCase("w")){
-      if (this.choice == 1){
+      if (this.choice == 1 && !(this.Swords[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Swords[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
-      else if (this.choice == 2){
+      else if (this.choice == 2 && !(this.Bows[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
           this.Bows[Protagonist.tier] = "Purchased";
+          validPurchase = true;
+          prot.purse -= Protagonist.tier*10;
         }
-      else if (this.choice == 3){
+      else if (this.choice == 3 && !(this.Knives[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Knives[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
-      else if (this.choice == 4){
+      else if (this.choice == 4 && !(this.Guns[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Guns[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
-      else if (this.choice == 5){
+      else if (this.choice == 5 && !(this.Specials[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Specials[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
+      }
+      else{
+        System.out.println("You are either too poor to buy this Item or already have purchased it");
+      break;
       }
     }
 
     else if(this.type.equalsIgnoreCase("a")){
-      if(this.choice == 1){
+      if(this.choice == 1 && !(this.Armor[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Armor[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
+      }
+      else{
+        System.out.println("You are either too poor to buy this Item or already have purchased it");
+      break;
       }
     }
     
 
     else{
-      if (this.choice == 1){
+      if (this.choice == 1 && !(this.Pick[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Pick[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
-      else if (this.choice == 2){
+      else if (this.choice == 2 && !(this.Axe[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
           this.Axe[Protagonist.tier] = "Purchased";
+          validPurchase = true;
+          prot.purse -= Protagonist.tier*10;
         }
-      else if (this.choice == 3){
+      else if (this.choice == 3 && !(this.Shovel[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Shovel[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
-      else if (this.choice == 4){
+      else if (this.choice == 4 && !(this.Helmet[Protagonist.tier].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Helmet[Protagonist.tier] = "Purchased";
+        validPurchase = true;
+        prot.purse -= Protagonist.tier*10;
       }
+      else{
+        System.out.println("You are either too poor to buy this Item or already have purchased it");
+      break;
+      }
+    }
     }
 
     // Finding out what they bought and returning it \\
-
+    if(validPurchase){
     this.purchased = this.wares[choice - 1];
     if(this.TyPe.equals("attack")){
-      prot.attack += prot.tier;
+      prot.attack += Protagonist.tier;
     }
     else{
-        prot.health += prot.tier;
-        prot.truehealth += prot.tier;
+        prot.health += Protagonist.tier;
+        prot.truehealth += Protagonist.tier;
     }
     prot.inventory[wumpus.lastID] = this.purchased;
     if (wumpus.lastID == 24) {
@@ -226,8 +235,12 @@ public class Shop {
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
     wumpus.lastID += 1;
-    return this.purchased;
+  }
+  else{
+    this.purchased = "";
+  }
 
+    return this.purchased;
   }
 
 }

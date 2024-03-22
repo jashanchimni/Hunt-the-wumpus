@@ -1,12 +1,13 @@
 //--------------------------- Importing Labs --------------------------------\\
 
-import java.util.Random;
-import java.io.*;
 import java.util.Scanner;
+import java.awt.*;
+import javax.swing.JButton;
 
+import java.awt.event.*;
 //--------------------------- Protagonist Class ------------------------------\\
 
-public class Protagonist {
+public class Protagonist extends JButton implements ActionListener {
 
   // ------------------------------ COLORS -----------------------------------\\
 
@@ -44,6 +45,7 @@ public class Protagonist {
   int cave_Y;
   int lastID;
   int purse;
+  int EXP;
   
 
   // ------------------------------ Main Method -----------------------------\\
@@ -59,8 +61,9 @@ public class Protagonist {
     this.user = user;
     this.heal = 30;
     this.lastID = 0;
-    this.tier = 1;
-    this.purse = 25;
+    tier = 1;
+    this.purse = 0;
+    this.EXP = 0;
 
   }
 
@@ -86,8 +89,8 @@ public class Protagonist {
   public int tierUp() {
 
     // Adding to teir then returning the value \\
-    this.tier += 1;
-    return this.tier;
+    tier += 1;
+    return tier;
 
   }
 
@@ -161,7 +164,10 @@ public void setInventory(String[] inventory) {
   public void move_Pos_Y(){
     this.cave_Y += 1;
   }
-  
+  @Override
+  public void actionPerformed(ActionEvent e){
+      System.out.println("Deez Nuts");
+  }
 
 }
 
