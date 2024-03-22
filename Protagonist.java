@@ -1,7 +1,5 @@
 //--------------------------- Importing Labs --------------------------------\\
 
-import java.util.Random;
-import java.io.*;
 import java.util.Scanner;
 
 //--------------------------- Protagonist Class ------------------------------\\

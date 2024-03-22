@@ -29,13 +29,12 @@ OliverDavis4 (Sudo Member) (Superuser) (Root User)
 
 //------------------------- Importing Libs --------------------------------\\
 
-import java.io.*;
+
 import java.util.Random;
 import java.util.Scanner;
-import java.awt.*;
+
 //import java.awt.desktop.QuitStrategy;
-import javax.swing.*;
-import java.awt.event.*;
+
 //--------------------------- Main Class -----------------------------------\\
 
 class Main{
