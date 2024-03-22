@@ -3,10 +3,13 @@
 import java.util.Random;
 import java.io.*;
 import java.util.Scanner;
+import java.awt.*;
+import javax.swing.JButton;
 
+import java.awt.event.*;
 //--------------------------- Protagonist Class ------------------------------\\
 
-public class Protagonist {
+public class Protagonist extends JButton implements ActionListener {
 
   // ------------------------------ COLORS -----------------------------------\\
 
@@ -161,7 +164,10 @@ public void setInventory(String[] inventory) {
   public void move_Pos_Y(){
     this.cave_Y += 1;
   }
-  
+  @Override
+  public void actionPerformed(ActionEvent e){
+      System.out.println("Deez Nuts");
+  }
 
 }
 
