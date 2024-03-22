@@ -214,7 +214,7 @@ class Main{
 
     
     // Ran without error Print statment \\
-    System.out.print(RED + "R" + RESET);
+    /*System.out.print(RED + "R" + RESET);
     System.out.print(GREEN + "a" + RESET);
     System.out.print(BLUE + "n" + RESET);
     System.out.print(PURPLE + " w" + RESET);
@@ -229,7 +229,7 @@ class Main{
     System.out.print(BLUE + "r" + RESET);
     System.out.print(CYAN + "o" + RESET);
     System.out.println(GREEN + "r" + RESET);
-
+*/
   }
 
 
