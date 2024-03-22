@@ -1,7 +1,5 @@
 //--------------------------- Importing Labs --------------------------------\\
 
-import java.util.Random;
-import java.io.*;
 import java.util.Scanner;
 import java.awt.*;
 import javax.swing.JButton;
@@ -47,6 +45,7 @@ public class Protagonist extends JButton implements ActionListener {
   int cave_Y;
   int lastID;
   int purse;
+  int EXP;
   
 
   // ------------------------------ Main Method -----------------------------\\
@@ -62,8 +61,9 @@ public class Protagonist extends JButton implements ActionListener {
     this.user = user;
     this.heal = 30;
     this.lastID = 0;
-    this.tier = 1;
+    tier = 1;
     this.purse = 0;
+    this.EXP = 0;
 
   }
 
@@ -89,8 +89,8 @@ public class Protagonist extends JButton implements ActionListener {
   public int tierUp() {
 
     // Adding to teir then returning the value \\
-    this.tier += 1;
-    return this.tier;
+    tier += 1;
+    return tier;
 
   }
 
