@@ -44,6 +44,7 @@ public class Protagonist {
   int cave_Y;
   int lastID;
   int purse;
+  int EXP;
   
 
   // ------------------------------ Main Method -----------------------------\\
@@ -61,6 +62,7 @@ public class Protagonist {
     this.lastID = 0;
     this.tier = 1;
     this.purse = 0;
+    this.EXP = 0;
 
   }
 
