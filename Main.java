@@ -72,7 +72,7 @@ class Main{
      Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
      Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
 
-     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+    Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
      Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
     prot.set_Pos(0,0);
@@ -84,20 +84,20 @@ class Main{
      while(playing){                                                              // Playing the game while the boolean is true
 
 
-       
+
     // ---------------------------------------------------------------------------\\
 
-       
+
         System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
                                                              //Each time through the loop it ask the player what it wants to do.
         String townChoice = user.next();                     // Getting user input from previous question
 
 
-       
+
        // ---------------------------------------------------------------------------\\
 
 
-       int e1;
+        int e1;
         if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
           System.out.print("Here is your inventory ");
@@ -112,7 +112,7 @@ class Main{
             e1 = 0;
           } 
           else if(Protagonist.tier <= 4){
-           e1 = 1;
+          e1 = 1;
           }
           else{
             e1 = 2;
