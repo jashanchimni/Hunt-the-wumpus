@@ -1,7 +1,6 @@
 //--------------------------- Importing Labs --------------------------------\\
 
 import java.util.Scanner;
-import java.awt.*;
 import javax.swing.JButton;
 
 import java.awt.event.*;
