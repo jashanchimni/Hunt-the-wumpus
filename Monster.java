@@ -44,6 +44,7 @@ public class Monster {
   int basehealth;
   String drop;
   int lastID;
+  
 
   // ------------------------------ Main Method -----------------------------\\
 
@@ -60,15 +61,7 @@ public class Monster {
     this.prot = prot;
     this.lastID = 0;
     this.basehealth = health;
-    this.wumpusDrops = new String[] { "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn",
-        "Horn", "Horn", "Horn", "Horn",
-        "Horn", "Horn", "Horn", "Teeth", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn",
-        "Horn",
-        "Horn", "Guts", "Guts", "Crown", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts",
-        "Teeth",
-        "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn",
-        "Guts", "Guts", "Guts", "Guts", "Guts", "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts",
-        "Guts", "Teeth", "Horn", "Horn", "Horn", "Horn", "Horn", "Guts", "Guts", "Guts", "Teeth", "Crown" };
+    this.wumpusDrops = new String[] { this.type + " Horn",this.type +  " Horn",this.type +  " Horn",this.type +  " Horn",this.type +  " Teeth",this.type +  " Teeth",this.type +  " Teeth",this.type +  " Guts",this.type +  " Guts",this.type +  " Crown"};
   }
 
   // --------------------------- Monster Methods ----------------------------\\
@@ -82,12 +75,14 @@ public class Monster {
 
   public void death() {
 
-    this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length + 1)];
+    this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
-
-    prot.inventory[lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
-    if (this.lastID == 24) {
-      this.lastID = 23;
+    int moneyDrop = (random.nextInt(5)) + 1 * prot.tier;
+    prot.purse += moneyDrop;
+    System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
+    prot.inventory[prot.lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
+    if (prot.lastID == 24) {
+      prot.lastID = 23;
       System.out.println(RED + "Your inventory is full! Return to the village to deposit materials.");
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
@@ -142,6 +137,9 @@ public class Monster {
 
         System.out.println("You heal " + GREEN + prot.heal + " health points" + RESET);
         prot.health += prot.heal;
+        if(prot.health >= prot.truehealth){
+          prot.health = prot.truehealth;
+        }
 
         // Printing out how much health the monster has \\
 

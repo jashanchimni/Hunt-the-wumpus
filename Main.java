@@ -33,10 +33,10 @@ import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 import java.awt.*;
-import java.awt.desktop.QuitStrategy;
+//import java.awt.desktop.QuitStrategy;
 import javax.swing.*;
-import java.awt.event.*;
 
+import java.awt.event.*;
 //--------------------------- Main Class -----------------------------------\\
 
 class Main{
@@ -78,7 +78,15 @@ class Main{
     
      Town village = new Town();                        // Making the Village
     
-     Monster wumpus = new Monster (coordinateList[0], coordinateList[1], 10, 10, "wumpus", RandomN, prot); // Creating the monster 
+     Monster wumpus = new Monster (coordinateList[0], coordinateList[1], 150, 20, "Wumpus", RandomN, prot); // Creating the Wumpus
+     Monster giant = new Monster (coordinateList[0], coordinateList[1], 200, 15, "Giant", RandomN, prot); // Creating the Giant
+     Monster kraken = new Monster (coordinateList[0], coordinateList[1], 100, 25, "Kraken", RandomN, prot); // Creating the Kraken
+     Monster slime = new Monster (coordinateList[0], coordinateList[1], 50, 5, "Slime", RandomN, prot); // Creating the Slime
+     Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
+     Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
+
+     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+
      Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
 
     
@@ -95,21 +103,34 @@ class Main{
        
         System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
                                                              //Each time through the loop it ask the player what it wants to do.
-        String townChoice = user.next();                     // Getting user input from prevoius question
+        String townChoice = user.next();                     // Getting user input from previous question
 
 
        
        // ---------------------------------------------------------------------------\\
 
 
-       
+       int e1;
         if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
           System.out.print("Here is your inventory ");       // Telling the user what he has in his inv
-          for (var t = 0; t < wumpus.lastID; t++){           // for each item in the user invetory
+          for (int t = 0; t < wumpus.lastID; t++){           // for each item in the user invetory
             System.out.print(prot.inventory[t] + ", ");      // Print the item
           }
-          System.out.println();                              // Spacing 
-          wumpus.battle();                                   // Fighting the monster in the caves
+          System.out.println(); 
+          
+          // Getting the monster to be fought
+          if(prot.tier <= 2){
+            e1 = 0;
+          } 
+          else if(prot.tier <= 4){
+           e1 = 1;
+          }
+          else{
+            e1 = 2;
+          }
+          int ec = RandomN.nextInt(3); 
+          Monster encounter = monsterList[e1][ec];                          // Spacing 
+          encounter.battle();                                   // Fighting the monster in the caves
         }
 
 
@@ -119,12 +140,17 @@ class Main{
   
       
       else if (townChoice.equalsIgnoreCase("s")){                            // Checking to see if the user wanted to go to the shop
-        for(var t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
+        for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
           prot.inventory[t] = "";                                            // Setting player inv to nothing
         }
 
+        village.value += 25;
+        wumpus.lastID = 0;
+
+
         
+
         
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith, or TriviaMaster? (w/a/t/tm)");
                                                                            // Asking the user speficaly which shop he wants to vist

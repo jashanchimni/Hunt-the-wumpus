@@ -42,7 +42,13 @@ public class Protagonist {
   String[] inventory;
   int cave_X;
   int cave_Y;
+<<<<<<< HEAD
   int gold;
+=======
+  int lastID;
+  int purse;
+  
+>>>>>>> fb11299e654e0d372a53c90ae09feb901c1db9e1
 
   // ------------------------------ Main Method -----------------------------\\
 
@@ -56,7 +62,9 @@ public class Protagonist {
     this.health = health;
     this.user = user;
     this.heal = 30;
-    this.tier = 3;
+    this.lastID = 0;
+    this.tier = 1;
+    this.purse = 25;
 
   }
 
