@@ -74,6 +74,8 @@ public class Monster {
 
   public void death() {
 
+
+    
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
     int moneyDrop = (random.nextInt(5)) + 1 * Protagonist.tier;
@@ -94,7 +96,10 @@ public class Monster {
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
     this.lastID += 1;
-
+    if(this.type.equals("wumpus")){
+      System.out.println("You have defeated the wumpus and completed the game!!");
+      System.out.println("You ended at Level " + Protagonist.tier + " and " + prot.purse + "coins");
+    }
   }
 
   public void battle() {

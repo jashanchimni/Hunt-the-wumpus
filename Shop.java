@@ -172,7 +172,7 @@ public class Shop {
         prot.purse -= Protagonist.tier*10;
       }
       else{
-        System.out.println("You are either too poor to buy this Item or already have purchased it");
+        System.out.println("You are either too poor to buy this item or already have purchased it");
       break;
       }
     }
@@ -222,11 +222,11 @@ public class Shop {
     if(validPurchase){
     this.purchased = this.wares[choice - 1];
     if(this.TyPe.equals("attack")){
-      prot.attack += Protagonist.tier;
+      prot.attack += Protagonist.tier * 5;
     }
     else{
-        prot.health += Protagonist.tier;
-        prot.truehealth += Protagonist.tier;
+        prot.health += Protagonist.tier * 10;
+        prot.truehealth += Protagonist.tier * 10;
     }
     prot.inventory[wumpus.lastID] = this.purchased;
     if (wumpus.lastID == 24) {
