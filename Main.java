@@ -141,7 +141,7 @@ class Main{
         
 
         
-        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
+        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith, or TriviaMaster? (w/a/t/tm)");
                                                                            // Asking the user speficaly which shop he wants to vist
         String shopChoice = user.next();                                   // Getting the user input
         Weaponsmith.upgrade(shopChoice, prot, wumpus);                     // Opening up the shop

@@ -42,10 +42,14 @@ public class Protagonist extends JButton implements ActionListener {
   String[] inventory;
   int cave_X;
   int cave_Y;
+<<<<<<< HEAD
+  int gold;
+=======
   int lastID;
   int purse;
   int EXP;
   
+>>>>>>> fb11299e654e0d372a53c90ae09feb901c1db9e1
 
   // ------------------------------ Main Method -----------------------------\\
 

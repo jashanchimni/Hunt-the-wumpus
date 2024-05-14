@@ -1,4 +1,5 @@
-//--------------------------- Importing Labs --------------------------------\\
+
+
 
 import java.util.Scanner;
 
@@ -40,8 +41,8 @@ public class Shop {
   Protagonist prot;
   Monster wumpus;
   int list;
-  String TyPe;
   String[] doneList = new String[5];
+  int gold;
 
   
 
@@ -66,7 +67,13 @@ public class Shop {
 
   String[][] MasterList = {Swords, Knives, Bows, Guns, Specials, Armor, Pick, Axe, Shovel, Helmet};
 
-  // ------------------------------ Main Method -----------------------------\\
+  // TriviaWizard
+  String[] Rank1 = { "What is 5 + 5? ", "What is the color of the Pacific Ocean? ", "What is the largest country in the world? ", "In greek mythology, who was the god of the seas? ", "How many teams are in the NFL? "};
+  String[] Rank2 = { "What is the longest day of the year called? ", "How many days are in a leap year? ", "What is the first element in the periodic table? ", "Who is the current king/queen of the UK? ", " Jabba the Hut was the antagonist of what movie series? "};
+  String[] Rank3 = {"What is the capital of Australia ?", "How many teams are in the NBA? ", "How many letters is Wiley's last name? ", "What continent is known for their species of bugs", ""};
+  String[] Rank4 = {"What is the world’s largest desert?", "Who is the blue starter pokemon", "What is the remaining movement key on the keyboard: W, A, S, ...", "What is the coding language named after a snake", "How much is a bakers dozen"};
+  String[] Rank5 = {"Fate of the universe is on the line, martians invading Earth, I pick _____ __________(hint: Max Kellerman) "," Who said the line ' what a bunch of hippy dippy balogne? '"," What is the #1 hardest university to get into in the United States","The E in PEMDAS stands for?","What holiday is a cornacopia associated with?"};
+   // ------------------------------ Main Method -----------------------------\\
 
   public Shop(int rank, String name, String type) {
 
@@ -99,7 +106,6 @@ public class Shop {
       wares[2] = PURPLE + this.Knives[Protagonist.tier] + RESET;
       wares[3] = GREEN + this.Guns[Protagonist.tier] + RESET;
       wares[4] = YELLOW + this.Specials[Protagonist.tier] + RESET;
-      this.TyPe = "attack";
       this.list = 0;
     }
 
@@ -111,11 +117,9 @@ public class Shop {
       wares[3] = RED + "None Available" + RESET;
       wares[4] = RED + "None Available" + RESET;
       this.list = 5;
-      this.TyPe = "health";
     }
 
-    else {
-      if (this.type.equalsIgnoreCase("t")) {
+    else if (this.type.equalsIgnoreCase("t")){
         System.out.println("Welcome to " + BLUE + "Crazy Craig's Tools" + RESET);
         wares[0] = RED + this.Pick[Protagonist.tier] + RESET;
         wares[1] = CYAN + this.Axe[Protagonist.tier] + RESET;
@@ -123,9 +127,23 @@ public class Shop {
         wares[3] = GREEN + this.Helmet[Protagonist.tier] + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
-        this.TyPe = "attack";
       }
+
+    else if (this.type.equalsIgnoreCase("tm")){
+        System.out.println("Welcome to " + BLUE + "Trivia Master" + RESET);
+         wares[0] = RED + this.Rank1[Protagonist.tier] + RESET;
+         wares[1] = CYAN + this.Rank2[Protagonist.tier] + RESET;
+         wares[2] = PURPLE + this.Rank3[Protagonist.tier] + RESET;
+         wares[3] = GREEN + this.Rank4[Protagonist.tier] + RESET;
+         wares[4] = YELLOW + this.Rank5[Protagonist.tier] + RESET;
+
     }
+
+   
+  }
+    
+    
+   
 
     // Printing the store inventory depending on lenth \\
 
@@ -221,6 +239,8 @@ public class Shop {
     // Finding out what they bought and returning it \\
     if(validPurchase){
     this.purchased = this.wares[choice - 1];
+<<<<<<< HEAD
+=======
     if(this.TyPe.equals("attack")){
       prot.attack += Protagonist.tier * 5;
     }
@@ -228,6 +248,7 @@ public class Shop {
         prot.health += Protagonist.tier * 10;
         prot.truehealth += Protagonist.tier * 10;
     }
+>>>>>>> 7ec8404ef4a9892c4e8fdd029372a5457ad7b5eb
     prot.inventory[wumpus.lastID] = this.purchased;
     if (wumpus.lastID == 24) {
       wumpus.lastID = 23;
