@@ -12,31 +12,18 @@ ColeAnderson6
 cameronberry
 WileyCase
 JashandeepChimn
-OliverDavis4 (Sudo Member) (Superuser) (Root User)
+
 
 */
 
-// ########################################################## //
-// IF YOU ARE READING THIS AND HAVE READ THE PROGRAM WRITE UR NAME //
-// ########################################################## //
-// 
-// Cole
-// Noah
-// Olive oil (you know who)
-// Wiley
-// Jashan
-// Cameron
 
 //------------------------- Importing Libs --------------------------------\\
 
-import java.io.*;
+
 import java.util.Random;
 import java.util.Scanner;
-import java.awt.*;
-//import java.awt.desktop.QuitStrategy;
-import javax.swing.*;
 
-import java.awt.event.*;
+
 //--------------------------- Main Class -----------------------------------\\
 
 class Main{
@@ -85,10 +72,10 @@ class Main{
      Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
      Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
 
-     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+    Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
      Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
-
+    prot.set_Pos(0,0);
     
     // ---------------------------------------------------------------------------\\
 
@@ -97,33 +84,35 @@ class Main{
      while(playing){                                                              // Playing the game while the boolean is true
 
 
-       
+
     // ---------------------------------------------------------------------------\\
 
-       
+
         System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
                                                              //Each time through the loop it ask the player what it wants to do.
         String townChoice = user.next();                     // Getting user input from previous question
 
 
-       
+
        // ---------------------------------------------------------------------------\\
 
 
-       int e1;
+        int e1;
         if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
-          System.out.print("Here is your inventory ");       // Telling the user what he has in his inv
+          System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
+          System.out.print("Here is your inventory ");
+                 // Telling the user what he has in his inv
           for (int t = 0; t < wumpus.lastID; t++){           // for each item in the user invetory
             System.out.print(prot.inventory[t] + ", ");      // Print the item
           }
           System.out.println(); 
           
           // Getting the monster to be fought
-          if(prot.tier <= 2){
+          if(Protagonist.tier <= 2){
             e1 = 0;
           } 
-          else if(prot.tier <= 4){
-           e1 = 1;
+          else if(Protagonist.tier <= 4){
+          e1 = 1;
           }
           else{
             e1 = 2;
@@ -176,9 +165,9 @@ class Main{
 
         
       else if(townChoice.equalsIgnoreCase("u")){                           //Checking to see if the user wanted to upgrade
-        prot.tier += 1;                                                    //adding to his teir
-        if(prot.tier == 5){                                                //Making sure it didnt pass max
-          prot.tier = 4;                                                   //If the teir passed max going back down
+        Protagonist.tier += 1;                                                    //adding to his teir
+        if(Protagonist.tier == 5){                                                //Making sure it didnt pass max
+          Protagonist.tier = 4;                                                   //If the teir passed max going back down
         }
       }
 
@@ -189,9 +178,9 @@ class Main{
 
         
       else if(townChoice.equalsIgnoreCase("d")){                       //Checking to see he wanted to downgrade
-        prot.tier -= 1;                                                //Subtracting his teir
-        if(prot.tier == -1){                                           //If teir is to low
-          prot.tier = 0;                                               //making teir 0
+        Protagonist.tier -= 1;                                                //Subtracting his teir
+        if(Protagonist.tier == -1){                                           //If teir is to low
+          Protagonist.tier = 0;                                               //making teir 0
         }
       }
 
@@ -209,25 +198,6 @@ class Main{
 
 
     // ---------------------------------------------------------------------------\\
-
-
-    
-    // Ran without error Print statment \\
-    System.out.print(RED + "R" + RESET);
-    System.out.print(GREEN + "a" + RESET);
-    System.out.print(BLUE + "n" + RESET);
-    System.out.print(PURPLE + " w" + RESET);
-    System.out.print(RED + "i" + RESET);
-    System.out.print(YELLOW + "t" + RESET);
-    System.out.print(CYAN + "h" + RESET);
-    System.out.print(BLUE + "o" + RESET);
-    System.out.print(PURPLE + "u" + RESET);
-    System.out.print(CYAN + "t" + RESET);
-    System.out.print(RED + " E" + RESET);
-    System.out.print(PURPLE + "r" + RESET);
-    System.out.print(BLUE + "r" + RESET);
-    System.out.print(CYAN + "o" + RESET);
-    System.out.println(GREEN + "r" + RESET);
 
   }
 
