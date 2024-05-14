@@ -43,6 +43,7 @@ public class Shop {
   int list;
   String[] doneList = new String[5];
   int gold;
+  String TyPe;
 
   
 
@@ -107,6 +108,7 @@ public class Shop {
       wares[3] = GREEN + this.Guns[Protagonist.tier] + RESET;
       wares[4] = YELLOW + this.Specials[Protagonist.tier] + RESET;
       this.list = 0;
+      this.TyPe = "attack";
     }
 
     else if (this.type.equalsIgnoreCase("a")) {
@@ -117,6 +119,7 @@ public class Shop {
       wares[3] = RED + "None Available" + RESET;
       wares[4] = RED + "None Available" + RESET;
       this.list = 5;
+      this.TyPe = "health";
     }
 
     else if (this.type.equalsIgnoreCase("t")){
@@ -127,27 +130,26 @@ public class Shop {
         wares[3] = GREEN + this.Helmet[Protagonist.tier] + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
+        this.TyPe = "attack";
       }
 
     else if (this.type.equalsIgnoreCase("tm")){
         System.out.println("Welcome to " + BLUE + "Trivia Master" + RESET);
-         wares[0] = RED + this.Rank1[Protagonist.tier] + RESET;
-         wares[1] = CYAN + this.Rank2[Protagonist.tier] + RESET;
-         wares[2] = PURPLE + this.Rank3[Protagonist.tier] + RESET;
-         wares[3] = GREEN + this.Rank4[Protagonist.tier] + RESET;
-         wares[4] = YELLOW + this.Rank5[Protagonist.tier] + RESET;
+        wares[0] = RED + this.Rank1[Protagonist.tier] + RESET;
+        wares[1] = CYAN + this.Rank2[Protagonist.tier] + RESET;
+        wares[2] = PURPLE + this.Rank3[Protagonist.tier] + RESET;
+        wares[3] = GREEN + this.Rank4[Protagonist.tier] + RESET;
+        wares[4] = YELLOW + this.Rank5[Protagonist.tier] + RESET;
 
     }
 
-   
-  }
     
     
-   
+  
 
     // Printing the store inventory depending on lenth \\
 
-    for (var g = 0; g < this.wares.length; g++) {
+    for (int g = 0; g < this.wares.length; g++) {
       System.out.println(g + 1 + ". " + this.wares[g]);
     }
 
@@ -239,8 +241,8 @@ public class Shop {
     // Finding out what they bought and returning it \\
     if(validPurchase){
     this.purchased = this.wares[choice - 1];
-<<<<<<< HEAD
-=======
+
+
     if(this.TyPe.equals("attack")){
       prot.attack += Protagonist.tier * 5;
     }
@@ -248,7 +250,7 @@ public class Shop {
         prot.health += Protagonist.tier * 10;
         prot.truehealth += Protagonist.tier * 10;
     }
->>>>>>> 7ec8404ef4a9892c4e8fdd029372a5457ad7b5eb
+
     prot.inventory[wumpus.lastID] = this.purchased;
     if (wumpus.lastID == 24) {
       wumpus.lastID = 23;
