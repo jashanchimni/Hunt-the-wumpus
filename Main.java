@@ -84,20 +84,20 @@ class Main{
      while(playing){                                                              // Playing the game while the boolean is true
 
 
-
+      
     // ---------------------------------------------------------------------------\\
 
-
+      
         System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
                                                              //Each time through the loop it ask the player what it wants to do.
         String townChoice = user.next();                     // Getting user input from previous question
 
 
-
+      
        // ---------------------------------------------------------------------------\\
 
 
-        int e1;
+      int e1;
         if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
           System.out.print("Here is your inventory ");
@@ -112,7 +112,7 @@ class Main{
             e1 = 0;
           } 
           else if(Protagonist.tier <= 4){
-          e1 = 1;
+            e1 = 1;
           }
           else{
             e1 = 2;
@@ -141,10 +141,17 @@ class Main{
         
 
         
-        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith, or TriviaMaster? (w/a/t/tm)");
+        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
                                                                            // Asking the user speficaly which shop he wants to vist
-        String shopChoice = user.next();                                   // Getting the user input
-        Weaponsmith.upgrade(shopChoice, prot, wumpus);                     // Opening up the shop
+        String shopChoice = user.next();
+        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");
+        int tierChoice = user.nextInt();
+
+        if(tierChoice > prot.tier){
+          tierChoice = prot.tier;
+        }
+        // Getting the user input
+        Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop
         prot.health = prot.truehealth;                                     // Regaing his healt
       }
 
