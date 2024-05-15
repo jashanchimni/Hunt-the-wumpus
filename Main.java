@@ -52,7 +52,7 @@ class Main{
 
   public static void main(String[] args) {
 
-
+    SoundTesting.playSound("5.56GunShot.wav");
     // ---------------------------------------------------------------------------\\
     
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
