@@ -183,12 +183,7 @@ public class Monster {
       // Checking to see if the player is dead \\
       // strongly recommend: use getters + setters
       if (prot.health <= 0) {
-        int randDrop = random.nextInt(5);
-        System.out.println("You have fallen and dropped " + randDrop + " coins.");
-        prot.purse -= randDrop;
-        if(prot.purse < 0){
-prot.purse = 0;
-        }
+        prot.die();
         battling = false;
       }
 
@@ -228,7 +223,10 @@ prot.purse = 0;
     }
 
   }
-
+  public void pit(){
+    System.out.println("You have fallen into a pit");
+    prot.die();
+  }
 }
 
 // ---------------------------------------------------------------------------\\

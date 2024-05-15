@@ -1,5 +1,5 @@
 //--------------------------- Importing Labs --------------------------------\\
-
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JButton;
 import java.awt.event.*;
@@ -31,7 +31,7 @@ public class Protagonist extends JButton implements ActionListener {
   static final String RESET = "\u001B[0m";
 
   // Other Variables \\
-
+  Random random = new Random();
   Scanner user;
   int attack;
   int health;
@@ -151,6 +151,14 @@ public String[] getInventory() {
 
 public void setInventory(String[] inventory) {
 	this.inventory = inventory;
+}
+public void die(){
+  int randDrop = random.nextInt(5);
+        System.out.println("You have fallen and dropped " + randDrop + " coins.");
+        purse -= randDrop;
+        if(purse < 0){
+purse = 0;
+        }
 }
   // Setting the initial cave room
   public void set_Pos(int x, int y){
