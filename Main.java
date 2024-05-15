@@ -52,6 +52,7 @@ class Main{
 
   public static void main(String[] args) {
 
+    //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
     SoundTesting.playSound("5.56GunShot.wav");
     // ---------------------------------------------------------------------------\\
     
