@@ -69,11 +69,11 @@ public class Shop {
   String[][] MasterList = {Swords, Knives, Bows, Guns, Specials, Armor, Pick, Axe, Shovel, Helmet};
 
   // TriviaWizard
-  String[] Rank1 = { "What is 5 + 5? ", "What is the color of the Pacific Ocean? ", "What is the largest country in the world? ", "In greek mythology, who was the god of the seas? ", "How many teams are in the NFL? "};
-  String[] Rank2 = { "What is the longest day of the year called? ", "How many days are in a leap year? ", "What is the first element in the periodic table? ", "Who is the current king/queen of the UK? ", " Jabba the Hut was the antagonist of what movie series? "};
-  String[] Rank3 = {"What is the capital of Australia ?", "How many teams are in the NBA? ", "How many letters is Wiley's last name? ", "What continent is known for their species of bugs", ""};
-  String[] Rank4 = {"What is the world’s largest desert?", "Who is the blue starter pokemon", "What is the remaining movement key on the keyboard: W, A, S, ...", "What is the coding language named after a snake", "How much is a bakers dozen"};
-  String[] Rank5 = {"Fate of the universe is on the line, martians invading Earth, I pick _____ __________(hint: Max Kellerman) "," Who said the line ' what a bunch of hippy dippy balogne? '"," What is the #1 hardest university to get into in the United States","The E in PEMDAS stands for?","What holiday is a cornacopia associated with?"};
+ String[] Rank1 = { "What console did Microsoft create? ", "What is the feature on xbox that allows people to play online multiplayer games? ", " In what year did Microsoft announce Windows?", "Where did Microsoft's xbox launch party take place? ", "What was Bill Gates and Paul Allen's original name for Microsoft? "};
+  String[] Rank2 = { "Microsoft has subsidiary offices in how many countries?", " Does the rolling hills wallpaper of Windows XP actually exist?(Yes/No)", "What is Microsoft's longest lived PC Game ", "Approximately how many emails are blocked by Microsoft email server per day? ", "  When was Microsofts first commerical aired?"};
+  String[] Rank3 = {"Who made the original Hunt the Wumpus?", " When was Hunt the Wumpus created?", " What unique device was Hunt the Wumpus able to be played on(the general name)" , "What genre is the Hunt the Wumpus game? ", " How many more Wumpus games did the creator make after making Wumpus 1?"};
+  String[] Rank4 = {"In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time? ", "What is the other animal besides the Wumpus that a user can find within the cave", "What trading cards did hunt the wumpus feature on? ", "What company did Microsoft help avoid bankruptcy", "What was Microsoft's first hardware product"};
+  String[] Rank5 = {"Where was the creator of the game born? ","How many series has the creator published","What day did the creator of Hunt the Wumpus die? ","Who was Microsoft's first major deal with? ","What age was Bill Gates when he became a billionaire? "};
    // ------------------------------ Main Method -----------------------------\\
 
   public Shop(int rank, String name, String type) {
