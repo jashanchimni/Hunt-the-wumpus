@@ -150,8 +150,8 @@ class Main{
         System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");
         int tierChoice = user.nextInt();
 
-        if(tierChoice > prot.tier){
-          tierChoice = prot.tier;
+        if(tierChoice > Protagonist.tier){
+          tierChoice = Protagonist.tier;
         }
         // Getting the user input
         Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop
