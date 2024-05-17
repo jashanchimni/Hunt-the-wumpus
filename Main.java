@@ -131,6 +131,7 @@ class Main{
   
       
       else if (townChoice.equalsIgnoreCase("s")){                            // Checking to see if the user wanted to go to the shop
+        SoundTesting.playSound("!AnvilHit.wav");
         for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
           prot.inventory[t] = "";                                            // Setting player inv to nothing
