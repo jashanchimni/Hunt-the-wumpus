@@ -3,6 +3,7 @@
 
 import java.util.Random;
 
+
 //--------------------------- Monster Class --------------------------------\\
 
 public class Monster {
@@ -112,6 +113,7 @@ public class Monster {
     // Printing out infomation for the player \\
 
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");
+    SoundTesting.playSound("!MonsterRoar.wav");
     System.out.println("The " + RED + "battle" + RESET + " has begun");
 
     // While loop for battling \\
@@ -130,6 +132,8 @@ public class Monster {
       // ------------ Attack choice ------------ \\
       if (protChoice.equals("a")) {
 
+        SoundTesting.playSound("!Bang.wav");
+        
         // Print and dealing damage \\
 
         System.out.println("You deal " + RED + prot.attack + " damage" + RESET);
