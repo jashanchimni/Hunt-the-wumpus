@@ -88,7 +88,7 @@ public class Protagonist extends JButton implements ActionListener {
   }
 
   public int tierUp() {
-
+    SoundTesting.playSound("!LevelUp.wav");
     // Adding to teir then returning the value \\
     tier += 1;
     return tier;
@@ -153,12 +153,13 @@ public void setInventory(String[] inventory) {
 	this.inventory = inventory;
 }
 public void die(){
+  SoundTesting.playSound("!Death.wav");
   int randDrop = random.nextInt(5);
-        System.out.println("You have fallen and dropped " + randDrop + " coins.");
-        purse -= randDrop;
-        if(purse < 0){
-purse = 0;
-        }
+  System.out.println("You have fallen and dropped " + randDrop + " coins.");
+  purse -= randDrop;
+  if(purse < 0){
+    purse = 0;
+  }
 }
   // Setting the initial cave room
   public void set_Pos(int x, int y){

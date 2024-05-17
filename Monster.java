@@ -133,7 +133,7 @@ public class Monster {
       if (protChoice.equals("a")) {
 
         SoundTesting.playSound("!Bang.wav");
-        
+
         // Print and dealing damage \\
 
         System.out.println("You deal " + RED + prot.attack + " damage" + RESET);
@@ -187,6 +187,7 @@ public class Monster {
       // Checking to see if the player is dead \\
       // strongly recommend: use getters + setters
       if (prot.health <= 0) {
+        
         prot.die();
         battling = false;
       }
