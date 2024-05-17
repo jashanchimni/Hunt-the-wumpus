@@ -87,7 +87,7 @@ public class Monster {
     prot.EXP += gained;
     if(prot.EXP >= 1 * (Protagonist.tier + 1) && Protagonist.tier < 4){
       prot.EXP = 0;
-      SoundTesting.playSound("!LevelUp.wav");
+      SoundTesting.playSound("!LevelUp.wav");      
       Protagonist.tier += 1;
       System.out.println("YOU LEVELED UP TO LEVEL " + Protagonist.tier);
     }
