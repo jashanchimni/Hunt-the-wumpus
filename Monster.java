@@ -80,6 +80,19 @@ public class Monster {
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
     int moneyDrop = (random.nextInt(5)) + 1 * Protagonist.tier;
+    if(random.nextInt(100) >= 10){
+      System.out.println("You got a special drop: Money x2");
+      moneyDrop *= 2;
+    }
+    if(random.nextInt(100) >= 50){
+      System.out.println("You got a special drop: Money x5");
+      moneyDrop *= 5;
+    }
+    if(random.nextInt(100) == 100){
+      System.out.println("You got a legendary drop: Money x 10");
+      moneyDrop *= 10;
+    }
+    
     prot.purse += moneyDrop;
     System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
     int gained = this.health * this.damage;
