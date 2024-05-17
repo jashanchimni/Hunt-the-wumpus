@@ -53,7 +53,8 @@ class Main{
   public static void main(String[] args) {
 
     //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
-    SoundTesting.playSound("gameboy-advance-startup-sound-made-with-Voicemod.wav");
+    
+    SoundTesting.playSound("!GameboySound.wav");
     // ---------------------------------------------------------------------------\\
     
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
