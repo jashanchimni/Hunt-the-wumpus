@@ -1,2 +1,32 @@
-Q1. A1. 
-Q2. A2. 
+Q1. What console did Microsoft create?                                                                      A1. Xbox
+Q2. What is the feature on xbox that allows people to play online multiplayer games?                        A2. Live Gold
+Q3. In what year did Microsoft announce Windows?                                                            A3. 1985
+Q4. Where did Microsoft's xbox launch party take place?                                                     A4. Mojave Desert
+Q5. What was Bill Gates and Paul Allen's original name for Microsoft?                                       A5. Micro-Soft
+Q6. Microsoft has subsidiary offices in how many countries?                                                 A6. 108
+Q7. Does the rolling hills wallpaper of Windows XP actually exist?(Yes/No)                                  A7. Yes
+Q8. What is Microsoft's longest lived PC Game?                                                              A8. Flight Simulator
+Q9. Approximately how many emails are blocked by Microsoft email server per day?                            A9. 8.5 million
+Q10.When was Microsofts first commerical aired?                                                             A10.1992
+Q11.Who made the original Hunt the Wumpus?                                                                  A11.Gregory Yob
+Q12.When was Hunt the Wumpus created?                                                                       A12.1973
+Q13.What unique device was Hunt the Wumpus able to be played on(the general name)                           A13.Calculator
+Q14.What genre is the Hunt the Wumpus game?                                                                 A14.Adventure
+Q15.How many more Wumpus games did the creator make after making Wumpus 1?                                  A15.2
+Q16.In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time?   A16.2012
+Q17.What is the other animal besides the Wumpus that a user can find within the cave                        A17.Bat
+Q18.What trading cards did hunt the wumpus feature on?                                                      A18.Magic the Gathering
+Q19.What company did Microsoft help avoid bankruptcy                                                        A19.Apple
+Q20.What was Microsoft's first hardware product                                                             A20.Mouse
+Q21.Where was the creator of the game born?(State)                                                          A21.Oregon 
+Q22.How many different series of games has the creator published?                                           A22.1
+Q23.What day did the creator of Hunt the Wumpus die?                                                        A23.October 13
+Q24.Who was Microsoft's first major deal with?                                                              A24.IBM
+Q25.What age was Bill Gates when he became a billionaire?                                                   A25.31
+
+
+String[] Rank1 = { "What console did Microsoft create? ", "What is the feature on xbox that allows people to play online multiplayer games? ", " In what year did Microsoft announce Windows?", "Where did Microsoft's xbox launch party take place? ", "What was Bill Gates and Paul Allen's original name for Microsoft? "};
+  String[] Rank2 = { "Microsoft has subsidiary offices in how many countries?", " Does the rolling hills wallpaper of Windows XP actually exist?(Yes/No)", "What is Microsoft's longest lived PC Game ", "Approximately how many emails are blocked by Microsoft email server per day? ", "  When was Microsofts first commerical aired?"};
+  String[] Rank3 = {"Who made the original Hunt the Wumpus?", " When was Hunt the Wumpus created?", " What unique device was Hunt the Wumpus able to be played on(the general name)" , "What genre is the Hunt the Wumpus game? ", " How many more Wumpus games did the creator make after making Wumpus 1?"};
+  String[] Rank4 = {"In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time? ", "What is the other animal besides the Wumpus that a user can find within the cave", "What trading cards did hunt the wumpus feature on? ", "What company did Microsoft help avoid bankruptcy", "What was Microsoft's first hardware product"};
+  String[] Rank5 = {"Where was the creator of the game born?(State) ","How many series has the creator published","What day did the creator of Hunt the Wumpus die? ","Who was Microsoft's first major deal with? ","What age was Bill Gates when he became a billionaire? "};
