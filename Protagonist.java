@@ -62,7 +62,7 @@ public class Protagonist extends JButton implements ActionListener {
     this.user = user;
     this.heal = 30;
     this.lastID = 0;
-    tier = 1;
+    tier = 0;
     this.purse = 0;
     this.EXP = 0;
 

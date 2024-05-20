@@ -110,10 +110,10 @@ class Main{
           System.out.println(); 
           
           // Getting the monster to be fought
-          if(Protagonist.tier <= 2){
+          if(Protagonist.tier <= 4){
             e1 = 0;
           } 
-          else if(Protagonist.tier <= 4){
+          else if(Protagonist.tier <= 8){
             e1 = 1;
           }
           else{
@@ -143,14 +143,14 @@ class Main{
 
         
 
-        
+        System.out.println("You have " + prot.purse + " coins in your purse");
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
                                                                            // Asking the user speficaly which shop he wants to vist
         String shopChoice = user.next();
-        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");
+        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " or 4 will be taken as your current tier or 4, whichever is lower. ");
         int tierChoice = user.nextInt();
 
-        if(tierChoice > Protagonist.tier){
+        if(tierChoice > Protagonist.tier || tierChoice > 4){
           tierChoice = Protagonist.tier;
         }
         // Getting the user input

@@ -80,11 +80,11 @@ public class Monster {
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
     int moneyDrop = (random.nextInt(5)) + 1 * Protagonist.tier;
-    if(random.nextInt(100) >= 10){
+    if(random.nextInt(100) >= 50){
       System.out.println("You got a special drop: Money x2");
       moneyDrop *= 2;
     }
-    if(random.nextInt(100) >= 50){
+    if(random.nextInt(100) >= 75){
       System.out.println("You got a special drop: Money x5");
       moneyDrop *= 5;
     }
@@ -95,12 +95,11 @@ public class Monster {
     
     prot.purse += moneyDrop;
     System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
-    int gained = this.health * this.damage;
+    int gained = this.health * this.damage / 20;
     System.out.println("You gained " + gained + " EXP!!");
     prot.EXP += gained;
-    if(prot.EXP >= 1 * (Protagonist.tier + 1) && Protagonist.tier < 4){
+    if(prot.EXP >= 1 * (Protagonist.tier + 1) && Protagonist.tier < 10){
       prot.EXP = 0;
-      SoundTesting.playSound("!LevelUp.wav");      
       Protagonist.tier += 1;
       System.out.println("YOU LEVELED UP TO LEVEL " + Protagonist.tier);
     }
