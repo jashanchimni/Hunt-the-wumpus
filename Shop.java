@@ -102,11 +102,11 @@ public class Shop {
 
     if (this.type.equalsIgnoreCase("w")) {
       System.out.println("Welcome to " + BLUE + "Monster Slaying Goods" + RESET);
-      wares[0] = RED + this.Swords[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-      wares[1] = CYAN + this.Bows[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-      wares[2] = PURPLE + this.Knives[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-      wares[3] = GREEN + this.Guns[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-      wares[4] = YELLOW + this.Specials[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+      wares[0] = RED + this.Swords[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+      wares[1] = CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+      wares[2] = PURPLE + this.Knives[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+      wares[3] = GREEN + this.Guns[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+      wares[4] = YELLOW + this.Specials[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
       this.list = 0;
       this.TyPe = "attack";
     }
@@ -124,10 +124,10 @@ public class Shop {
 
     else if (this.type.equalsIgnoreCase("t")){
         System.out.println("Welcome to " + BLUE + "Crazy Craig's Tools" + RESET);
-        wares[0] = RED + this.Pick[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-        wares[1] = CYAN + this.Axe[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-        wares[2] = PURPLE + this.Shovel[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
-        wares[3] = GREEN + this.Helmet[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+        wares[0] = RED + this.Pick[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+        wares[1] = CYAN + this.Axe[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+        wares[2] = PURPLE + this.Shovel[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+        wares[3] = GREEN + this.Helmet[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
         this.TyPe = "attack";
