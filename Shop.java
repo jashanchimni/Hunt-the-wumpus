@@ -169,26 +169,31 @@ public class Shop {
       if (this.choice == 1 && !(this.Swords[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Swords[tierChoice] = "Purchased";
         validPurchase = true;
+        SoundTesting.playSound("!MoneyChing.wav");
         prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 2 && !(this.Bows[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
           this.Bows[tierChoice] = "Purchased";
           validPurchase = true;
+          SoundTesting.playSound("!MoneyChing.wav");
           prot.purse -= (10 + (tierChoice*10));
         }
       else if (this.choice == 3 && !(this.Knives[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Knives[tierChoice] = "Purchased";
         validPurchase = true;
+        SoundTesting.playSound("!MoneyChing.wav");
         prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 4 && !(this.Guns[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Guns[tierChoice] = "Purchased";
         validPurchase = true;
+        SoundTesting.playSound("!MoneyChing.wav");
         prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 5 && !(this.Specials[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Specials[tierChoice] = "Purchased";
         validPurchase = true;
+        SoundTesting.playSound("!MoneyChing.wav");
         prot.purse -= (10 + (tierChoice*10));
       }
       else{
