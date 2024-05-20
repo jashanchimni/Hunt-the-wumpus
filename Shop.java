@@ -102,18 +102,18 @@ public class Shop {
 
     if (this.type.equalsIgnoreCase("w")) {
       System.out.println("Welcome to " + BLUE + "Monster Slaying Goods" + RESET);
-      wares[0] = RED + this.Swords[tierChoice] + RESET;
-      wares[1] = CYAN + this.Bows[tierChoice] + RESET;
-      wares[2] = PURPLE + this.Knives[tierChoice] + RESET;
-      wares[3] = GREEN + this.Guns[tierChoice] + RESET;
-      wares[4] = YELLOW + this.Specials[tierChoice] + RESET;
+      wares[0] = RED + this.Swords[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+      wares[1] = CYAN + this.Bows[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+      wares[2] = PURPLE + this.Knives[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+      wares[3] = GREEN + this.Guns[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+      wares[4] = YELLOW + this.Specials[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
       this.list = 0;
       this.TyPe = "attack";
     }
 
     else if (this.type.equalsIgnoreCase("a")) {
       System.out.println("Welcome to " + BLUE + "Gus' Armor Shop" + RESET);
-      wares[0] = this.Armor[tierChoice];
+      wares[0] = this.Armor[tierChoice] + " Price: " + 10 + (tierChoice*10);
       wares[1] = RED + "None Available" + RESET;
       wares[2] = RED + "None Available" + RESET;
       wares[3] = RED + "None Available" + RESET;
@@ -124,10 +124,10 @@ public class Shop {
 
     else if (this.type.equalsIgnoreCase("t")){
         System.out.println("Welcome to " + BLUE + "Crazy Craig's Tools" + RESET);
-        wares[0] = RED + this.Pick[tierChoice] + RESET;
-        wares[1] = CYAN + this.Axe[tierChoice] + RESET;
-        wares[2] = PURPLE + this.Shovel[tierChoice] + RESET;
-        wares[3] = GREEN + this.Helmet[tierChoice] + RESET;
+        wares[0] = RED + this.Pick[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+        wares[1] = CYAN + this.Axe[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+        wares[2] = PURPLE + this.Shovel[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
+        wares[3] = GREEN + this.Helmet[tierChoice] + " Price: " + 10 +  (tierChoice*10) + RESET;
         wares[4] = YELLOW + "None Available" + RESET;
         this.list = 6;
         this.TyPe = "attack";
@@ -169,27 +169,27 @@ public class Shop {
       if (this.choice == 1 && !(this.Swords[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Swords[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 2 && !(this.Bows[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
           this.Bows[tierChoice] = "Purchased";
           validPurchase = true;
-          prot.purse -= tierChoice*10;
+          prot.purse -= (10 + (tierChoice*10));
         }
       else if (this.choice == 3 && !(this.Knives[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Knives[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 4 && !(this.Guns[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Guns[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 5 && !(this.Specials[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Specials[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else{
         System.out.println("You are either too poor to buy this item or already have purchased it");
@@ -201,7 +201,7 @@ public class Shop {
       if(this.choice == 1 && !(this.Armor[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Armor[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
@@ -214,22 +214,22 @@ public class Shop {
       if (this.choice == 1 && !(this.Pick[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Pick[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 2 && !(this.Axe[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
           this.Axe[tierChoice] = "Purchased";
           validPurchase = true;
-          prot.purse -= tierChoice*10;
+          prot.purse -= (10 + (tierChoice*10));
         }
       else if (this.choice == 3 && !(this.Shovel[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Shovel[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else if (this.choice == 4 && !(this.Helmet[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
         this.Helmet[tierChoice] = "Purchased";
         validPurchase = true;
-        prot.purse -= tierChoice*10;
+        prot.purse -= (10 + (tierChoice*10));
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
