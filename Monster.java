@@ -119,7 +119,7 @@ public class Monster {
   public void battle() {
 
     // Variables \\
-
+    SoundTesting.playSound("!Battle.wav");
     boolean battling = true;
     int turn = 1;
 
