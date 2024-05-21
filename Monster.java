@@ -74,7 +74,8 @@ public class Monster {
   }
 
   public void death() {
-    SoundTesting.stopSound();
+    SoundTesting BM = new SoundTesting("!Battle.wav");
+    BM.stopSound();
 
     
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
@@ -119,20 +120,22 @@ public class Monster {
   public void battle() {
 
     // Variables \\
-    SoundTesting.playSound("!Battle.wav");
+    SoundTesting Battle = new SoundTesting("!Battle.wav");
+    Battle.playSound();
     boolean battling = true;
     int turn = 1;
 
     // Printing out infomation for the player \\
 
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");
-    SoundTesting.playSound("!MonsterRoar.wav");
+    SoundTesting Roar = new SoundTesting("!MonsterRoar.wav");
+    Roar.playSound();
     System.out.println("The " + RED + "battle" + RESET + " has begun");
 
     // While loop for battling \\
 
     while (battling) {
-
+      SoundTesting BM = new SoundTesting("!Battle.wav");
       // Turn print statement \\
 
       System.out
@@ -145,7 +148,7 @@ public class Monster {
       // ------------ Attack choice ------------ \\
       if (protChoice.equals("a")) {
 
-        SoundTesting.playSound("!Bang.wav");
+        SoundTesting Bang = new SoundTesting("!Bang.wav");
 
         // Print and dealing damage \\
 
@@ -184,7 +187,7 @@ public class Monster {
         System.out.println("You ran away");
         this.health = basehealth;
         battling = !battling;
-        SoundTesting.stopSound();
+        BM.stopSound();
         break;
 
       }
@@ -203,7 +206,7 @@ public class Monster {
       if (prot.health <= 0) {
         
         prot.die();
-        SoundTesting.stopSound();
+        BM.stopSound();
         battling = false;
       }
 
@@ -233,7 +236,7 @@ public class Monster {
         System.out.println("The " + CYAN + this.type + RESET + " ran away");
         this.health = basehealth;
         battling = !battling;
-        SoundTesting.stopSound();
+        BM.stopSound();
 
       }
 

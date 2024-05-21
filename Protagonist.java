@@ -88,7 +88,8 @@ public class Protagonist extends JButton implements ActionListener {
   }
 
   public int tierUp() {
-    SoundTesting.playSound("!LevelUp.wav");
+    SoundTesting LU = new SoundTesting("!LevelUp.wav");
+    LU.playSound();
     // Adding to teir then returning the value \\
     tier += 1;
     return tier;
@@ -153,7 +154,8 @@ public void setInventory(String[] inventory) {
 	this.inventory = inventory;
 }
 public void die(){
-  SoundTesting.playSound("!Death.wav");
+  SoundTesting Death = new SoundTesting("!Death.wav");
+  Death.playSound();
   int randDrop = random.nextInt(5);
   System.out.println("You have fallen and dropped " + randDrop + " coins.");
   purse -= randDrop;

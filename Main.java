@@ -53,9 +53,8 @@ class Main{
   public static void main(String[] args) {
 
     //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
-    
-    
-    SoundTesting.playSound("!GameboySound.wav");
+    SoundTesting Start = new SoundTesting("!GameboySound.wav");
+    Start.playSound();
     // ---------------------------------------------------------------------------\\
     
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
@@ -132,7 +131,9 @@ class Main{
   
       
       else if (townChoice.equalsIgnoreCase("s")){                            // Checking to see if the user wanted to go to the shop
-        SoundTesting.playSound("!AnvilHit.wav");
+        SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");
+        shopEnter.playSound();
+        
         for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
           prot.inventory[t] = "";                                            // Setting player inv to nothing
