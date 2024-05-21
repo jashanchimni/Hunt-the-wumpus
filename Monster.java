@@ -74,7 +74,7 @@ public class Monster {
   }
 
   public void death() {
-
+    SoundTesting.stopSound();
 
     
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
@@ -203,6 +203,7 @@ public class Monster {
       if (prot.health <= 0) {
         
         prot.die();
+        SoundTesting.stopSound();
         battling = false;
       }
 
@@ -232,6 +233,7 @@ public class Monster {
         System.out.println("The " + CYAN + this.type + RESET + " ran away");
         this.health = basehealth;
         battling = !battling;
+        SoundTesting.stopSound();
 
       }
 
