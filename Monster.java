@@ -184,6 +184,7 @@ public class Monster {
         System.out.println("You ran away");
         this.health = basehealth;
         battling = !battling;
+        SoundTesting.stopSound();
         break;
 
       }
