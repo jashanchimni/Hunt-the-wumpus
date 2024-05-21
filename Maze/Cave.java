@@ -3,17 +3,13 @@ package Maze;
 public class Cave{
 
   // PROPERTIES
-  private int[] cords;
-  private Maze maze;
-  private boolean visited;
+  private int cord;
   private boolean[] walls;
+  private boolean visited;
 
   // CONSTRUCTORS
-  public Cave(Maze maze, int x, int y){
-    this.cords = new int[2];
-    this.cords[0] = x;
-    this.cords[1] = y;
-    this.maze = maze;
+  public Cave(int cord){
+    this.cord = cord;
 
     // 0 = top
     // 1 = top right
@@ -22,25 +18,17 @@ public class Cave{
     // 4 = bottom left
     // 5 = top left
     this.walls = new boolean[6];
-    for(int i = 0; i < this.walls.length; i++){
-      walls[i] = true;
+    for(int i = 0; i < 6; i++){
+      this.walls[i] = true;
     }
 
     this.visited = false;
-
+    
   }
 
   // METHODS
-  public String cordsToString(){
-    return this.cords[0] + ", " + this.cords[1];
-  }
-
-  public String wallsToString(){
-    return "Top: " + this.walls[0] + " Top Right: " + this.walls[1] + " Bottom Right: " + this.walls[2] + " Bottom: " + this.walls[3] + " Bottom Left: " + this.walls[4] + " Top Left: " + this.walls[5];
-  }
-  
-  public int[] getCords(){
-    return this.cords;
+  public int getCord(){
+    return this.cord;
   }
 
   public boolean getVisited(){
@@ -51,24 +39,15 @@ public class Cave{
     this.visited = visited;
   }
 
-  public int getX(){
-    return this.cords[0];
-  }
-
-  public int getY(){
-    return this.cords[1];
-  }
-
   public void removeWall(int i){
-    //System.out.println(i + " removed!" + cordsToString());
     this.walls[i] = false;
-  } 
+  }
 
-  public String printHex(int row){
+  public String printHex(int half){
 
     String str = "";
-    
-    if(row == 0){
+
+    if(half == 0){
       if(this.walls[5]){
         str += "/";
       }
@@ -89,7 +68,7 @@ public class Cave{
       }
     }
 
-    if(row == 1){
+    if(half == 1){
       if(this.walls[4]){
         str += "\\";
       }
