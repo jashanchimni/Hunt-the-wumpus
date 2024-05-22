@@ -99,7 +99,7 @@ public class Monster {
     int gained = this.health * this.damage / 20;
     System.out.println("You gained " + gained + " EXP!!");
     prot.EXP += gained;
-    if(prot.EXP >= 1 * (Protagonist.tier + 1) && Protagonist.tier < 10){
+    if(prot.EXP >= (50 * prot.tier) * (Protagonist.tier + 1) && Protagonist.tier < 10){
       prot.EXP = 0;
       Protagonist.tier += 1;
       System.out.println("YOU LEVELED UP TO LEVEL " + Protagonist.tier);
