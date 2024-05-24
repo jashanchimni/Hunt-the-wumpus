@@ -27,6 +27,7 @@ public class Maze{
     this.rand = new Random();
 
     generateMap();
+    removeRandomWalls();
 
     draw();
 
@@ -68,6 +69,7 @@ public class Maze{
 
   public Cave getNext(Cave current){
     int cord = current.getCord();
+    
 
     boolean even = (cord % 2 == 0);
 
@@ -76,9 +78,7 @@ public class Maze{
     int next = 0;
 
     // check top
-    next = cord - this.width;
-
-    next = adjustNum(next);
+    next = getTop(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -86,19 +86,7 @@ public class Maze{
     }
 
     // check top right
-    if(even){
-      if(cord % width == 0){
-        next = cord + 1 - width;
-      }
-      else{
-        next = cord + 1;
-      }
-    }
-    else{
-      next = cord + 1 - width;
-    }
-
-    next = adjustNum(next);
+    next = getTopRight(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -106,19 +94,7 @@ public class Maze{
     }
 
     // check top left
-    if(even){
-      next = cord - 1;
-    }
-    else{
-      if(cord % width == 1){
-        next = cord - 1;
-      }
-      else{
-        next = cord - 1 - width;
-      }
-    }
-
-    next = adjustNum(next);
+    next = getTopLeft(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -126,9 +102,7 @@ public class Maze{
     }
 
     // check bottom
-    next = cord + this.width;
-
-    next = adjustNum(next);
+    next = getBottom(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -136,19 +110,7 @@ public class Maze{
     }
 
     // check bottom right
-    if(even){
-      if(cord % width == 0){
-        next = cord + 1;
-      }
-      else{
-        next = cord + 1 + width;
-      }
-    }
-    else{
-      next = cord + 1;
-    }
-
-    next = adjustNum(next);
+    next = getBottomRight(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -156,19 +118,7 @@ public class Maze{
     }
 
     // check bottom left
-    if(even){
-      next = cord - 1 + width;
-    }
-    else{
-      if(cord % width == 1){
-        next = cord - 1 + width;
-      }
-      else{
-        next = cord - 1;
-      }
-    }
-
-    next = adjustNum(next);
+    next = getBottomLeft(cord);
 
     if(!this.caves.get(next).getVisited()){
       possible.add(this.caves.get(next));
@@ -191,6 +141,30 @@ public class Maze{
 
     current.removeWall(direction);
     next.removeWall((3+direction) % 6);    
+  }
+
+  public void removeWallInDirection(Cave current, int direction){
+    int next = 0;
+    int cord = current.getCord();
+    if(direction == 0){
+      next = getTop(cord);
+    }
+    if(direction == 1){
+      next = getTopRight(cord);
+    }
+    if(direction == 2){
+      next = getBottomRight(cord);
+    }
+    if(direction == 3){
+      next = getBottom(cord);
+    }
+    if(direction == 4){
+      next = getBottomLeft(cord);
+    }
+    if(direction == 5){
+      next = getTopLeft(cord);
+    }
+    removeWalls(current, this.caves.get(next), direction);
   }
 
   public void draw(){
@@ -236,6 +210,144 @@ public class Maze{
     }
 
     return num;
+  }
+
+  public void removeRandomWalls(){
+    Cave current = new Cave(0);
+    Cave next = null;
+    for(int i = 1; i <= this.size; i++){
+      current = this.caves.get(i);
+      int direction = current.getRandomWall();
+      next = getCave(current, direction);
+      int randNum = rand.nextInt(10);
+      if(randNum <= 7){
+        if(current.getTotalWalls() > 3 && next.getTotalWalls() > 3){
+          removeWallInDirection(current, direction);
+        }
+      }
+    }
+  }
+
+  public Cave getCave(Cave current, int direction){
+    int cord = current.getCord();
+    if(direction == 0){
+      return this.caves.get(getTop(cord));
+    }
+    if(direction == 1){
+      return this.caves.get(getTopRight(cord));
+    }
+    if(direction == 2){
+      return this.caves.get(getBottomRight(cord));
+    }
+    if(direction == 3){
+      return this.caves.get(getBottom(cord));
+    }
+    if(direction == 4){
+      return this.caves.get(getBottomLeft(cord));
+    }
+    if(direction == 5){
+      return this.caves.get(getTopLeft(cord));
+    }
+    return null;
+  }
+
+  public int getTop(int cord){
+    int top = cord - this.width;
+    
+    top = adjustNum(top);
+
+    return top;
+  }
+
+  public int getTopRight(int cord){
+    int topRight = 0;
+    
+    if(cord % 2 == 0){
+      if(cord % width == 0){
+        topRight = cord + 1 - width;
+      }
+      else{
+        topRight = cord + 1;
+      }
+    }
+    else{
+      topRight = cord + 1 - width;
+    }
+
+    topRight = adjustNum(topRight);
+
+    return topRight;
+  }
+
+  public int getTopLeft(int cord){
+    int topLeft = 0;
+    
+    if(cord % 2 == 0){
+      topLeft = cord - 1;
+    }
+    else{
+      if(cord % width == 1){
+        topLeft = cord - 1;
+      }
+      else{
+        topLeft = cord - 1 - width;
+      }
+    }
+
+    topLeft = adjustNum(topLeft);
+
+    return topLeft;
+  }
+
+  public int getBottom(int cord){
+    int bottom = 0;
+    
+    bottom = cord + this.width;
+
+    bottom = adjustNum(bottom);
+
+    return bottom;
+  }
+
+  public int getBottomRight(int cord){
+    int bottomRight = 0;
+
+    if(cord % 2 == 0){
+      if(cord % width == 0){
+        bottomRight = cord + 1;
+      }
+      else{
+        bottomRight = cord + 1 + width;
+      }
+    }
+    else{
+      bottomRight = cord + 1;
+    }
+
+    bottomRight = adjustNum(bottomRight);
+
+    return bottomRight;
+    
+  }
+
+  public int getBottomLeft(int cord){
+    int bottomLeft = 0;
+    
+    if(cord % 2 == 0){
+      bottomLeft = cord - 1 + width;
+    }
+    else{
+      if(cord % width == 1){
+        bottomLeft = cord - 1 + width;
+      }
+      else{
+        bottomLeft = cord - 1;
+      }
+    }
+
+    bottomLeft = adjustNum(bottomLeft);
+
+    return bottomLeft;
   }
 
 }
