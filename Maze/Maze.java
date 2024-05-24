@@ -350,4 +350,27 @@ public class Maze{
     return bottomLeft;
   }
 
+  public boolean canMove(int cord1, int cord2){
+    if(getTop(cord1) == cord2){
+      return true;
+    }
+    if(getTopRight(cord1) == cord2){
+      return true;
+    }
+    if(getBottomRight(cord1) == cord2){
+      return true;
+    }
+    if(getBottom(cord1) == cord2){
+      return true;
+    }
+    if(getBottomLeft(cord1) == cord2){
+      return true;
+    }
+    if(getTopLeft(cord1) == cord2){
+      return true;
+    }
+
+    return false;
+  }
+
 }
