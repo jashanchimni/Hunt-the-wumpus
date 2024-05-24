@@ -1,5 +1,8 @@
 package Maze;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Cave{
 
   // PROPERTIES
@@ -41,6 +44,31 @@ public class Cave{
 
   public void removeWall(int i){
     this.walls[i] = false;
+  }
+
+  public int getTotalWalls(){
+    int total = 0;
+    for(int i = 0; i < 6; i++){
+      if(this.walls[i]){
+        total++;
+      }
+    }
+    return total;
+  }
+
+  public int getRandomWall(){
+    ArrayList<Integer> possible = new ArrayList<Integer>();
+    Random rand = new Random();
+    for(int i = 0; i < 6; i++){
+      if(this.walls[i]){
+        possible.add(i);
+      }
+    }
+    int randNum = rand.nextInt(possible.size());
+    if(possible.size() > 0){
+      return possible.get(randNum);
+    }
+    return -1;
   }
 
   public String printHex(int half){
