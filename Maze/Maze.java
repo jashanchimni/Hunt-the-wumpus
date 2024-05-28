@@ -2,12 +2,60 @@ package Maze;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Maze{
   
   public static void main(String[] args) {
 
-    Maze myMaze = new Maze(6, 5);
+    Maze maze = new Maze(6, 5);
+    Scanner s = new Scanner(System.in);
+    int choice = 0;
+    Player p = new Player(1);
+    Cave current = maze.getCaves().get(1);
+
+    while(choice != 6){
+
+      System.out.println();
+      System.out.println("Current position: " + p.getCord());
+      System.out.print("Enter direction: ");
+      choice = s.nextInt();
+
+      current = maze.getCaves().get(p.getCord());
+      Cave next = maze.getCave(current, choice);
+
+      if(next != null){
+        if(maze.canMove(current.getCord(), next.getCord())){
+          p.move(next.getCord());
+          current.setPlayer(false);
+          next.setPlayer(true);
+        }
+      }
+
+      if(next.getPlayer() && next.getHazard() != null){
+        System.out.println();
+        int num = next.getHazard().interactWithPlayer();
+        if(num == -1){
+          System.out.println("You fell to your death! Game over!");
+          choice = 6;
+        }
+        if(num == 0){
+          System.out.println("You found the wumpas! You win!");
+          choice = 6;
+        }
+        if(num > 0){
+          System.out.println("You were picked up by bats!");
+          p.move(num);
+          maze.getCaves().get(p.getCord()).setPlayer(true);
+          next.setPlayer(false);
+          next.setHazard(null);
+          maze.placeBat();
+        }
+      }
+
+      maze.draw();
+      
+    }
 
   }
 
@@ -28,12 +76,17 @@ public class Maze{
 
     generateMap();
     removeRandomWalls();
+    removeRandomWalls();
 
     draw();
 
   }
 
   // METHODS
+  public ArrayList<Cave> getCaves(){
+    return this.caves;
+  }
+  
   public void generateMap(){
 
     caves.add(new Cave(0));
@@ -41,6 +94,10 @@ public class Maze{
     for(int i = 1; i <= this.size; i++){
       caves.add(new Cave(i));
     }
+
+    caves.get(1).setPlayer(true);
+
+    placeHazards();
 
     ArrayList<Cave> stack = new ArrayList<Cave>();
     Cave current = this.caves.get(1);
@@ -64,6 +121,32 @@ public class Maze{
         stack.remove(stack.size() - 1);
       }
     }
+    
+  }
+
+  public void placeHazards(){
+    ArrayList<Hazard> hazards = new ArrayList<Hazard>();
+    hazards.add(new Bat());
+    hazards.add(new Pit());
+    hazards.add(new Wumpas());
+    
+    while(hazards.size() > 0){
+      int randNum = rand.nextInt(this.size - 1) + 2;
+      Cave cave = this.caves.get(randNum);
+      if(cave.getHazard() == null){
+        cave.setHazard(hazards.get(0));
+        hazards.remove(0);
+      }
+    }
+  }
+
+  public void placeBat(){
+    int randNum = rand.nextInt(this.size) + 1;
+    while(caves.get(randNum).getHazard() != null || caves.get(randNum).getPlayer()){
+      randNum = rand.nextInt(this.size) + 1;
+    }
+
+    caves.get(randNum).setHazard(new Bat());
     
   }
 
@@ -351,26 +434,41 @@ public class Maze{
   }
 
   public boolean canMove(int cord1, int cord2){
+    Cave cave1 = this.caves.get(cord1);
+    Cave cave2 = this.caves.get(cord2);
+    
     if(getTop(cord1) == cord2){
-      return true;
+      if(cave1.getWall(0) == false && cave2.getWall(3) == false){
+        return true;
+      }
     }
     if(getTopRight(cord1) == cord2){
-      return true;
+      if(cave1.getWall(1) == false && cave2.getWall(4) == false){
+        return true;
+      }
     }
     if(getBottomRight(cord1) == cord2){
-      return true;
+      if(cave1.getWall(2) == false && cave2.getWall(5) == false){
+        return true;
+      }
     }
     if(getBottom(cord1) == cord2){
-      return true;
+      if(cave1.getWall(3) == false && cave2.getWall(0) == false){
+        return true;
+      }
     }
     if(getBottomLeft(cord1) == cord2){
-      return true;
+      if(cave1.getWall(4) == false && cave2.getWall(1) == false){
+        return true;
+      }
     }
     if(getTopLeft(cord1) == cord2){
-      return true;
+      if(cave1.getWall(5) == false && cave2.getWall(2) == false){
+        return true;
+      }
     }
 
     return false;
   }
-
+  
 }
