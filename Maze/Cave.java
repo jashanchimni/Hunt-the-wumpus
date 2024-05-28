@@ -9,10 +9,13 @@ public class Cave{
   private int cord;
   private boolean[] walls;
   private boolean visited;
+  private Hazard hazard;
+  private boolean player;
 
   // CONSTRUCTORS
   public Cave(int cord){
     this.cord = cord;
+    this.player = false;
 
     // 0 = top
     // 1 = top right
@@ -56,6 +59,8 @@ public class Cave{
     return total;
   }
 
+  
+
   public int getRandomWall(){
     ArrayList<Integer> possible = new ArrayList<Integer>();
     Random rand = new Random();
@@ -71,6 +76,26 @@ public class Cave{
     return -1;
   }
 
+  public boolean getWall(int i){
+    return this.walls[i];
+  }
+
+  public void setHazard(Hazard hazard){
+    this.hazard = hazard;
+  }
+
+  public Hazard getHazard(){
+    return this.hazard;
+  }
+
+  public boolean getPlayer(){
+    return this.player;
+  }
+
+  public void setPlayer(boolean b){
+    this.player = b;
+  }
+
   public String printHex(int half){
 
     String str = "";
@@ -82,7 +107,13 @@ public class Cave{
       else{
         str += " ";
       }
-      if(this.walls[0]){
+      if(this.player){
+        str += "p";
+      }
+      else if(this.hazard != null){
+        str += this.hazard.getSymbol();
+      }
+      else if(this.walls[0]){
         str += "T";
       }
       else{
