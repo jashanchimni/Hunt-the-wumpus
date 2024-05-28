@@ -50,252 +50,252 @@
         },
     {
             "id": "5",
-            "question": "What console did Microsoft create?",
+            "question": "What was Bill Gates and Paul Allen's original name for Microsoft?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Micro-Soft",
+                "Microsoft",
+                "SoftMicro",
+                "Softy"
             ],
             "Rank": 1,
             "Key": 0
         },
     {
             "id": "6",
-            "question": "What console did Microsoft create?",
+            "question": "Microsoft has subsidiary offices in how many countries?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "256",
+                "13",
+                "108",
+                "452"
             ],
             "Rank": 2,
-            "Key": 0
+            "Key": 2
         },
     {
             "id": "7",
-            "question": "What console did Microsoft create?",
+            "question": "Does the rolling hills wallpaper of Windows XP actually exist?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Yes",
+                "No",
+                "Invalid",
+                "Invalid"
             ],
             "Rank": 2,
             "Key": 0
         },
     {
             "id": "8",
-            "question": "What console did Microsoft create?",
+            "question": "What is Microsoft's longest lived PC Game?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "360 Kinect",
+                "Microsoft Flight Simulator",
+                "Minecraft",
+                "Halo"
             ],
             "Rank": 2,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "9",
-            "question": "What console did Microsoft create?",
+            "question": "Approximately how many emails are blocked by Microsoft email server per day?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "500k",
+                "2 million",
+                "8.5 million",
+                "30.5 million"
             ],
             "Rank": 2,
-            "Key": 0
+            "Key": 2
         },
     {
             "id": "10",
-            "question": "What console did Microsoft create?",
+            "question": "When was Microsofts first commerical aired?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "1856",
+                "1901",
+                "2011",
+                "1992"
             ],
             "Rank": 2,
-            "Key": 0
+            "Key": 3
         },
     {
             "id": "11",
-            "question": "What console did Microsoft create?",
+            "question": "Who made the original Hunt the Wumpus?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Bill Gates",
+                "Gregory Yob",
+                "Paul Allen",
+                "Mark Zuckerburg"
             ],
             "Rank": 3,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "12",
-            "question": "What console did Microsoft create?",
+            "question": "When was Hunt the Wumpus created?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "1973",
+                "2002",
+                "1945",
+                "1983"
             ],
             "Rank": 3,
             "Key": 0
         },
     {
             "id": "13",
-            "question": "What console did Microsoft create?",
+            "question": "What unique device was Hunt the Wumpus able to be played on?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Car Screen",
+                "Fridge",
+                "Watch",
+                "Calculator"
             ],
             "Rank": 3,
-            "Key": 0
+            "Key": 3
         },
     {
             "id": "14",
-            "question": "What console did Microsoft create?",
+            "question": "What genre is the Hunt the Wumpus game?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Sports",
+                "Adventure",
+                "Horror",
+                "Arcade"
             ],
             "Rank": 3,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "15",
-            "question": "What console did Microsoft create?",
+            "question": "How many more Wumpus games did the creator make after making Wumpus 1?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Seven",
+                "Four",
+                "Two",
+                "Zero"
             ],
             "Rank": 3,
-            "Key": 0
+            "Key": 2
         },
     {
             "id": "16",
-            "question": "What console did Microsoft create?",
+            "question": "In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "2001",
+                "2005",
+                "2012",
+                "2009"
             ],
             "Rank": 4,
-            "Key": 0
+            "Key": 2
         },
     {
             "id": "17",
-            "question": "What console did Microsoft create?",
+            "question": "What is the other animal besides the Wumpus that a user can find within the cave",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Eagle",
+                "Wolf",
+                "Bear",
+                "Bat"
             ],
             "Rank": 4,
-            "Key": 0
+            "Key": 3
         },
     {
             "id": "18",
-            "question": "What console did Microsoft create?",
+            "question": "What trading cards did hunt the wumpus feature on?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Magic the Gathering",
+                "Pokemon",
+                "Yu-Gi-Oh",
+                "Naruto Shippuden"
             ],
             "Rank": 4,
             "Key": 0
         },
     {
             "id": "19",
-            "question": "What console did Microsoft create?",
+            "question": "What company did Microsoft help avoid bankruptcy",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Samsung",
+                "Apple",
+                "IBM",
+                "Best Buy"
             ],
             "Rank": 4,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "20",
-            "question": "What console did Microsoft create?",
+            "question": "What was Microsoft's first hardware product",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Keyboard",
+                "Mouse",
+                "Monitor",
+                "Calculator"
             ],
             "Rank": 4,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "21",
-            "question": "What console did Microsoft create?",
+            "question": "Where was the creator of the game born?(State)",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Washington",
+                "Idaho",
+                "Oregon",
+                "California"
             ],
             "Rank": 4,
-            "Key": 0
+            "Key": 2
         },
     {
             "id": "22",
-            "question": "What console did Microsoft create?",
+            "question": "How many different series of games has the creator published besides Wumpus?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "Zero",
+                "Two",
+                "Three",
+                "One"
             ],
             "Rank": 5,
             "Key": 0
         },
     {
             "id": "23",
-            "question": "What console did Microsoft create?",
+            "question": "What day did the creator of Hunt the Wumpus die?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "January 30",
+                "March 3",
+                "September 23",
+                "October 13"
             ],
             "Rank": 5,
-            "Key": 0
+            "Key": 3
         },
     {
             "id": "24",
-            "question": "What console did Microsoft create?",
+            "question": "Who was Microsoft's first major deal with?",
             "choices": [
                 "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "IBM",
+                "Apple",
+                "Samsung"
             ],
             "Rank": 5,
-            "Key": 0
+            "Key": 1
         },
     {
             "id": "25",
-            "question": "What console did Microsoft create?",
+            "question": "What age was Bill Gates when he became a billionaire?",
             "choices": [
-                "Xbox",
-                "Playstation",
-                "Wii",
-                "Wbox"
+                "31",
+                "32",
+                "30",
+                "29"
             ],
             "Rank": 5,
             "Key": 0
