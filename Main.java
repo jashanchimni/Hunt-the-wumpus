@@ -108,10 +108,10 @@ public class Main{
           System.out.println();                                                   //Spacing out everything
           
           
-          if(Protagonist.tier <= 2){            // Choosing the monster to fight
+          if(Protagonist.tier <= 3){            // Choosing the monster to fight
             e1 = 0;                             //Setting e1 to teir 0 if the hero is low level
           } 
-          else if(Protagonist.tier <= 4){       //If hero is higher level
+          else if(Protagonist.tier <= 6){       //If hero is higher level
             e1 = 1;                             //Set e1 to teir 1
           }
           else{                                 //If hero is above all other levels
@@ -145,13 +145,30 @@ public class Main{
 
         
         System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");                                                        // Asking the user speficaly which shop he wants to vist
-        String shopChoice = user.next();                                                                                                                          //Getting the user input 
-        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");  //Asking which shop tier they want to shop at
+        String shopChoice = user.next();
+        int e2;                                                                                                                          //Getting the user input 
+        if(Protagonist.tier <= 2){            // Choosing the monster to fight
+            e2 = 0;                             //Setting e1 to teir 0 if the hero is low level
+          } 
+          else if(Protagonist.tier <= 4){       //If hero is higher level
+            e2 = 1;                             //Set e1 to teir 1
+          }
+          else if(Protagonist.tier <= 6){                                 //If hero is above all other levels
+            e2 = 2;                             //Set e1 to 2
+          }
+          else if(Protagonist.tier <= 8){                                 //If hero is above all other levels
+            e2 = 3;                             //Set e1 to 2
+          }
+          else {                                 //If hero is above all other levels
+            e2 = 4;                             //Set e1 to 2
+          }
+        System.out.println("What tier of shop would you like to view? Any tier above your current tier bracket " + e2 + " will be taken as your current tier bracket. ");  //Asking which shop tier they want to shop at
+        
         int tierChoice = user.nextInt();                                                                                                                          //Getting the user input
 
         if(tierChoice > Protagonist.tier){                                        //Checking to make sure tier is ok
           System.out.println("Woah their you havent unlocked that tier yet! "); //Printing out what happended
-          tierChoice = Protagonist.tier;                                          //Setting tier choice to tier unlocked
+          tierChoice = e2;                                          //Setting tier choice to tier unlocked
         }
         
         Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop

@@ -43,7 +43,7 @@ public class Protagonist extends JButton implements ActionListener {
   int cave_X;
   int cave_Y;
   int gold;
-
+  int cord;
   int lastID;
   int purse;
   int EXP;
@@ -65,6 +65,7 @@ public class Protagonist extends JButton implements ActionListener {
     tier = 0;
     this.purse = 0;
     this.EXP = 0;
+    this.cord = 1;
 
   }
 
@@ -152,6 +153,12 @@ public String[] getInventory() {
 
 public void setInventory(String[] inventory) {
 	this.inventory = inventory;
+}
+public void move (int cord){
+  this.cord = cord;
+}
+public int getCord(){
+  return this.cord;
 }
 public void die(){
   SoundTesting Death = new SoundTesting("!Death.wav");
