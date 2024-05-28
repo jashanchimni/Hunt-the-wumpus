@@ -76,8 +76,8 @@ public class Main{
 
     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
-     Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
-    prot.set_Pos(0,0);
+    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
+    prot.set_Pos(0,0);                                                                                                //Setting the prot to 0 0                                                                                             
     
     // ---------------------------------------------------------------------------\\
 
@@ -90,9 +90,8 @@ public class Main{
     // ---------------------------------------------------------------------------\\
 
       
-        System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)");
-                                                             //Each time through the loop it ask the player what it wants to do.
-        String townChoice = user.next();                     // Getting user input from previous question
+        System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)"); //Each time through the loop it ask the player what it wants to do.
+        String townChoice = user.next();                                                                               // Getting user input from previous question
 
 
       
@@ -100,28 +99,27 @@ public class Main{
 
 
       int e1;
-        if(townChoice.equalsIgnoreCase("c")){                // Checking to see if the user wanted to go to the cave
+        if(townChoice.equalsIgnoreCase("c")){                       // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
-          System.out.print("Here is your inventory ");
-                 // Telling the user what he has in his inv
-          for (int t = 0; t < wumpus.lastID; t++){           // for each item in the user invetory
-            System.out.print(prot.inventory[t] + ", ");      // Print the item
+          System.out.print("Here is your inventory ");                          // Telling the user what he has in his inv
+          for (int t = 0; t < wumpus.lastID; t++){                                // for each item in the user invetory
+            System.out.print(prot.inventory[t] + ", ");                           // Print the item
           }
-          System.out.println(); 
+          System.out.println();                                                   //Spacing out everything
           
-          // Getting the monster to be fought
-          if(Protagonist.tier <= 2){
-            e1 = 0;
+          
+          if(Protagonist.tier <= 2){            // Choosing the monster to fight
+            e1 = 0;                             //Setting e1 to teir 0 if the hero is low level
           } 
-          else if(Protagonist.tier <= 4){
-            e1 = 1;
+          else if(Protagonist.tier <= 4){       //If hero is higher level
+            e1 = 1;                             //Set e1 to teir 1
           }
-          else{
-            e1 = 2;
+          else{                                 //If hero is above all other levels
+            e1 = 2;                             //Set e1 to 2
           }
-          int ec = RandomN.nextInt(3); 
+          int ec = RandomN.nextInt(3);                                //Setting ec to a random num
           Monster encounter = monsterList[e1][ec];                          // Spacing 
-          encounter.battle();                                   // Fighting the monster in the caves
+          encounter.battle();                                               // Fighting the monster in the caves
         }
 
 
@@ -130,34 +128,34 @@ public class Main{
 
   
       
-      else if (townChoice.equalsIgnoreCase("s")){                            // Checking to see if the user wanted to go to the shop
-        SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");
-        shopEnter.playSound();
+      else if (townChoice.equalsIgnoreCase("s")){                             // Checking to see if the user wanted to go to the shop
+        SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");           //making a sound clip
+        shopEnter.playSound();                                                              //Playing the shop Sound
         
         for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
           prot.inventory[t] = "";                                            // Setting player inv to nothing
         }
 
-        village.value += 25;
-        wumpus.lastID = 0;
+        village.value += 25;                                                //Setting village value to 25
+        wumpus.lastID = 0;                                                  //Resasting the lastID
 
 
         
 
         
-        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");
-                                                                           // Asking the user speficaly which shop he wants to vist
-        String shopChoice = user.next();
-        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");
-        int tierChoice = user.nextInt();
+        System.out.println("Would you like to go to the Weaponsmith, Armorsmith or Toolsmith? (w/a/t)");                                                        // Asking the user speficaly which shop he wants to vist
+        String shopChoice = user.next();                                                                                                                          //Getting the user input 
+        System.out.println("What tier of shop would you like to view? Any tier above your current tier " + prot.tier + " will be taken as your current tier. ");  //Asking which shop tier they want to shop at
+        int tierChoice = user.nextInt();                                                                                                                          //Getting the user input
 
-        if(tierChoice > Protagonist.tier){
-          tierChoice = Protagonist.tier;
+        if(tierChoice > Protagonist.tier){                                        //Checking to make sure tier is ok
+          System.out.println("Woah their you havent unlocked that tier yet! "); //Printing out what happended
+          tierChoice = Protagonist.tier;                                          //Setting tier choice to tier unlocked
         }
-        // Getting the user input
+        
         Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop
-        prot.health = prot.truehealth;                                     // Regaing his healt
+        prot.health = prot.truehealth;                                                 // Regaing his healt
       }
 
 
@@ -167,7 +165,7 @@ public class Main{
 
         
       else if(townChoice.equalsIgnoreCase("b")){                            //Checking to see if the user wanted to break
-        break;                                                              //Breaking
+        break;                                                                            //Breaking
       }
 
 
@@ -177,9 +175,9 @@ public class Main{
 
         
       else if(townChoice.equalsIgnoreCase("u")){                           //Checking to see if the user wanted to upgrade
-        Protagonist.tier += 1;                                                    //adding to his teir
-        if(Protagonist.tier == 5){                                                //Making sure it didnt pass max
-          Protagonist.tier = 4;                                                   //If the teir passed max going back down
+        Protagonist.tier += 1;                                                           //adding to his teir
+        if(Protagonist.tier == 5){                                                       //Making sure it didnt pass max
+          Protagonist.tier = 4;                                                          //If the teir passed max going back down
         }
       }
 
@@ -190,9 +188,9 @@ public class Main{
 
         
       else if(townChoice.equalsIgnoreCase("d")){                       //Checking to see he wanted to downgrade
-        Protagonist.tier -= 1;                                                //Subtracting his teir
-        if(Protagonist.tier == -1){                                           //If teir is to low
-          Protagonist.tier = 0;                                               //making teir 0
+        Protagonist.tier -= 1;                                                       //Subtracting his teir
+        if(Protagonist.tier == -1){                                                  //If teir is to low
+          Protagonist.tier = 0;                                                      //making teir 0
         }
       }
 
@@ -202,7 +200,7 @@ public class Main{
 
 
         
-      else{                                               //If the user made a typo
+      else{                                                 //If the user made a typo
        System.out.println("Sorry, invalid input");        //Telling him to try again
       }
     
@@ -219,12 +217,11 @@ public class Main{
 
   }
   public static int[] getRandomLocations() {
-    Random RandomN = new Random();                // Creating The Random Object 
+    Random RandomN = new Random();                      // Creating The Random Object 
     int rand_X = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
     int rand_Y = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
-    return new int[] { rand_X, rand_Y };          // Returning the values in a list 
-    //Reccomendation: make a Point data type with getX and getY methods
-    //Also getDist() and other methods will make math easier
+    return new int[] { rand_X, rand_Y };                // Returning the values in a list 
+
   }
 
 
