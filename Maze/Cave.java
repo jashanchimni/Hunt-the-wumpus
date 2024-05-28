@@ -1,15 +1,21 @@
 package Maze;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Cave{
 
   // PROPERTIES
   private int cord;
   private boolean[] walls;
   private boolean visited;
+  private Hazard hazard;
+  private boolean player;
 
   // CONSTRUCTORS
   public Cave(int cord){
     this.cord = cord;
+    this.player = false;
 
     // 0 = top
     // 1 = top right
@@ -43,6 +49,53 @@ public class Cave{
     this.walls[i] = false;
   }
 
+  public int getTotalWalls(){
+    int total = 0;
+    for(int i = 0; i < 6; i++){
+      if(this.walls[i]){
+        total++;
+      }
+    }
+    return total;
+  }
+
+  
+
+  public int getRandomWall(){
+    ArrayList<Integer> possible = new ArrayList<Integer>();
+    Random rand = new Random();
+    for(int i = 0; i < 6; i++){
+      if(this.walls[i]){
+        possible.add(i);
+      }
+    }
+    int randNum = rand.nextInt(possible.size());
+    if(possible.size() > 0){
+      return possible.get(randNum);
+    }
+    return -1;
+  }
+
+  public boolean getWall(int i){
+    return this.walls[i];
+  }
+
+  public void setHazard(Hazard hazard){
+    this.hazard = hazard;
+  }
+
+  public Hazard getHazard(){
+    return this.hazard;
+  }
+
+  public boolean getPlayer(){
+    return this.player;
+  }
+
+  public void setPlayer(boolean b){
+    this.player = b;
+  }
+
   public String printHex(int half){
 
     String str = "";
@@ -54,7 +107,13 @@ public class Cave{
       else{
         str += " ";
       }
-      if(this.walls[0]){
+      if(this.player){
+        str += "p";
+      }
+      else if(this.hazard != null){
+        str += this.hazard.getSymbol();
+      }
+      else if(this.walls[0]){
         str += "T";
       }
       else{
