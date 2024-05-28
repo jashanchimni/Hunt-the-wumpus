@@ -6,7 +6,7 @@ import java.util.Random;
 
 //--------------------------- Monster Class --------------------------------\\
 
-public class Monster {
+public class Monster{
 
   // ------------------------------ COLORS -----------------------------------\\
 
@@ -161,9 +161,9 @@ public class Monster {
       // Checking to see if the player is dead \\
       // strongly recommend: use getters + setters
       if (prot.health <= 0) {
-        
-        prot.die();
         Battle.stopSound();
+        prot.die();
+        
         battling = false;
       }
 
@@ -191,10 +191,13 @@ public class Monster {
       else if (this.health <= 5) {
 
         System.out.println("The " + CYAN + this.type + RESET + " is dying");
+        if(random.nextInt(10) > 9){
         System.out.println("The " + CYAN + this.type + RESET + " ran away");
         this.health = basehealth;
         battling = !battling;
         Battle.stopSound();
+        }
+        
 
       }
 
@@ -209,7 +212,7 @@ public class Monster {
     
     this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
-    int moneyDrop = (random.nextInt(5)) + 1 * Protagonist.tier;
+    int moneyDrop = (random.nextInt(5)) + 1;
     if(random.nextInt(100) >= 50){
       System.out.println("You got a special drop: Money x2");
       moneyDrop *= 2;
