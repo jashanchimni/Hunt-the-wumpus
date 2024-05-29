@@ -1,10 +1,11 @@
-
+import java.awt.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JFrame;
 
-public class Maze{
+public class Maze extends JFrame{
   
     
   // PROPERTIES
@@ -18,6 +19,13 @@ public class Maze{
 
   // CONSTRUCTORS
   public Maze(int width, int height, Protagonist p, Monster monster){
+    setTitle("Welcome to the Cave");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(640,480);
+    setLayout(new FlowLayout());
+    setResizable(true);
+    setLocationRelativeTo(null);
+    setVisible(true);
     this.width = width;
     this.height = height;
     this.size = width * height;
@@ -46,6 +54,11 @@ public void caving(){Scanner s = new Scanner(System.in);
     System.out.println("Current position: " + p.getCord());
     System.out.print("Enter direction: ");
     choice = s.nextInt();
+    while (choice >= 6){
+      System.out.println("Sorry, it needs to be below 6 and above -1");
+      choice = s.nextInt();
+    }
+    
 
     current = getCaves().get(p.getCord());
     Cave next = getCave(current, choice);
