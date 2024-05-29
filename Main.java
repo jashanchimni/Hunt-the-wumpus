@@ -19,9 +19,11 @@ JashandeepChimn
 
 //------------------------- Importing Libs --------------------------------\\
 
-
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.awt.*;
+import javax.swing.JFrame;
 
 
 //--------------------------- Main Class -----------------------------------\\
@@ -29,7 +31,7 @@ import java.util.Scanner;
 public class Main{
 
   // ------------------------------ COLORS -----------------------------------\\
-  
+  public static ArrayList<Button>mainButtons = new ArrayList<Button>();
   static final String BLACK = "\u001B[30m";
   static final String RED = "\u001B[31m";
   static final String GREEN = "\u001B[32m";
@@ -49,14 +51,22 @@ public class Main{
   static final String RESET = "\u001B[0m";
 
   // ------------------------------ Main Method -----------------------------\\
-
+  public Main(){
+    GUI Mainm = new GUI();
+  }
   public static void main(String[] args) {
-
+    Main ma = new Main();
     //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
+    Button shop = new Button("Shop");
     
+    Button cave = new Button("Cave");
+    Button trivia = new Button("Trivia");
+    mainButtons.add(shop);
+    mainButtons.add(cave);
+    mainButtons.add(trivia);
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
      Random RandomN = new Random();                    // Making Random
      boolean playing = true;                           // Making a Boolean
@@ -81,7 +91,7 @@ public class Main{
     // ---------------------------------------------------------------------------\\
 
 
-    
+
      while(playing){                                                              // Playing the game while the boolean is true
 
 
