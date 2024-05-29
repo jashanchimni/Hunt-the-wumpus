@@ -6,7 +6,7 @@ import java.util.Random;
 
 //--------------------------- Monster Class --------------------------------\\
 
-public class Monster{
+public class Monster extends Hazard{
 
   // ------------------------------ COLORS -----------------------------------\\
 
@@ -51,7 +51,7 @@ public class Monster{
   public Monster(int x, int y, int health, int damage, String type, Random random, Protagonist prot) {
 
     // Delcaring Variables \\
-
+    super(":M");
     this.random = random;
     this.x = x;
     this.y = y;
@@ -251,6 +251,14 @@ public class Monster{
   public void pit(){
     System.out.println("You have fallen into a pit");
     prot.die();
+  }
+  public void bats(){
+    int old = prot.getCord();
+    int end = random.nextInt(30);
+    while(end == old){
+      end = random.nextInt(30);
+    }
+    prot.move(end);
   }
 }
 

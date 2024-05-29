@@ -170,19 +170,8 @@ public void die(){
     purse = 0;
   }
 }
-  // Setting the initial cave room
-  public void set_Pos(int x, int y){
-    this.cave_X = x;
-    this.cave_Y = y;
-  }
-  // Moving one cave room to the right
-  public void move_Pos_X(){
-    this.cave_X += 1;
-  }
-  // Moving one Cave room down
-  public void move_Pos_Y(){
-    this.cave_Y += 1;
-  }
+
+
   @Override
   public void actionPerformed(ActionEvent e){
       System.out.println("Deez Nuts");

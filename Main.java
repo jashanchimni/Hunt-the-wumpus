@@ -76,8 +76,7 @@ public class Main{
 
     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
-    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
-    prot.set_Pos(0,0);                                                                                                //Setting the prot to 0 0                                                                                             
+    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop                                                                                                //Setting the prot to 0 0                                                                                             
     
     // ---------------------------------------------------------------------------\\
 
@@ -118,8 +117,9 @@ public class Main{
             e1 = 2;                             //Set e1 to 2
           }
           int ec = RandomN.nextInt(3);                                //Setting ec to a random num
-          Monster encounter = monsterList[e1][ec];                          // Spacing 
-          encounter.battle();                                               // Fighting the monster in the caves
+          Monster encounter = monsterList[e1][ec];
+          Maze m = new Maze(6,5,prot,encounter);
+          m.caving();                          // Spacing                                                // Fighting the monster in the caves
         }
 
 
