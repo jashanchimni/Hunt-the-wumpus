@@ -94,7 +94,7 @@ public class Shop {
   public String upgrade(String type, Protagonist prot, Monster wumpus, int tierChoice) {
 
     // Delcaring Variables \\
-
+    System.out.println("You have " + prot.purse + " coins in your purse");
     this.purchased = "";
     this.type = type;
 

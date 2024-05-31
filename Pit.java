@@ -1,18 +1,17 @@
-package Maze;
 
 
-public class Wumpas extends Hazard{
+public class Pit extends Hazard{
 
   // PROPERTIES
 
   // CONSTRUCTORS
-  public Wumpas(){
-    super("W");
+  public Pit(){
+    super("P");
   }
 
   // METHODS
   @Override
   public int interactWithPlayer(){
-    return 0;
+    return -1;
   }
 }

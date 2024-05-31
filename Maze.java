@@ -1,79 +1,38 @@
-package Maze;
+import java.awt.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JFrame;
 
-public class Maze{
+public class Maze extends JFrame{
   
-  public static void main(String[] args) {
-
-    Maze maze = new Maze(6, 5);
-    Scanner s = new Scanner(System.in);
-    int choice = 0;
-    Player p = new Player(1);
-    Cave current = maze.getCaves().get(1);
-
-    while(choice != 6){
-
-      System.out.println();
-      System.out.println("Current position: " + p.getCord());
-      System.out.print("Enter direction: ");
-      choice = s.nextInt();
-
-      current = maze.getCaves().get(p.getCord());
-      Cave next = maze.getCave(current, choice);
-
-      if(next != null){
-        if(maze.canMove(current.getCord(), next.getCord())){
-          p.move(next.getCord());
-          current.setPlayer(false);
-          next.setPlayer(true);
-        }
-      }
-
-      if(next.getPlayer() && next.getHazard() != null){
-        System.out.println();
-        int num = next.getHazard().interactWithPlayer();
-        if(num == -1){
-          System.out.println("You fell to your death! Game over!");
-          choice = 6;
-        }
-        if(num == 0){
-          System.out.println("You found the wumpas! You win!");
-          choice = 6;
-        }
-        if(num > 0){
-          System.out.println("You were picked up by bats!");
-          p.move(num);
-          maze.getCaves().get(p.getCord()).setPlayer(true);
-          next.setPlayer(false);
-          next.setHazard(null);
-          maze.placeBat();
-        }
-      }
-
-      maze.draw();
-      
-    }
-
-  }
-
+    
   // PROPERTIES
   private int height;
   private int width;
   private int size;
   private ArrayList<Cave> caves;
   private Random rand;
+  Protagonist p;
+  Monster monster;
 
   // CONSTRUCTORS
-  public Maze(int width, int height){
+  public Maze(int width, int height, Protagonist p, Monster monster){
+    setTitle("Welcome to the Cave");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(640,480);
+    setLayout(new FlowLayout());
+    setResizable(true);
+    setLocationRelativeTo(null);
+    setVisible(true);
     this.width = width;
     this.height = height;
     this.size = width * height;
     this.caves = new ArrayList<Cave>();
     this.rand = new Random();
-
+    this.p = p;
+    this.monster = monster;
     generateMap();
     removeRandomWalls();
     removeRandomWalls();
@@ -83,6 +42,69 @@ public class Maze{
   }
 
   // METHODS
+
+public void caving(){Scanner s = new Scanner(System.in);
+  int choice = 0;
+  Cave current = getCaves().get(1);
+
+  while(choice != 6){
+
+
+    System.out.println();
+    System.out.println("Current position: " + p.getCord());
+    System.out.print("Enter direction: ");
+    choice = s.nextInt();
+    while (choice >= 6){
+      System.out.println("Sorry, it needs to be below 6 and above -1");
+      choice = s.nextInt();
+    }
+    
+
+    current = getCaves().get(p.getCord());
+    Cave next = getCave(current, choice);
+
+    if(next != null){
+      if(canMove(current.getCord(), next.getCord())){
+        p.move(next.getCord(), current, next);
+        
+      }
+    }
+
+    if(next.getPlayer() && next.getHazard() != null){
+      System.out.println();
+      int num = next.getHazard().interactWithPlayer();
+      if(num == -1){
+        System.out.println("You fell to your death!");
+        p.die();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        choice = 6;
+      }
+      if(num == 0){
+        System.out.println("You stumble into a monster lair");
+        monster.battle();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        choice = 6;
+
+      }
+      if(num > 0){
+        System.out.println("You were picked up by bats!");
+        monster.bats( current, next);
+      }
+    }
+
+    draw();
+    
+  }
+
+}
+
+
   public ArrayList<Cave> getCaves(){
     return this.caves;
   }
@@ -128,7 +150,7 @@ public class Maze{
     ArrayList<Hazard> hazards = new ArrayList<Hazard>();
     hazards.add(new Bat());
     hazards.add(new Pit());
-    hazards.add(new Wumpas());
+    hazards.add(monster);
     
     while(hazards.size() > 0){
       int randNum = rand.nextInt(this.size - 1) + 2;

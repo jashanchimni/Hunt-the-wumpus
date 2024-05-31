@@ -19,9 +19,11 @@ JashandeepChimn
 
 //------------------------- Importing Libs --------------------------------\\
 
-
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.awt.*;
+import javax.swing.JFrame;
 
 
 //--------------------------- Main Class -----------------------------------\\
@@ -29,7 +31,7 @@ import java.util.Scanner;
 public class Main{
 
   // ------------------------------ COLORS -----------------------------------\\
-  
+  public static ArrayList<Button>mainButtons = new ArrayList<Button>();
   static final String BLACK = "\u001B[30m";
   static final String RED = "\u001B[31m";
   static final String GREEN = "\u001B[32m";
@@ -49,14 +51,22 @@ public class Main{
   static final String RESET = "\u001B[0m";
 
   // ------------------------------ Main Method -----------------------------\\
-
+  public Main(){
+    GUI Mainm = new GUI();
+  }
   public static void main(String[] args) {
-
+    Main ma = new Main();
     //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
+    Button shop = new Button("Shop");
     
+    Button cave = new Button("Cave");
+    Button trivia = new Button("Trivia");
+    mainButtons.add(shop);
+    mainButtons.add(cave);
+    mainButtons.add(trivia);
      Scanner user = new Scanner(System.in);            // Creating A Scanner 
      Random RandomN = new Random();                    // Making Random
      boolean playing = true;                           // Making a Boolean
@@ -76,13 +86,12 @@ public class Main{
 
     Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
-    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop 
-    prot.set_Pos(0,0);                                                                                                //Setting the prot to 0 0                                                                                             
+    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop                                                                                                //Setting the prot to 0 0                                                                                             
     
     // ---------------------------------------------------------------------------\\
 
 
-    
+
      while(playing){                                                              // Playing the game while the boolean is true
 
 
@@ -118,8 +127,9 @@ public class Main{
             e1 = 2;                             //Set e1 to 2
           }
           int ec = RandomN.nextInt(3);                                //Setting ec to a random num
-          Monster encounter = monsterList[e1][ec];                          // Spacing 
-          encounter.battle();                                               // Fighting the monster in the caves
+          Monster encounter = monsterList[e1][ec];
+          Maze m = new Maze(6,5,prot,encounter);
+          m.caving();                          // Spacing                                                // Fighting the monster in the caves
         }
 
 
