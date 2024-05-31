@@ -61,7 +61,6 @@ public class Main{
     Start.playSound();
     // ---------------------------------------------------------------------------\\
     Button shop = new Button("Shop");
-    
     Button cave = new Button("Cave");
     Button trivia = new Button("Trivia");
     mainButtons.add(shop);

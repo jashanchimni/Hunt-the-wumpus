@@ -135,11 +135,7 @@ public class Shop {
 
     else if (this.type.equalsIgnoreCase("tm")){
         System.out.println("Welcome to " + BLUE + "Trivia Master" + RESET);
-        wares[0] = RED + this.Rank1[tierChoice] + RESET;
-        wares[1] = CYAN + this.Rank2[tierChoice] + RESET;
-        wares[2] = PURPLE + this.Rank3[tierChoice] + RESET;
-        wares[3] = GREEN + this.Rank4[tierChoice] + RESET;
-        wares[4] = YELLOW + this.Rank5[tierChoice] + RESET;
+        Trivia.main();
 
     }
 
