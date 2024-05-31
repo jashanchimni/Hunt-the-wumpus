@@ -65,9 +65,8 @@ public void caving(){Scanner s = new Scanner(System.in);
 
     if(next != null){
       if(canMove(current.getCord(), next.getCord())){
-        p.move(next.getCord());
-        current.setPlayer(false);
-        next.setPlayer(true);
+        p.move(next.getCord(), current, next);
+        
       }
     }
 
@@ -77,16 +76,25 @@ public void caving(){Scanner s = new Scanner(System.in);
       if(num == -1){
         System.out.println("You fell to your death!");
         p.die();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
         choice = 6;
       }
       if(num == 0){
         System.out.println("You stumble into a monster lair");
         monster.battle();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        choice = 6;
 
       }
       if(num > 0){
         System.out.println("You were picked up by bats!");
-        monster.bats();
+        monster.bats( current, next);
       }
     }
 

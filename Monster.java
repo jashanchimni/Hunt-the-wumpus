@@ -241,13 +241,13 @@ public class Monster extends Hazard{
     System.out.println("You have fallen into a pit");
     prot.die();
   }
-  public void bats(){
+  public void bats(Cave current, Cave next){
     int old = prot.getCord();
     int end = random.nextInt(30);
     while(end == old){
       end = random.nextInt(30);
     }
-    prot.move(end);
+    prot.move(end, current, next);
   }
 }
 
