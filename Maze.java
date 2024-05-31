@@ -99,6 +99,11 @@ public void caving(){Scanner s = new Scanner(System.in);
     }
 
     draw();
+
+    if(canMove(p.getCord(), getMonsterCord())){
+      System.out.println();
+      System.out.println("The monster is nearby...");
+    }
     
   }
 
@@ -491,6 +496,21 @@ public void caving(){Scanner s = new Scanner(System.in);
     }
 
     return false;
+  }
+
+  public int getMonsterCord(){
+    Hazard h = null;
+
+    for(int i = 1; i <= this.size; i++){
+      h = this.caves.get(i).getHazard();
+      if(h != null){
+        if(h.getSymbol().equals("M")){
+          return i;
+        }
+      }
+    }
+
+    return -1;
   }
   
 }
