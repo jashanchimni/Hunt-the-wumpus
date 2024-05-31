@@ -1,4 +1,4 @@
-/* 
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Trivia{
-    public static void main(String[] args) {
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the TriviaMaster!");
 
@@ -54,5 +54,3 @@ public class Trivia{
         
     }
 }
-
-*/
