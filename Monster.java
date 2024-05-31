@@ -51,7 +51,7 @@ public class Monster extends Hazard{
   public Monster(int x, int y, int health, int damage, String type, Random random, Protagonist prot) {
 
     // Delcaring Variables \\
-    super(":M");
+    super("M");
     this.random = random;
     this.x = x;
     this.y = y;
