@@ -1,4 +1,4 @@
-
+ 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Trivia{
-    public static void main(String[] args) {
+    public static void main(String[] argsString[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the TriviaMaster!");
 
@@ -47,7 +47,7 @@ public class Trivia{
             }
 
         } else {
-            System.out.println("That is an invalid rank, please select a valid rank");
+            System.out.println("You tried to be oversmart and it did not work! Exiting the TriviaMaster now");
 
         }
 
@@ -66,3 +66,4 @@ public class Trivia{
         }
     }
 }
+

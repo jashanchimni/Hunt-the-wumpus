@@ -37,8 +37,6 @@ public class Maze extends JFrame{
     removeRandomWalls();
     removeRandomWalls();
 
-    draw();
-
   }
 
   // METHODS
@@ -46,8 +44,11 @@ public class Maze extends JFrame{
 public void caving(){Scanner s = new Scanner(System.in);
   int choice = 0;
   Cave current = getCaves().get(1);
+  p.move(1, this.caves.get(p.getCord()), this.caves.get(1));
 
   while(choice != 6){
+
+    draw();
 
 
     System.out.println();
@@ -97,14 +98,14 @@ public void caving(){Scanner s = new Scanner(System.in);
         int old = p.getCord();
         int end = rand.nextInt(30) + 1;
         while(end == old){
-        end = rand.nextInt(30) + 1;
+          end = rand.nextInt(30) + 1;
         }
         next.setHazard(null);
         p.move(end, next, this.caves.get(end));
       }
     }
 
-    draw();
+    //draw();
 
     if(canMove(p.getCord(), getMonsterCord())){
       System.out.println();
