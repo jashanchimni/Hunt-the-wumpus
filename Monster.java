@@ -243,9 +243,9 @@ public class Monster extends Hazard{
   }
   public void bats(Cave current, Cave next){
     int old = prot.getCord();
-    int end = random.nextInt(30);
+    int end = random.nextInt(30) + 1;
     while(end == old){
-      end = random.nextInt(30);
+      end = random.nextInt(30) + 1;
     }
     prot.move(end, current, next);
   }

@@ -157,7 +157,7 @@ public void setInventory(String[] inventory) {
 public void move (int cord, Cave current, Cave next){
   this.cord = cord;
   current.setPlayer(false);
-    next.setPlayer(true);
+  next.setPlayer(true);
 
 }
 public int getCord(){
