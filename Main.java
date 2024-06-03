@@ -29,7 +29,22 @@ import javax.swing.JFrame;
 //--------------------------- Main Class -----------------------------------\\
 
 public class Main{
-
+public class ASCIIArt {
+    public static void main() {
+        System.out.println(".·¨'`;        ,.·´¨;\\      .-,             ,'´¨';'               ,.         ,·´'; '           ,  . .,  °");
+        System.out.println("';   ;'\\       ';   ;:::\\     ;  ';\\'          ,'   ';'\\\'        ;'´*´ ,'\\\'       ,'  ';'\\°    ;'´    ,   ., _';\\\'  ");
+        System.out.println(";   ;:::'\\      ,'   ;::'';   ';   ;::'\\        ,'   ,':::'\\       ;    ';:::\\      ;  ;:::'\\    \\:´¨¯:;'   `;:::'\\:'\\ ");
+        System.out.println(";  ;::_';,. ,.'   ;:::';°  ';  ';::';      ,'   ,'::::;      ;      '\\;'      ;  ;:::;      \\::::;   ,'::_'\\;' ");
+        System.out.println(".     ,. -·~-·,   ;:::'; '  ';  ';::;     ,'   ,'::::;'      ,'  ,'`\\   \\      ;  ;:::;          ,'  ,'::;'  '   ");
+        System.out.println("';   ;'\\::::::::;  '/::::;    ';  ';::;    ,'   ,'::::;'       ;  ;::;'\\  '\\    ;  ;:::;           ;  ;:::;  °   ");
+        System.out.println(" ;  ';::;\\;::-··;  ;::::;      \\   '·:_,'´.;   ;::::;'      ;  ;:::;  '\\  '\\ ,'  ;:::;'           ;  ;::;'  '    ");
+        System.out.println(" ':,.·´\\;'    ;' ,' :::/  '      \\·,   ,.·´:';  ';:::';      ,' ,'::;'     '\\   ¨ ,'\\::;'            ;  ;::;'‚      ");
+        System.out.println("  \\:::::\\\\    \\·.'::::;          \\:\\¯\\:::::\\\\`*´\\::;  '    ;.'\\\::;        \\`*´\\::\\\\; °           ',.'\\\::;'‚      ");
+        System.out.println("    \\;:·´     \\:\\::';             `'\\::\\;:·´'\\:::'\\\'   '    \\:::\\'          '\\:::\\:' '              \\::\\:;'‚      ");
+        System.out.println("                 `·\\;'                          `*´°         \\:'             `*´'‚                 \\;:'      '  ");
+        System.out.println("                    '                            '                                                   °");
+    }
+}
   // ------------------------------ COLORS -----------------------------------\\
   public static ArrayList<Button>mainButtons = new ArrayList<Button>();
   static final String BLACK = "\u001B[30m";
@@ -52,11 +67,15 @@ public class Main{
 
   // ------------------------------ Main Method -----------------------------\\
   public Main(){
+    ASCIIArt newt = new ASCIIArt();
+    newt.main();
     GUI Mainm = new GUI();
   }
   public static void main(String[] args) {
+    //Askey Art
+    System.out.println();
+
     Main ma = new Main();
-    //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
