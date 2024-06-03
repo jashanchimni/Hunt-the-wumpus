@@ -47,7 +47,7 @@ public class Trivia{
             }
 
         } else {
-            System.out.println("That is an invalid rank, please select a valid rank");
+            System.out.println("You tried to be oversmart and it did not work! Exiting the TriviaMaster now");
 
         }
 
