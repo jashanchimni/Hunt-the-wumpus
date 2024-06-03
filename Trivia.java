@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Trivia{
-    public static void main() {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the TriviaMaster!");
 
@@ -33,7 +33,7 @@ public class Trivia{
             int correctAnswerIndex = ((Long) randomQuestion.get("Key")).intValue();
             System.out.println("Question: " + questionText);
             for(int i = 0; i < choices.size(); i++){
-                System.out.println(i + "i " + choices.get(i));
+                System.out.println(i + ": " + choices.get(i));
             }
 
             System.out.println("Enter the number of your answer(Starts at 0): ");
@@ -52,5 +52,17 @@ public class Trivia{
         }
 
         
+    }
+
+    public static JSONObject readJSONFile(String filename) {
+        JSONParser parser = new JSONParser();
+        try {
+            Object obj = parser.parse(new FileReader(filename));
+            return (JSONObject) obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+
+        }
     }
 }

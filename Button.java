@@ -7,21 +7,19 @@ public class Button extends JButton implements ActionListener{
     private String tag;
     private String dec;
 
-    public Button(String tag){
-        super("Hehehehe");
-        setVisible(true);
-    this.setPreferredSize(new Dimension(50,20));
+    public Button(String tag, String dec){
+    
+    super("Hehehehe");
+    this.tag = tag;
+    setVisible(true);
+    this.setPreferredSize(new Dimension(200,20));
     setText(this.tag + "");
+    this.dec = dec;
     addActionListener(this);
     }
 
     @Override
 public void actionPerformed(ActionEvent e) {
-    for(int t = 0; t < Main.mainButtons.size(); t++){
-        if((Main.mainButtons.get(t)).equals(this.tag)){
-        //Main.choice(this.dec);
+        Main.choice(this.dec);
         }
-    }
-    
-    }
 }

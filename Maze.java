@@ -94,7 +94,13 @@ public void caving(){Scanner s = new Scanner(System.in);
       }
       if(num > 0){
         System.out.println("You were picked up by bats!");
-        monster.bats( current, next);
+        int old = p.getCord();
+        int end = rand.nextInt(30) + 1;
+        while(end == old){
+        end = rand.nextInt(30) + 1;
+        }
+        next.setHazard(null);
+        p.move(end, next, this.caves.get(end));
       }
     }
 
