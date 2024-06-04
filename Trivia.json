@@ -182,6 +182,18 @@
         },
     {
             "id": "16",
+            "question": "What shape was the original hunt the wumpus game",
+            "choices": [
+                "Square",
+                "Nonagon",
+                "Hexagon",
+                "Duodecahedron"
+            ],
+            "Rank": 3,
+            "Key": 3
+        },
+    {
+            "id": "17",
             "question": "In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time?",
             "choices": [
                 "2001",
@@ -193,7 +205,7 @@
             "Key": 2
         },
     {
-            "id": "17",
+            "id": "18",
             "question": "What is the other animal besides the Wumpus that a user can find within the cave",
             "choices": [
                 "Eagle",
@@ -205,7 +217,7 @@
             "Key": 3
         },
     {
-            "id": "18",
+            "id": "19",
             "question": "What trading cards did hunt the wumpus feature on?",
             "choices": [
                 "Magic the Gathering",
@@ -217,7 +229,7 @@
             "Key": 0
         },
     {
-            "id": "19",
+            "id": "20",
             "question": "What company did Microsoft help avoid bankruptcy",
             "choices": [
                 "Samsung",
@@ -229,7 +241,7 @@
             "Key": 1
         },
     {
-            "id": "20",
+            "id": "21",
             "question": "What was Microsoft's first hardware product",
             "choices": [
                 "Keyboard",
@@ -241,7 +253,7 @@
             "Key": 1
         },
     {
-            "id": "21",
+            "id": "22",
             "question": "Where was the creator of the game born?(State)",
             "choices": [
                 "Washington",
@@ -253,7 +265,19 @@
             "Key": 2
         },
     {
-            "id": "22",
+            "id": "23",
+            "question": "Who composed the Microsoft 95 Jingle",
+            "choices": [
+                "WolfGang Mozart",
+                "Brian Eno",
+                "John Williams",
+                "Ennio Morricone"
+            ],
+            "Rank": 4,
+            "Key": 1
+        },
+    {
+            "id": "24",
             "question": "How many different series of games has the creator published besides Wumpus?",
             "choices": [
                 "Zero",
@@ -265,7 +289,7 @@
             "Key": 0
         },
     {
-            "id": "23",
+            "id": "25",
             "question": "What day did the creator of Hunt the Wumpus die?",
             "choices": [
                 "January 30",
@@ -277,7 +301,7 @@
             "Key": 3
         },
     {
-            "id": "24",
+            "id": "26",
             "question": "Who was Microsoft's first major deal with?",
             "choices": [
                 "Xbox",
@@ -289,7 +313,7 @@
             "Key": 1
         },
     {
-            "id": "25",
+            "id": "27",
             "question": "What age was Bill Gates when he became a millionaire?",
             "choices": [
                 "31",
@@ -299,6 +323,19 @@
             ],
             "Rank": 5,
             "Key": 0
+        },
+    {
+            "id": "28",
+            "question": "What does the name X in the word Xbox come from",
+            "choices": [
+                "Windows Hard Drive Software",
+                "Windows Direct X Software",
+                "Microsoft X-Factor",
+                "Bill Gates"
+            ],
+            "Rank": 5,
+            "Key": 1
+            
         }
 
     ]
