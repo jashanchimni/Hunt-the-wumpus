@@ -135,7 +135,7 @@ public class Shop {
 
     else if (this.type.equalsIgnoreCase("tm")){
         System.out.println("Welcome to " + BLUE + "Trivia Master" + RESET);
-        //Trivia.main();
+        Trivia.main();
 
     }
 
