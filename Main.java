@@ -106,7 +106,7 @@ public class ASCIIArt {
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
-    
+    while (playing){
     Button shop = new Button("Shop", "s");
     Button cave = new Button("Cave", "c");
     Button trivia = new Button("Trivia", "t");
@@ -116,9 +116,9 @@ public class ASCIIArt {
     ImageIcon imageIcon = new ImageIcon("Cave.gif");
     JLabel j = new JLabel(imageIcon);
     Menu main = new Menu(mainButtons, j);                                                       // Playing the game while the boolean is true
+    playing = !playing;
 
-
-      
+    }
     // ---------------------------------------------------------------------------\\                                                                             // Getting user input from previous question
 
 
@@ -158,7 +158,8 @@ public class ASCIIArt {
 System.out.println(h);
 
 int e1;
-        if(h.equals("c")){                       // Checking to see if the user wanted to go to the cave
+        if(h.equals("c")){   
+                            // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
           System.out.print("Here is your inventory ");                          // Telling the user what he has in his inv
           for (int t = 0; t < wumpus.lastID; t++){                                // for each item in the user invetory

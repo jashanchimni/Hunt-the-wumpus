@@ -21,5 +21,6 @@ public class Button extends JButton implements ActionListener{
     @Override
 public void actionPerformed(ActionEvent e) {
         Main.choice(this.dec);
+        //Menu.close();
         }
 }

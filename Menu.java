@@ -41,4 +41,7 @@ public class Menu extends JFrame {
 
         setVisible(true);
     }
+    public void close(){
+        dispose();
+    }
 }
