@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
-public class Maze extends JFrame{
+public class Maze{
   
     
   // PROPERTIES
@@ -19,13 +19,6 @@ public class Maze extends JFrame{
 
   // CONSTRUCTORS
   public Maze(int width, int height, Protagonist p, Monster monster){
-    setTitle("Welcome to the Cave");
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setSize(640,480);
-    setLayout(new FlowLayout());
-    setResizable(true);
-    setLocationRelativeTo(null);
-    setVisible(true);
     this.width = width;
     this.height = height;
     this.size = width * height;
@@ -41,7 +34,8 @@ public class Maze extends JFrame{
 
   // METHODS
 
-public void caving(){Scanner s = new Scanner(System.in);
+public void caving(){
+  Scanner s = new Scanner(System.in);
   int choice = 0;
   Cave current = getCaves().get(1);
   p.move(1, this.caves.get(p.getCord()), this.caves.get(1));

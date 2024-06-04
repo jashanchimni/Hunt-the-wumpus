@@ -6,10 +6,11 @@ import javax.swing.JButton;
 public class Button extends JButton implements ActionListener{
     private String tag;
     private String dec;
-
-    public Button(String tag, String dec){
-    
+    public int instance;
+    public Button(String tag, String dec, int instance){
     super("Hehehehe");
+    this.instance = instance;
+    
     this.tag = tag;
     setVisible(true);
     this.setPreferredSize(new Dimension(200,20));
@@ -20,7 +21,20 @@ public class Button extends JButton implements ActionListener{
 
     @Override
 public void actionPerformed(ActionEvent e) {
-        Main.choice(this.dec);
-        //Menu.close();
+        
+    
+    
+    if(instance == 0){
+    Main.choice(this.dec);
         }
+        else if(instance == 1){
+
+        }
+        else if(instance == 2){
+            System.out.println("Instance 2");
+        }
+        else if(instance == 3){
+
+        }
+    }
 }

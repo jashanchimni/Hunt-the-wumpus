@@ -89,15 +89,15 @@ public class Monster extends Hazard{
     boolean battling = true;                                                      //Ma
     int turn = 1;
     ArrayList<Button>monsterList = new ArrayList<Button>();
-    Button fight = new Button("Fight", "f");
-    Button run = new Button("Run", "r");
-    Button heal = new Button("Heal", "h");
+    Button fight = new Button("Fight", "f", 2);
+    Button run = new Button("Run", "r", 2);
+    Button heal = new Button("Heal", "h", 2);
     monsterList.add(fight);
     monsterList.add(run);
     monsterList.add(heal);
-    ImageIcon imageIcon = new ImageIcon("Cave.gif");
+    ImageIcon imageIcon = new ImageIcon("BattleGround.jpg");
     JLabel j = new JLabel(imageIcon);
-    Menu cave = new Menu(monsterList, j);
+    Menu cave = new Menu(monsterList, j, "BattleField");
 
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");        //Saying what type of monster is attack you
     System.out.println("The " + RED + "battle" + RESET + " has begun");               //Printing the fight statement

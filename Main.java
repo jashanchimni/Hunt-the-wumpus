@@ -68,7 +68,7 @@ public class ASCIIArt {
   static final String CYAN_BACKGROUND = "\u001B[46m";
   static final String WHITE_BACKGROUND = "\u001B[47m";
   static final String RESET = "\u001B[0m";
-  
+    public static Menu main;
      static Scanner user = new Scanner(System.in);            // Creating A Scanner 
      static Random RandomN = new Random();                    // Making Random
      static boolean playing = true;                           // Making a Boolean
@@ -94,7 +94,6 @@ public class ASCIIArt {
   public Main(){
     ASCIIArt newt = new ASCIIArt();
     newt.main();
-    GUI Mainm = new GUI();
   }
   public static void main(String[] args) {
     //Askey Art
@@ -107,15 +106,15 @@ public class ASCIIArt {
     Start.playSound();
     // ---------------------------------------------------------------------------\\
     while (playing){
-    Button shop = new Button("Shop", "s");
-    Button cave = new Button("Cave", "c");
-    Button trivia = new Button("Trivia", "t");
+    Button shop = new Button("Shop", "s", 0);
+    Button cave = new Button("Cave", "c", 0);
+    Button trivia = new Button("Trivia", "t", 0);
     mainButtons.add(shop);
     mainButtons.add(cave);
     mainButtons.add(trivia);
     ImageIcon imageIcon = new ImageIcon("Cave.gif");
     JLabel j = new JLabel(imageIcon);
-    Menu main = new Menu(mainButtons, j);                                                       // Playing the game while the boolean is true
+    main = new Menu(mainButtons, j, "Main Menu");                                                       // Playing the game while the boolean is true
     playing = !playing;
 
     }
@@ -155,6 +154,7 @@ public class ASCIIArt {
   }
 
   public static void choice(String h){
+main.close();
 System.out.println(h);
 
 int e1;
