@@ -24,6 +24,10 @@ import java.util.Random;
 import java.util.Scanner;
 import java.awt.*;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 
 //--------------------------- Main Class -----------------------------------\\
@@ -39,7 +43,7 @@ public class ASCIIArt {
         System.out.println("';   ;'\\::::::::;  '/::::;    ';  ';::;    ,'   ,'::::;'       ;  ;::;'\\  '\\    ;  ;:::;           ;  ;:::;  °   ");
         System.out.println(" ;  ';::;\\;::-··;  ;::::;      \\   '·:_,'´.;   ;::::;'      ;  ;:::;  '\\  '\\ ,'  ;:::;'           ;  ;::;'  '    ");
         System.out.println(" ':,.·´\\;'    ;' ,' :::/  '      \\·,   ,.·´:';  ';:::';      ,' ,'::;'     '\\   ¨ ,'\\::;'            ;  ;::;'‚      ");
-        System.out.println("  \\:::::\\\\    \\·.'::::;          \\:\\¯\\:::::\\\\`*´\\::;  '    ;.'\\\::;        \\`*´\\::\\\\; °           ',.'\\\::;'‚      ");
+        //System.out.println("  \\:::::\\\\    \\·.'::::;          \\:\\¯\\:::::\\\\`*´\\::;  '    ;.'\\\::;        \\`*´\\::\\\\; °           ',.'\\\::;'‚      ");
         System.out.println("    \\;:·´     \\:\\::';             `'\\::\\;:·´'\\:::'\\\'   '    \\:::\\'          '\\:::\\:' '              \\::\\:;'‚      ");
         System.out.println("                 `·\\;'                          `*´°         \\:'             `*´'‚                 \\;:'      '  ");
         System.out.println("                    '                            '                                                   °");
@@ -109,7 +113,9 @@ public class ASCIIArt {
     mainButtons.add(shop);
     mainButtons.add(cave);
     mainButtons.add(trivia);
-    Menu main = new Menu(mainButtons);                                                        // Playing the game while the boolean is true
+    ImageIcon imageIcon = new ImageIcon("Cave.gif");
+    JLabel j = new JLabel(imageIcon);
+    Menu main = new Menu(mainButtons, j, 1);                                                       // Playing the game while the boolean is true
 
 
       
@@ -182,7 +188,7 @@ int e1;
 
   
       
-      else if (h.equals("s")){                             // Checking to see if the user wanted to go to the shop
+      else if (h.equals("s")){                            // Checking to see if the user wanted to go to the shop
         SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");           //making a sound clip
         shopEnter.playSound();                                                              //Playing the shop Sound
         
@@ -229,7 +235,7 @@ int e1;
         prot.health = prot.truehealth;                                                 // Regaing his healt
       }
       else if(h.equals("t")){
-        //Trivia.main()
+        Trivia.main();
         System.out.println("Hello World");
       }
 
