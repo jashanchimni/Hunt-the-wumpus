@@ -115,7 +115,7 @@ public class ASCIIArt {
     mainButtons.add(trivia);
     ImageIcon imageIcon = new ImageIcon("Cave.gif");
     JLabel j = new JLabel(imageIcon);
-    Menu main = new Menu(mainButtons, j, 1);                                                       // Playing the game while the boolean is true
+    Menu main = new Menu(mainButtons, j);                                                       // Playing the game while the boolean is true
 
 
       
