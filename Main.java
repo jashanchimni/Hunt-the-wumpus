@@ -35,18 +35,24 @@ import javax.swing.JFrame;
 public class Main{
 public class ASCIIArt {
     public static void main() {
-        System.out.println(".·¨'`;        ,.·´¨;\\      .-,             ,'´¨';'               ,.         ,·´'; '           ,  . .,  °");
-        System.out.println("';   ;'\\       ';   ;:::\\     ;  ';\\'          ,'   ';'\\\'        ;'´*´ ,'\\\'       ,'  ';'\\°    ;'´    ,   ., _';\\\'  ");
-        System.out.println(";   ;:::'\\      ,'   ;::'';   ';   ;::'\\        ,'   ,':::'\\       ;    ';:::\\      ;  ;:::'\\    \\:´¨¯:;'   `;:::'\\:'\\ ");
-        System.out.println(";  ;::_';,. ,.'   ;:::';°  ';  ';::';      ,'   ,'::::;      ;      '\\;'      ;  ;:::;      \\::::;   ,'::_'\\;' ");
-        System.out.println(".     ,. -·~-·,   ;:::'; '  ';  ';::;     ,'   ,'::::;'      ,'  ,'`\\   \\      ;  ;:::;          ,'  ,'::;'  '   ");
-        System.out.println("';   ;'\\::::::::;  '/::::;    ';  ';::;    ,'   ,'::::;'       ;  ;::;'\\  '\\    ;  ;:::;           ;  ;:::;  °   ");
-        System.out.println(" ;  ';::;\\;::-··;  ;::::;      \\   '·:_,'´.;   ;::::;'      ;  ;:::;  '\\  '\\ ,'  ;:::;'           ;  ;::;'  '    ");
-        System.out.println(" ':,.·´\\;'    ;' ,' :::/  '      \\·,   ,.·´:';  ';:::';      ,' ,'::;'     '\\   ¨ ,'\\::;'            ;  ;::;'‚      ");
-        //System.out.println("  \\:::::\\\\    \\·.'::::;          \\:\\¯\\:::::\\\\`*´\\::;  '    ;.'\\\::;        \\`*´\\::\\\\; °           ',.'\\\::;'‚      ");
-        System.out.println("    \\;:·´     \\:\\::';             `'\\::\\;:·´'\\:::'\\\'   '    \\:::\\'          '\\:::\\:' '              \\::\\:;'‚      ");
-        System.out.println("                 `·\\;'                          `*´°         \\:'             `*´'‚                 \\;:'      '  ");
-        System.out.println("                    '                            '                                                   °");
+      System.out.println(" ___ ___               __                    ");
+      System.out.println("/   |   \\ __ __  _____/  |_                  ");
+      System.out.println("/    ~    \\  |  \\/    \\   __\\                 ");
+      System.out.println("\\    Y    /  |  /   |  \\  |                   ");
+      System.out.println(" \\___|_  /|____/|___|  /__|                   ");
+      System.out.println("       \\/            \\/                       ");
+      System.out.println("  __  .__                                      ");
+      System.out.println("_/  |_|  |__   ____                           ");
+      System.out.println("\\   __\\  |  \\_/ __ \\                          ");
+      System.out.println(" |  | |   Y  \\  ___/                          ");
+      System.out.println(" |__| |___|  /\\___  >                         ");
+      System.out.println("           \\/     \\/                          ");
+      System.out.println(" __      __                                    ");
+      System.out.println("/  \\    /  \\__ __  _____ ______  __ __  ______");
+      System.out.println("\\   \\/\\/   /  |  \\/     \\\\____ \\|  |  \\/  ___/");
+      System.out.println(" \\        /|  |  /  Y Y  \\  |_> >  |  /\\___ \\ ");
+      System.out.println("  \\__/\\  / |____/|__|_|  /   __/|____//____  >");
+      System.out.println("       \\/              \\/|__|              \\/ ");
     }
 }
   // ------------------------------ COLORS -----------------------------------\\
