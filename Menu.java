@@ -7,10 +7,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Menu extends JFrame {
-    public Menu(ArrayList<Button> options, JLabel BG) {
-        setTitle("Home Menu");
+    public Menu(ArrayList<Button> options, JLabel BG, String title) {
+        setTitle(title);
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
 
