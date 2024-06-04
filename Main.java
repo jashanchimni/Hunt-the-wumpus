@@ -24,12 +24,31 @@ import java.util.Random;
 import java.util.Scanner;
 import java.awt.*;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 
 //--------------------------- Main Class -----------------------------------\\
 
 public class Main{
-
+public class ASCIIArt {
+    public static void main() {
+        System.out.println(".·¨'`;        ,.·´¨;\\      .-,             ,'´¨';'               ,.         ,·´'; '           ,  . .,  °");
+        System.out.println("';   ;'\\       ';   ;:::\\     ;  ';\\'          ,'   ';'\\\'        ;'´*´ ,'\\\'       ,'  ';'\\°    ;'´    ,   ., _';\\\'  ");
+        System.out.println(";   ;:::'\\      ,'   ;::'';   ';   ;::'\\        ,'   ,':::'\\       ;    ';:::\\      ;  ;:::'\\    \\:´¨¯:;'   `;:::'\\:'\\ ");
+        System.out.println(";  ;::_';,. ,.'   ;:::';°  ';  ';::';      ,'   ,'::::;      ;      '\\;'      ;  ;:::;      \\::::;   ,'::_'\\;' ");
+        System.out.println(".     ,. -·~-·,   ;:::'; '  ';  ';::;     ,'   ,'::::;'      ,'  ,'`\\   \\      ;  ;:::;          ,'  ,'::;'  '   ");
+        System.out.println("';   ;'\\::::::::;  '/::::;    ';  ';::;    ,'   ,'::::;'       ;  ;::;'\\  '\\    ;  ;:::;           ;  ;:::;  °   ");
+        System.out.println(" ;  ';::;\\;::-··;  ;::::;      \\   '·:_,'´.;   ;::::;'      ;  ;:::;  '\\  '\\ ,'  ;:::;'           ;  ;::;'  '    ");
+        System.out.println(" ':,.·´\\;'    ;' ,' :::/  '      \\·,   ,.·´:';  ';:::';      ,' ,'::;'     '\\   ¨ ,'\\::;'            ;  ;::;'‚      ");
+        //System.out.println("  \\:::::\\\\    \\·.'::::;          \\:\\¯\\:::::\\\\`*´\\::;  '    ;.'\\\::;        \\`*´\\::\\\\; °           ',.'\\\::;'‚      ");
+        System.out.println("    \\;:·´     \\:\\::';             `'\\::\\;:·´'\\:::'\\\'   '    \\:::\\'          '\\:::\\:' '              \\::\\:;'‚      ");
+        System.out.println("                 `·\\;'                          `*´°         \\:'             `*´'‚                 \\;:'      '  ");
+        System.out.println("                    '                            '                                                   °");
+    }
+}
   // ------------------------------ COLORS -----------------------------------\\
   public static ArrayList<Button>mainButtons = new ArrayList<Button>();
   static final String BLACK = "\u001B[30m";
@@ -49,65 +68,98 @@ public class Main{
   static final String CYAN_BACKGROUND = "\u001B[46m";
   static final String WHITE_BACKGROUND = "\u001B[47m";
   static final String RESET = "\u001B[0m";
+  
+     static Scanner user = new Scanner(System.in);            // Creating A Scanner 
+     static Random RandomN = new Random();                    // Making Random
+     static boolean playing = true;                           // Making a Boolean
+    
+     static int[] coordinateList = getRandomLocations();      // Getting A Random Location From a method
+    
+     static Protagonist prot = new Protagonist(15,40, user);  // Creating the Protagonist
+    
+     static  Town village = new Town();                        // Making the Village
+    
+     static Monster wumpus = new Monster (coordinateList[0], coordinateList[1], 150, 20, "Wumpus", RandomN, prot); // Creating the Wumpus
+     static  Monster giant = new Monster (coordinateList[0], coordinateList[1], 200, 15, "Giant", RandomN, prot); // Creating the Giant
+     static Monster kraken = new Monster (coordinateList[0], coordinateList[1], 100, 25, "Kraken", RandomN, prot); // Creating the Kraken
+     static  Monster slime = new Monster (coordinateList[0], coordinateList[1], 50, 5, "Slime", RandomN, prot); // Creating the Slime
+     static Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
+     static Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
+
+     static Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+
+     static Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" ); 
 
   // ------------------------------ Main Method -----------------------------\\
   public Main(){
+    ASCIIArt newt = new ASCIIArt();
+    newt.main();
     GUI Mainm = new GUI();
   }
   public static void main(String[] args) {
-    Main ma = new Main();
-    //WHEN EVER YOU WANT TO PLAY A SOUND USE THIS FORMAT
+    //Askey Art
+    System.out.println();
+
+    
+    System.out.println("Welcome to Hunt the Wumpus, a game where you will embark on a journey to slay the wumpus and save the town of Fierro");
+    
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
-    Button shop = new Button("Shop");
-    Button cave = new Button("Cave");
-    Button trivia = new Button("Trivia");
+    while (playing){
+    Button shop = new Button("Shop", "s");
+    Button cave = new Button("Cave", "c");
+    Button trivia = new Button("Trivia", "t");
     mainButtons.add(shop);
     mainButtons.add(cave);
     mainButtons.add(trivia);
-     Scanner user = new Scanner(System.in);            // Creating A Scanner 
-     Random RandomN = new Random();                    // Making Random
-     boolean playing = true;                           // Making a Boolean
-    
-     int[] coordinateList = getRandomLocations();      // Getting A Random Location From a method
-    
-     Protagonist prot = new Protagonist(15,40, user);  // Creating the Protagonist
-    
-     Town village = new Town();                        // Making the Village
-    
-     Monster wumpus = new Monster (coordinateList[0], coordinateList[1], 150, 20, "Wumpus", RandomN, prot); // Creating the Wumpus
-     Monster giant = new Monster (coordinateList[0], coordinateList[1], 200, 15, "Giant", RandomN, prot); // Creating the Giant
-     Monster kraken = new Monster (coordinateList[0], coordinateList[1], 100, 25, "Kraken", RandomN, prot); // Creating the Kraken
-     Monster slime = new Monster (coordinateList[0], coordinateList[1], 50, 5, "Slime", RandomN, prot); // Creating the Slime
-     Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
-     Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
+    ImageIcon imageIcon = new ImageIcon("Cave.gif");
+    JLabel j = new JLabel(imageIcon);
+    Menu main = new Menu(mainButtons, j);                                                       // Playing the game while the boolean is true
+    playing = !playing;
 
-    Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
-
-    Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" );                                    // Creating a shop                                                                                                //Setting the prot to 0 0                                                                                             
-    
-    // ---------------------------------------------------------------------------\\
-
-
-
-     while(playing){                                                              // Playing the game while the boolean is true
-
-
-      
-    // ---------------------------------------------------------------------------\\
-
-      
-        System.out.println("Please choose whether you want to Cave, Shop, upgrade, degrade, or break: (c/s/u/d/b)"); //Each time through the loop it ask the player what it wants to do.
-        String townChoice = user.next();                                                                               // Getting user input from previous question
+    }
+    // ---------------------------------------------------------------------------\\                                                                             // Getting user input from previous question
 
 
       
        // ---------------------------------------------------------------------------\\
 
 
-      int e1;
-        if(townChoice.equalsIgnoreCase("c")){                       // Checking to see if the user wanted to go to the cave
+      
+
+      // ---------------------------------------------------------------------------\
+
+
+
+      // ---------------------------------------------------------------------------\\
+
+
+
+      // ---------------------------------------------------------------------------\\
+    
+
+
+
+    // ---------------------------------------------------------------------------\\
+
+  } 
+  // -------------------- Getting A random Location Method -------------------\\
+
+  public static int[] getRandomLocations() {
+    Random RandomN = new Random();                      // Creating The Random Object 
+    int rand_X = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
+    int rand_Y = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
+    return new int[] { rand_X, rand_Y };                // Returning the values in a list 
+
+  }
+
+  public static void choice(String h){
+System.out.println(h);
+
+int e1;
+        if(h.equals("c")){   
+                            // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
           System.out.print("Here is your inventory ");                          // Telling the user what he has in his inv
           for (int t = 0; t < wumpus.lastID; t++){                                // for each item in the user invetory
@@ -137,7 +189,7 @@ public class Main{
 
   
       
-      else if (townChoice.equalsIgnoreCase("s")){                             // Checking to see if the user wanted to go to the shop
+      else if (h.equals("s")){                            // Checking to see if the user wanted to go to the shop
         SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");           //making a sound clip
         shopEnter.playSound();                                                              //Playing the shop Sound
         
@@ -176,77 +228,18 @@ public class Main{
         int tierChoice = user.nextInt();                                                                                                                          //Getting the user input
 
         if(tierChoice > Protagonist.tier){                                        //Checking to make sure tier is ok
-          System.out.println("Woah their you havent unlocked that tier yet! "); //Printing out what happended
+          System.out.println("Woah there you havent unlocked that tier yet! "); //Printing out what happended
           tierChoice = e2;                                          //Setting tier choice to tier unlocked
         }
         
         Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop
         prot.health = prot.truehealth;                                                 // Regaing his healt
       }
-
-
-
-      // ---------------------------------------------------------------------------\\
-
-
-        
-      else if(townChoice.equalsIgnoreCase("b")){                            //Checking to see if the user wanted to break
-        break;                                                                            //Breaking
+      else if(h.equals("t")){
+        Trivia.main();
+        System.out.println("Hello World");
       }
 
-
-
-      // ---------------------------------------------------------------------------\\
-
-
-        
-      else if(townChoice.equalsIgnoreCase("u")){                           //Checking to see if the user wanted to upgrade
-        Protagonist.tier += 1;                                                           //adding to his teir
-        if(Protagonist.tier == 5){                                                       //Making sure it didnt pass max
-          Protagonist.tier = 4;                                                          //If the teir passed max going back down
-        }
-      }
-
-
-
-      // ---------------------------------------------------------------------------\\
-
-
-        
-      else if(townChoice.equalsIgnoreCase("d")){                       //Checking to see he wanted to downgrade
-        Protagonist.tier -= 1;                                                       //Subtracting his teir
-        if(Protagonist.tier == -1){                                                  //If teir is to low
-          Protagonist.tier = 0;                                                      //making teir 0
-        }
-      }
-
-
-
-      // ---------------------------------------------------------------------------\\
-
-
-        
-      else{                                                 //If the user made a typo
-       System.out.println("Sorry, invalid input");        //Telling him to try again
-      }
-    
-
-
-
-    // ---------------------------------------------------------------------------\\
-
-  }
-
-
-  
-  // -------------------- Getting A random Location Method -------------------\\
-
-  }
-  public static int[] getRandomLocations() {
-    Random RandomN = new Random();                      // Creating The Random Object 
-    int rand_X = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
-    int rand_Y = RandomN.nextInt(6) + 0;          // Getting the Random Values (0-5) 
-    return new int[] { rand_X, rand_Y };                // Returning the values in a list 
 
   }
 

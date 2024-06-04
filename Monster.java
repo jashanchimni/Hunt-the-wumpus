@@ -2,6 +2,10 @@
 //--------------------------- Importing Labs --------------------------------\\
 
 import java.util.Random;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 //--------------------------- Monster Class --------------------------------\\
@@ -84,7 +88,16 @@ public class Monster extends Hazard{
     Battle.playSound();                                                           //Playing battle music
     boolean battling = true;                                                      //Ma
     int turn = 1;
-
+    ArrayList<Button>monsterList = new ArrayList<Button>();
+    Button fight = new Button("Fight", "f");
+    Button run = new Button("Run", "r");
+    Button heal = new Button("Heal", "h");
+    monsterList.add(fight);
+    monsterList.add(run);
+    monsterList.add(heal);
+    ImageIcon imageIcon = new ImageIcon("Cave.gif");
+    JLabel j = new JLabel(imageIcon);
+    Menu cave = new Menu(monsterList, j);
 
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");        //Saying what type of monster is attack you
     System.out.println("The " + RED + "battle" + RESET + " has begun");               //Printing the fight statement
