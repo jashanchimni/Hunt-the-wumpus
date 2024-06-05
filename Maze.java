@@ -3,7 +3,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Maze{
   
@@ -78,8 +81,20 @@ public void caving(){
         choice = 6;
       }
       if(num == 0){
-        System.out.println("You stumble into a monster lair");
-        monster.battle();
+    System.out.println("You stumble into a monster lair");
+    ArrayList<Button>monsterList = new ArrayList<Button>();
+    Button fight = new Button("Fight", "f", 2);
+    Button run = new Button("Run", "r", 2);
+    Button heal = new Button("Heal", "h", 2);
+    monsterList.add(fight);
+    monsterList.add(run);
+    monsterList.add(heal);
+    ImageIcon imageIcon = new ImageIcon("BattleGround.jpg");
+    JLabel j = new JLabel(imageIcon);
+    Menu battleground = new Menu(monsterList, j, "BattleField");
+    battleground.draw();
+    Main.main.draw();
+    monster.battle();
         System.out.println();
         System.out.println();
         System.out.println();

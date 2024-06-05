@@ -7,10 +7,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Menu extends JFrame {
+
+    private JPanel buttonPanel;
+    private JPanel buttonPanel2;
+
     public Menu(ArrayList<Button> options, JLabel BG, String title) {
         setTitle(title);
         setSize(600, 400);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
 
@@ -22,8 +26,8 @@ public class Menu extends JFrame {
         BG.setLayout(new GridLayout(2,0,300,0));
 
         // Create a new JPanel for the buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 10, 50));
-        JPanel buttonPanel2 = new JPanel(new GridLayout(0, 1, 10, 50));
+        this.buttonPanel = new JPanel(new GridLayout(0, 1, 10, 50));
+        this.buttonPanel2 = new JPanel(new GridLayout(0, 1, 10, 50));
         BG.add(buttonPanel2, BorderLayout.SOUTH);
         buttonPanel2.setOpaque(false);
         buttonPanel.setSize(100,100);
@@ -31,10 +35,7 @@ public class Menu extends JFrame {
         buttonPanel.setOpaque(false); // Make the buttonPanel background transparent
 
         // Add the buttons to the buttonPanel
-        for (Button option : options) {
-            option.setSize(100,100);
-            buttonPanel.add(option, BorderLayout.EAST);
-        }
+        addButtons(options);
 
         // Add the background label and the button panel to the frame
         add(BG);
@@ -43,5 +44,18 @@ public class Menu extends JFrame {
     }
     public void close(){
         dispose();
+    }
+    public void addButtons(ArrayList<Button>options){
+        System.out.println("Working?");
+            Button b = new Button("ha", "He", 6);
+        this.add(b);
+       // this.add(buttonPanel);
+        for (Button option : options) {
+            option.setSize(100,100);
+            this.buttonPanel.add(option, BorderLayout.EAST);
+        }
+    }
+    public void draw() {
+        this.setVisible(true);
     }
 }

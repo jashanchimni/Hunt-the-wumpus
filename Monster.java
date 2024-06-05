@@ -88,17 +88,10 @@ public class Monster extends Hazard{
     Battle.playSound();                                                           //Playing battle music
     boolean battling = true;                                                      //Ma
     int turn = 1;
-    ArrayList<Button>monsterList = new ArrayList<Button>();
-    Button fight = new Button("Fight", "f", 2);
-    Button run = new Button("Run", "r", 2);
-    Button heal = new Button("Heal", "h", 2);
-    monsterList.add(fight);
-    monsterList.add(run);
-    monsterList.add(heal);
-    ImageIcon imageIcon = new ImageIcon("BattleGround.jpg");
-    JLabel j = new JLabel(imageIcon);
-    Menu cave = new Menu(monsterList, j, "BattleField");
+   
 
+
+    //cave.close();
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");        //Saying what type of monster is attack you
     System.out.println("The " + RED + "battle" + RESET + " has begun");               //Printing the fight statement
 
@@ -249,6 +242,7 @@ public class Monster extends Hazard{
       System.out.println("You have defeated the wumpus and completed the game!!");
       System.out.println("You ended at Level " + Protagonist.tier + " and " + prot.purse + "coins");
     }
+    Main.main.draw();
   }
   public void pit(){
     System.out.println("You have fallen into a pit");
