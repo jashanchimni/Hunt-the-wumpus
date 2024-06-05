@@ -243,7 +243,6 @@ int e1;
       }
       else if(h.equals("t")){
         Trivia.main();
-        System.out.println("Hello World");
       }
 
 
