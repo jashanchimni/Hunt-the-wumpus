@@ -14,7 +14,7 @@
         },
     {
             "id": "2",
-            "question": "What is the feature on xbox that allows people to play online multiplayer games?",
+            "question": "What is the feature on Xbox that allows people to play online multiplayer games?",
             "choices": [
                 "Live Platinum",
                 "Live Gold",
@@ -62,6 +62,18 @@
         },
     {
             "id": "6",
+            "question": "What video/streaming platform did Microsoft miss out on when it declined the offer to buy them out? ",
+            "choices": [
+                "Kick",
+                "Twitch",
+                "Mixer",
+                "Youtube"
+            ],
+            "Rank": 1,
+            "Key": 3
+        },
+    {
+            "id": "7",
             "question": "Microsoft has subsidiary offices in how many countries?",
             "choices": [
                 "256",
@@ -73,7 +85,7 @@
             "Key": 2
         },
     {
-            "id": "7",
+            "id": "8",
             "question": "Does the rolling hills wallpaper of Windows XP actually exist?",
             "choices": [
                 "Yes",
@@ -85,7 +97,7 @@
             "Key": 0
         },
     {
-            "id": "8",
+            "id": "9",
             "question": "What is Microsoft's longest lived PC Game?",
             "choices": [
                 "360 Kinect",
@@ -97,7 +109,7 @@
             "Key": 1
         },
     {
-            "id": "9",
+            "id": "10",
             "question": "Approximately how many emails are blocked by Microsoft email server per day?",
             "choices": [
                 "500k",
@@ -109,7 +121,7 @@
             "Key": 2
         },
     {
-            "id": "10",
+            "id": "11",
             "question": "When was Microsofts first commerical aired?",
             "choices": [
                 "1856",
@@ -121,7 +133,19 @@
             "Key": 3
         },
     {
-            "id": "11",
+            "id": "12",
+            "question": "When are the Microsoft Software engineers known as to insiders? ",
+            "choices": [
+                "micros",
+                "softies",
+                "smalls",
+                "tinies"
+            ],
+            "Rank": 2,
+            "Key": 1
+        },
+    {
+            "id": "13",
             "question": "Who made the original Hunt the Wumpus?",
             "choices": [
                 "Bill Gates",
@@ -133,7 +157,7 @@
             "Key": 1
         },
     {
-            "id": "12",
+            "id": "14",
             "question": "When was Hunt the Wumpus created?",
             "choices": [
                 "1973",
@@ -145,7 +169,7 @@
             "Key": 0
         },
     {
-            "id": "13",
+            "id": "15",
             "question": "What unique device was Hunt the Wumpus able to be played on?",
             "choices": [
                 "Car Screen",
@@ -157,7 +181,7 @@
             "Key": 3
         },
     {
-            "id": "14",
+            "id": "16",
             "question": "What genre is the Hunt the Wumpus game?",
             "choices": [
                 "Sports",
@@ -169,7 +193,7 @@
             "Key": 1
         },
     {
-            "id": "15",
+            "id": "17",
             "question": "How many more Wumpus games did the creator make after making Wumpus 1?",
             "choices": [
                 "Seven",
@@ -181,7 +205,7 @@
             "Key": 2
         },
     {
-            "id": "16",
+            "id": "18",
             "question": "What shape was the original hunt the wumpus game",
             "choices": [
                 "Square",
@@ -193,7 +217,7 @@
             "Key": 3
         },
     {
-            "id": "17",
+            "id": "19",
             "question": "In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time?",
             "choices": [
                 "2001",
@@ -205,7 +229,7 @@
             "Key": 2
         },
     {
-            "id": "18",
+            "id": "20",
             "question": "What is the other animal besides the Wumpus that a user can find within the cave",
             "choices": [
                 "Eagle",
@@ -217,7 +241,7 @@
             "Key": 3
         },
     {
-            "id": "19",
+            "id": "21",
             "question": "What trading cards did hunt the wumpus feature on?",
             "choices": [
                 "Magic the Gathering",
@@ -229,7 +253,7 @@
             "Key": 0
         },
     {
-            "id": "20",
+            "id": "22",
             "question": "What company did Microsoft help avoid bankruptcy",
             "choices": [
                 "Samsung",
@@ -241,7 +265,7 @@
             "Key": 1
         },
     {
-            "id": "21",
+            "id": "23",
             "question": "What was Microsoft's first hardware product",
             "choices": [
                 "Keyboard",
@@ -253,7 +277,7 @@
             "Key": 1
         },
     {
-            "id": "22",
+            "id": "24",
             "question": "Where was the creator of the game born?(State)",
             "choices": [
                 "Washington",
@@ -265,7 +289,7 @@
             "Key": 2
         },
     {
-            "id": "23",
+            "id": "25",
             "question": "Who composed the Microsoft 95 Jingle",
             "choices": [
                 "WolfGang Mozart",
@@ -277,7 +301,7 @@
             "Key": 1
         },
     {
-            "id": "24",
+            "id": "26",
             "question": "How many different series of games has the creator published besides Wumpus?",
             "choices": [
                 "Zero",
@@ -289,7 +313,7 @@
             "Key": 0
         },
     {
-            "id": "25",
+            "id": "27",
             "question": "What day did the creator of Hunt the Wumpus die?",
             "choices": [
                 "January 30",
@@ -301,7 +325,7 @@
             "Key": 3
         },
     {
-            "id": "26",
+            "id": "28",
             "question": "Who was Microsoft's first major deal with?",
             "choices": [
                 "Xbox",
@@ -313,7 +337,7 @@
             "Key": 1
         },
     {
-            "id": "27",
+            "id": "29",
             "question": "What age was Bill Gates when he became a millionaire?",
             "choices": [
                 "31",
@@ -325,7 +349,7 @@
             "Key": 0
         },
     {
-            "id": "28",
+            "id": "30",
             "question": "What does the name X in the word Xbox come from",
             "choices": [
                 "Windows Hard Drive Software",
