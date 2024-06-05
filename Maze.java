@@ -34,6 +34,9 @@ public class Maze{
 
   // METHODS
 
+  // Loops while the player is in the caves
+  // Asks them for a direction and moves the player
+  // Actions are performed if the player encounters a hazard
 public void caving(){
   Scanner s = new Scanner(System.in);
   int choice = 0;
@@ -43,6 +46,30 @@ public void caving(){
   while(choice != 6){
 
     draw();
+    System.out.println();
+
+    Cave now = this.caves.get(p.getCord());
+
+    for(int i = 0; i < 6; i++){
+      Cave check = getCave(now, i);
+      Hazard haz = check.getHazard();
+      if(haz != null){
+        String symbol = haz.getSymbol();
+        if(canMove(p.getCord(), check.getCord())){
+          if(symbol.equals("M")){
+            System.out.println("I smell a Wumpus!");
+          }
+          if(symbol.equals("B")){
+            System.out.println("Bats Nearby");
+          }
+          if(symbol.equals("P")){
+            System.out.println("I feel a draft");
+          }
+        
+        }
+
+      }
+    }
 
 
     System.out.println();
@@ -65,6 +92,7 @@ public void caving(){
       }
     }
 
+    // Perform action based on hazard
     if(next.getPlayer() && next.getHazard() != null){
       System.out.println();
       int num = next.getHazard().interactWithPlayer();
@@ -96,25 +124,22 @@ public void caving(){
         }
         next.setHazard(null);
         p.move(end, next, this.caves.get(end));
+        placeBat();
       }
     }
 
-    //draw();
-
-    if(canMove(p.getCord(), getMonsterCord())){
-      System.out.println();
-      System.out.println("The monster is nearby...");
-    }
     
   }
 
 }
 
 
+  // Get the maze of caves
   public ArrayList<Cave> getCaves(){
     return this.caves;
   }
   
+  // Creates a new, randomized map
   public void generateMap(){
 
     caves.add(new Cave(0));
@@ -152,9 +177,12 @@ public void caving(){
     
   }
 
+  // Places hazards randomly into the map
   public void placeHazards(){
     ArrayList<Hazard> hazards = new ArrayList<Hazard>();
     hazards.add(new Bat());
+    hazards.add(new Bat());
+    hazards.add(new Pit());
     hazards.add(new Pit());
     hazards.add(monster);
     
@@ -168,6 +196,7 @@ public void caving(){
     }
   }
 
+  // Places a bat in a random location
   public void placeBat(){
     int randNum = rand.nextInt(this.size) + 1;
     while(caves.get(randNum).getHazard() != null || caves.get(randNum).getPlayer()){
@@ -178,6 +207,7 @@ public void caving(){
     
   }
 
+  // Get a random neighboring cave
   public Cave getNext(Cave current){
     int cord = current.getCord();
     
@@ -248,6 +278,7 @@ public void caving(){
     
   }
 
+  // Remove walls between 2 caves in a certain direction
   public void removeWalls(Cave current, Cave next, int direction){
 
     current.removeWall(direction);
@@ -278,6 +309,7 @@ public void caving(){
     removeWalls(current, this.caves.get(next), direction);
   }
 
+  // Draws the maze in the console
   public void draw(){
 
     boolean top = true;
@@ -310,6 +342,7 @@ public void caving(){
     }
   }
 
+  // Fixes a coordinate so that it is not out of bounds
   public int adjustNum(int num){
 
     if(num <= 0){
@@ -323,6 +356,7 @@ public void caving(){
     return num;
   }
 
+  // Removes random walls between caves, but not if the cave has less than 4 walls
   public void removeRandomWalls(){
     Cave current = new Cave(0);
     Cave next = null;
@@ -339,6 +373,7 @@ public void caving(){
     }
   }
 
+  // Gets a neighboring cave in the direction specified
   public Cave getCave(Cave current, int direction){
     int cord = current.getCord();
     if(direction == 0){
@@ -362,6 +397,7 @@ public void caving(){
     return null;
   }
 
+  // Returns the cave located to the top
   public int getTop(int cord){
     int top = cord - this.width;
     
@@ -370,6 +406,7 @@ public void caving(){
     return top;
   }
 
+  // Returns the cave located to the top right
   public int getTopRight(int cord){
     int topRight = 0;
     
@@ -390,6 +427,7 @@ public void caving(){
     return topRight;
   }
 
+  // Returns the cave located to the top left
   public int getTopLeft(int cord){
     int topLeft = 0;
     
@@ -410,6 +448,7 @@ public void caving(){
     return topLeft;
   }
 
+  // Returns the cave located to the bottom
   public int getBottom(int cord){
     int bottom = 0;
     
@@ -420,6 +459,7 @@ public void caving(){
     return bottom;
   }
 
+  // Returns the cave located to the bottom right
   public int getBottomRight(int cord){
     int bottomRight = 0;
 
@@ -441,6 +481,7 @@ public void caving(){
     
   }
 
+  // Returns the cave located to the bottom left
   public int getBottomLeft(int cord){
     int bottomLeft = 0;
     
@@ -461,6 +502,7 @@ public void caving(){
     return bottomLeft;
   }
 
+  // Returns if there is a passageway between two caves
   public boolean canMove(int cord1, int cord2){
     Cave cave1 = this.caves.get(cord1);
     Cave cave2 = this.caves.get(cord2);
@@ -499,6 +541,7 @@ public void caving(){
     return false;
   }
 
+  // Gets the coordinate of the monster
   public int getMonsterCord(){
     Hazard h = null;
 
