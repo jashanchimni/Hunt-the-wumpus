@@ -1,11 +1,17 @@
 
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 //--------------------------- Shpp Class ------------------------------------\\
 
 public class Shop {
+  
 
   // ------------------------------ COLORS -----------------------------------\\
 
@@ -35,51 +41,63 @@ public class Shop {
   int rank;
   String name;
   String type;
-  String purchased;
+  static String purchased;
   int choice;
-  String[] wares = new String[5];
-  Protagonist prot;
-  Monster wumpus;
+  static String[] wares = new String[5];
+  static Protagonist prot;
+  static Monster wumpus;
   int list;
   String[] doneList = new String[5];
   int gold;
   String TyPe;
-
+  Button ware1;
+  Button ware2;
+  Button ware3;
+  Button ware4;
+  Button ware5;
+  ArrayList<Button>waresList;
+  Menu shopMenu;
+  ImageIcon imageIcon;
+  JLabel j;
+  static String[] Swords;
+  static String[] Knives;
+  static String[] Bows;
+  static String[] Guns;
+  static String[] Specials;
+  static String[] Armor;
+  static String[] Pick;
+  static String[] Axe;
+  static String[] Shovel;
+  static String[] Helmet;
+  static String[][] MasterList;
   
 
   // ----------------------------- Items in shops -----------------------------\\
 
   // WeaponSmith
-  String[] Swords = { "Copper Broadsword", "Iron Shortsword", "Double-gripped Shortsword", "Hellflame Shortsword",
-      "Excalibur" };
-  String[] Knives = { "Common Knife", "Jagged Shiv", "Bloodthirsted Knife", "Ghostly Stabber", "Champion's Sai" };
-  String[] Bows = { "Wooden Longbow", "Iron Crossbow", "Temporal Shortbow", "Phantom's Strike", "Legend's String" };
-  String[] Guns = { "Shock Eagle", "GLOCKE 99", "Reaper", "ForniteScar", "BJ-50" };
-  String[] Specials = { "Ball and Chain", "Hydro Shurikens", "The Rimworld", "RC Dynamite", "Star Shield" };
-
-  // AmourSmith
-  String[] Armor = { "Chainmail Armor", "Phantom Armor", "Prism Armor", "Frostspire Gear", "Champions Mail" };
-
-  // ToolSmith
-  String[] Pick = { "Steel Pick", "Nature Pick", "Corrupt Pick", "Angelic Pick", "JackHammer" };
-  String[] Axe = { "Woodcutter's Axe", "Hardened Axe", "Magician's Axe", "Horn Hatchet", "Lumberjacked Axe" };
-  String[] Shovel = { "Iron Spade", "Spacial Shovel","Gardner's Spade", "Golden Shovel", "Interdimensional Digger"};
-  String[] Helmet = { "Santa Cap", "Baseball Cap", "Princes Crown", "Champions Crown", "Helicopter Hat" };
-
-  String[][] MasterList = {Swords, Knives, Bows, Guns, Specials, Armor, Pick, Axe, Shovel, Helmet};
-
-  // TriviaWizard
- String[] Rank1 = { "What console did Microsoft create? ", "What is the feature on xbox that allows people to play online multiplayer games? ", " In what year did Microsoft announce Windows?", "Where did Microsoft's xbox launch party take place? ", "What was Bill Gates and Paul Allen's original name for Microsoft? "};
-  String[] Rank2 = { "Microsoft has subsidiary offices in how many countries?", " Does the rolling hills wallpaper of Windows XP actually exist?(Yes/No)", "What is Microsoft's longest lived PC Game ", "Approximately how many emails are blocked by Microsoft email server per day? ", "  When was Microsofts first commerical aired?"};
-  String[] Rank3 = {"Who made the original Hunt the Wumpus?", " When was Hunt the Wumpus created?", " What unique device was Hunt the Wumpus able to be played on(the general name)" , "What genre is the Hunt the Wumpus game? ", " How many more Wumpus games did the creator make after making Wumpus 1?"};
-  String[] Rank4 = {"In what year was hunt the wumpus listed for the first time in Time's top 100 video games of all time? ", "What is the other animal besides the Wumpus that a user can find within the cave", "What trading cards did hunt the wumpus feature on? ", "What company did Microsoft help avoid bankruptcy", "What was Microsoft's first hardware product"};
-  String[] Rank5 = {"Where was the creator of the game born? ","How many series has the creator published","What day did the creator of Hunt the Wumpus die? ","Who was Microsoft's first major deal with? ","What age was Bill Gates when he became a billionaire? "};
+  
    // ------------------------------ Main Method -----------------------------\\
 
   public Shop(int rank, String name, String type) {
 
     // Delcaring Varibles \\
+   Swords = new String[]{ "Copper Broadsword", "Iron Shortsword", "Double-gripped Shortsword", "Hellflame Shortsword",
+      "Excalibur" };
+  Knives = new String[]{ "Common Knife", "Jagged Shiv", "Bloodthirsted Knife", "Ghostly Stabber", "Champion's Sai" };
+  Bows = new String[]{ "Wooden Longbow", "Iron Crossbow", "Temporal Shortbow", "Phantom's Strike", "Legend's String" };
+  Guns = new String[]{ "Shock Eagle", "GLOCKE 99", "Reaper", "ForniteScar", "BJ-50" };
+  Specials = new String[]{ "Ball and Chain", "Hydro Shurikens", "The Rimworld", "RC Dynamite", "Star Shield" };
 
+  // AmourSmith
+  Armor = new String[]{ "Chainmail Armor", "Phantom Armor", "Prism Armor", "Frostspire Gear", "Champions Mail" };
+
+  // ToolSmith
+  Pick = new String[]{ "Steel Pick", "Nature Pick", "Corrupt Pick", "Angelic Pick", "JackHammer" };
+  Axe = new String[]{ "Woodcutter's Axe", "Hardened Axe", "Magician's Axe", "Horn Hatchet", "Lumberjacked Axe" };
+  Shovel = new String[]{ "Iron Spade", "Spacial Shovel","Gardner's Spade", "Golden Shovel", "Interdimensional Digger"};
+  Helmet = new String[]{ "Santa Cap", "Baseball Cap", "Princes Crown", "Champions Crown", "Helicopter Hat" };
+
+  String[][] MasterList = {Swords, Knives, Bows, Guns, Specials, Armor, Pick, Axe, Shovel, Helmet};
     this.rank = rank;
     this.name = name;
     this.type = type;
@@ -91,7 +109,7 @@ public class Shop {
 
   // ------------------------------ Shop Method -----------------------------\\
 
-  public String upgrade(String type, Protagonist prot, Monster wumpus, int tierChoice) {
+  public void upgrade(String type, Protagonist prot, Monster wumpus, int tierChoice) {
 
     // Delcaring Variables \\
     System.out.println("You have " + prot.purse + " coins in your purse");
@@ -102,37 +120,68 @@ public class Shop {
 
     if (this.type.equalsIgnoreCase("w")) {
       System.out.println("Welcome to " + BLUE + "Monster Slaying Goods" + RESET);
-      wares[0] = RED + this.Swords[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-      wares[1] = CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-      wares[2] = PURPLE + this.Knives[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-      wares[3] = GREEN + this.Guns[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-      wares[4] = YELLOW + this.Specials[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
+      ware1 = new Button(RED + this.Swords[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 0);
+      ware2 = new Button (CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 1, 1, tierChoice, 0);
+      ware3 = new Button (CYAN + this.Knives[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 2, 1, tierChoice, 0);
+      ware4 = new Button (CYAN + this.Guns[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 3, 1, tierChoice, 0);
+      ware5 = new Button (CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 4, 1, tierChoice, 0);
+      waresList = new ArrayList<Button>();
+      waresList.add(ware1);
+      waresList.add(ware2);
+      waresList.add(ware3);
+      waresList.add(ware4);
+      waresList.add(ware5);
+      imageIcon = new ImageIcon("BattleGround.jpg");
+      j = new JLabel(imageIcon);
+      j.setSize(640,480);
+
+      shopMenu = new Menu(waresList, j, "Weaponsmith");
       this.list = 0;
       this.TyPe = "attack";
     }
 
     else if (this.type.equalsIgnoreCase("a")) {
       System.out.println("Welcome to " + BLUE + "Gus' Armor Shop" + RESET);
-      wares[0] = this.Armor[tierChoice] + " Price: " + 10 + (tierChoice*10);
-      wares[1] = RED + "None Available" + RESET;
-      wares[2] = RED + "None Available" + RESET;
-      wares[3] = RED + "None Available" + RESET;
-      wares[4] = RED + "None Available" + RESET;
+      ware1 = new Button(RED + this.Armor[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 1);
+      ware2 = new Button(RED + "None Available" + RESET, 1, 1, tierChoice, 1);
+      ware3 = new Button(RED + "None Available" + RESET, 2, 1, tierChoice, 1);
+      ware4 = new Button(RED + "None Available" + RESET, 3, 1, tierChoice, 1);
+      ware5 = new Button(RED + "None Available" + RESET, 4, 1, tierChoice, 1);
+      waresList = new ArrayList<Button>();
+      waresList.add(ware1);
+      waresList.add(ware2);
+      waresList.add(ware3);
+      waresList.add(ware4);
+      waresList.add(ware5);
+      imageIcon = new ImageIcon("BattleGround.jpg");
+      j = new JLabel(imageIcon);
+      j.setSize(640,480);
+
+      shopMenu = new Menu(waresList, j, "Armorsmith");
       this.list = 5;
       this.TyPe = "health";
     }
 
     else if (this.type.equalsIgnoreCase("t")){
-        System.out.println("Welcome to " + BLUE + "Crazy Craig's Tools" + RESET);
-        wares[0] = RED + this.Pick[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-        wares[1] = CYAN + this.Axe[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-        wares[2] = PURPLE + this.Shovel[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-        wares[3] = GREEN + this.Helmet[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET;
-        wares[4] = YELLOW + "None Available" + RESET;
+      ware1 = new Button(RED + this.Pick[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 2);
+      ware2 = new Button(RED + this.Axe[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 1, 1, tierChoice, 2);
+      ware3 = new Button(RED + this.Shovel[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 2, 1, tierChoice, 2);;
+      ware4 = new Button(RED + this.Helmet[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 3, 1, tierChoice, 2);
+      ware5 = new Button(RED + "None Available" + RESET, 4, 1, tierChoice, 2);
+      waresList = new ArrayList<Button>();
+      waresList.add(ware1);
+      waresList.add(ware2);
+      waresList.add(ware3);
+      waresList.add(ware4);
+      waresList.add(ware5);
+      imageIcon = new ImageIcon("BattleGround.jpg");
+      j = new JLabel(imageIcon);
+      j.setSize(640,480);
+      shopMenu = new Menu(waresList, j, "Toolsmith");
         this.list = 6;
         this.TyPe = "attack";
       }
-
+    }
     
 
     
@@ -142,122 +191,105 @@ public class Shop {
   
 
     // Printing the store inventory depending on lenth \\
-
-    for (int g = 0; g < this.wares.length; g++) {
-      System.out.println(g + 1 + ". " + this.wares[g]);
-    }
-
+public static String buy(int tierChoice, int type, int shop){
     // Asking what the user wants to buy \\
-    boolean validPurchase = false;
-    while(!validPurchase){
-    System.out.print(RESET + "What upgrade would you like to ");
-    System.out.print(GREEN + "purchase? " + RESET);
-    System.out.println("('1', '2', etc) ");
 
     // Getting there input
 
-    this.choice = shop.nextInt();
-
     /// Changing the Shops So the Purchased items show Purchased \\\
-    if(this.type.equalsIgnoreCase("w")){
-      if (this.choice == 1 && !(this.Swords[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Swords[tierChoice] = "Purchased";
-        validPurchase = true;
+    if(shop == 0){
+      if (type == 1 && !(Swords[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Swords[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        Main.main.draw();
       }
-      else if (this.choice == 2 && !(this.Bows[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-          this.Bows[tierChoice] = "Purchased";
-          validPurchase = true;
+      else if (type == 2 && !(Bows[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+          Bows[tierChoice] = "Purchased";
           SoundTesting Money = new SoundTesting("!MoneyChing.wav");
-        Money.playSound();
+          Money.playSound();
           prot.purse -= (10 + (tierChoice*10));
+          Main.main.draw();
         }
-      else if (this.choice == 3 && !(this.Knives[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Knives[tierChoice] = "Purchased";
-        validPurchase = true;
+      else if (type == 3 && !(Knives[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Knives[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        Main.main.draw();
       }
-      else if (this.choice == 4 && !(this.Guns[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Guns[tierChoice] = "Purchased";
-        validPurchase = true;
+      else if (type == 4 && !(Guns[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Guns[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        Main.main.draw();
       }
-      else if (this.choice == 5 && !(this.Specials[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Specials[tierChoice] = "Purchased";
-        validPurchase = true;
+      else if (type == 5 && !(Specials[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Specials[tierChoice] = "Purchased";
+
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        Main.main.draw();
       }
       else{
         System.out.println("You are either too poor to buy this item or already have purchased it");
-      break;
       }
     }
 
-    else if(this.type.equalsIgnoreCase("a")){
-      if(this.choice == 1 && !(this.Armor[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Armor[tierChoice] = "Purchased";
-        validPurchase = true;
+    else if(shop == 1){
+      if(type == 1 && !(Armor[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Armor[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
-      break;
       }
     }
     
 
-    else{
-      if (this.choice == 1 && !(this.Pick[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Pick[tierChoice] = "Purchased";
-        validPurchase = true;
+    else if(shop == 2){
+      if (type == 1 && !(Pick[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Pick[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
       }
-      else if (this.choice == 2 && !(this.Axe[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-          this.Axe[tierChoice] = "Purchased";
-          validPurchase = true;
+      else if (type == 2 && !(Axe[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+          Axe[tierChoice] = "Purchased";
           prot.purse -= (10 + (tierChoice*10));
           SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         }
-      else if (this.choice == 3 && !(this.Shovel[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Shovel[tierChoice] = "Purchased";
-        validPurchase = true;
+      else if (type == 3 && !(Shovel[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Shovel[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
       }
-      else if (this.choice == 4 && !(this.Helmet[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
-        this.Helmet[tierChoice] = "Purchased";
-        validPurchase = true;
+      else if (type == 4 && !(Helmet[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+        Helmet[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
-      break;
       }
     }
-    }
-
+  return "Hehehehe";
+  }
+}
+/* 
     // Finding out what they bought and returning it \\
-    if(validPurchase){
-    this.purchased = this.wares[choice - 1];
+    purchased = wares[type - 1];
 
 
-    if(this.TyPe.equals("attack")){
+    if(shop%2 == 0){
       prot.attack += tierChoice * 5;
     }
     else{
@@ -265,21 +297,15 @@ public class Shop {
         prot.truehealth += tierChoice * 10;
     }
 
-    prot.inventory[wumpus.lastID] = this.purchased;
+    prot.inventory[wumpus.lastID] = purchased;
     if (wumpus.lastID == 24) {
       wumpus.lastID = 23;
       System.out.println(RED + "You're inventory is full! Return to the village to deposit materials.");
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
     wumpus.lastID += 1;
+    return purchased;
   }
-  else{
-    this.purchased = "";
-  }
-
-    return this.purchased;
-  }
-
-}
+*/
 
 // ---------------------------------------------------------------------------\\
