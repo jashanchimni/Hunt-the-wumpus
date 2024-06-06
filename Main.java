@@ -98,21 +98,6 @@ public class ASCIIArt {
 
   // ------------------------------ Main Method -----------------------------\\
   public Main(){
-    ArrayList<Button>b = new ArrayList<Button>();
-    Button bu = new Button(BLACK_BACKGROUND, BLACK, 0);
-  b.add(bu);
-  ImageIcon imageIcon = new ImageIcon("Cave.gif");
-    JLabel j = new JLabel(imageIcon);
-    Menu m = new Menu(b,j, "Title" );
-
-
-
-
-
-
-
-
-
     ASCIIArt newt = new ASCIIArt();
     newt.main();
   }
@@ -126,6 +111,7 @@ public class ASCIIArt {
     SoundTesting Start = new SoundTesting("!GameboySound.wav");
     Start.playSound();
     // ---------------------------------------------------------------------------\\
+    while (playing){
     Button shop = new Button("Shop", "s", 0);
     Button cave = new Button("Cave", "c", 0);
     Button trivia = new Button("Trivia", "t", 0);
@@ -135,6 +121,10 @@ public class ASCIIArt {
     ImageIcon imageIcon = new ImageIcon("Cave.gif");
     JLabel j = new JLabel(imageIcon);
     main = new Menu(mainButtons, j, "Main Menu");                                                       // Playing the game while the boolean is true
+    playing = !playing;
+    prot.purse = 0;
+
+    }
     // ---------------------------------------------------------------------------\\                                                                             // Getting user input from previous question
 
 
@@ -171,12 +161,12 @@ public class ASCIIArt {
   }
 
   public static void choice(String h){
-main.close();
+
 System.out.println(h);
 
 int e1;
         if(h.equals("c")){   
-                            // Checking to see if the user wanted to go to the cave
+         // Checking to see if the user wanted to go to the cave
           System.out.println("You have " + prot.purse + " coins in your purse");  // Showing the user's Purse
           System.out.print("Here is your inventory ");                          // Telling the user what he has in his inv
           for (int t = 0; t < wumpus.lastID; t++){                                // for each item in the user invetory
@@ -197,9 +187,7 @@ int e1;
           int ec = RandomN.nextInt(3);                                //Setting ec to a random num
           Monster encounter = monsterList[e1][ec];
           Maze m = new Maze(6,5,prot,encounter);
-          encounter.battle();
-          m.caving();
-          main.draw();// Spacing                                                // Fighting the monster in the caves
+          m.caving();                          // Spacing                                                // Fighting the monster in the caves
         }
 
 
@@ -252,11 +240,10 @@ int e1;
         }
         
         Weaponsmith.upgrade(shopChoice, prot, wumpus, tierChoice);                     // Opening up the shop
-        prot.health = prot.truehealth;
-        main.draw();                                                // Regaing his healt
+        prot.health = prot.truehealth;                                                 // Regaing his healt
       }
       else if(h.equals("t")){
-        Trivia.main();
+        Trivia.main(prot);
         System.out.println("Hello World");
       }
 

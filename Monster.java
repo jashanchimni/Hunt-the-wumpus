@@ -1,7 +1,6 @@
 
 //--------------------------- Importing Labs --------------------------------\\
 
-import java.util.Random;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.ImageIcon;
@@ -36,20 +35,29 @@ public class Monster extends Hazard{
 
   // Other Variables \\
 
-  int x;
-  int y;
-  int health;
-  int damage;
-  String type;
-  Random random;
-  String[] wumpusDrops;
-  Protagonist prot;
-  String protChoice;
-  int basehealth;
-  String drop;
-  int lastID;
-  
-
+  static int x;
+  static int y;
+  static int health;
+  static int damage;
+  static String type;
+  static Random random;
+  static String[] wumpusDrops;
+  static Protagonist prot;
+  static String protChoice;
+  static int basehealth;
+  static String drop;
+  static int lastID;
+  static SoundTesting Battle;
+  static SoundTesting Roar;
+static boolean battling;
+static int turn;
+static Menu battleground;
+static ImageIcon imageIcon;
+static JLabel j;
+static Button run;
+static Button heal;
+static Button fight;
+static ArrayList<Button>monsterList;
   // ------------------------------ Main Method -----------------------------\\
 
   public Monster(int x, int y, int health, int damage, String type, Random random, Protagonist prot) {
@@ -82,73 +90,50 @@ public class Monster extends Hazard{
   public void battle() {                                                          //Battle METHod
 
     // Variables \\
-    SoundTesting Roar = new SoundTesting("!MonsterRoar.wav");       //Making a monster roar sound clip
-    Roar.playSound();                                                             //Playing the roar
-    SoundTesting Battle = new SoundTesting("!Battle.wav");          //Making a battle music sound clip
-    Battle.playSound();                                                           //Playing battle music
-    boolean battling = true;                                                      //Ma
-    int turn = 1;
-   
+    this.Roar = new SoundTesting("!MonsterRoar.wav");       //Making a monster roar sound clip
+    this.Roar.playSound();                                                             //Playing the roar
+    this.Battle = new SoundTesting("!Battle.wav");          //Making a battle music sound clip
+    this.Battle.playSound();                                                           //Playing battle music
+    this.battling = true;                                                      //Ma
+    turn = 1;
+    monsterList = new ArrayList<Button>();
+    fight = new Button("Fight", "a", 2);
+    run = new Button("Run", "r", 2);
+    heal = new Button("Heal", "h", 2);
+    monsterList.add(fight);
+    monsterList.add(run);
+    monsterList.add(heal);
+    imageIcon = new ImageIcon("BattleGround.jpg");
+    j = new JLabel(imageIcon);
+    battleground = new Menu(monsterList, j, "BattleField");
+
 
 
     //cave.close();
     System.out.println("The " + CYAN + this.type + RESET + " has found you!");        //Saying what type of monster is attack you
-    System.out.println("The " + RED + "battle" + RESET + " has begun");               //Printing the fight statement
+    System.out.println("The " + RED + "battle" + RESET + " has begun");              //Printing the fight statement
 
+  }
 
-    while (battling) {                   //While battling do the following
-      
-
+public static void turnTake(String end){
+    
       System.out.println("--------------------------- " + BLUE + "Turn " + turn + RESET + "-------------------------------"); // Turn print statement 
       
-
-      protChoice = prot.choice();                      // Getting user input 
+                     // Getting user input 
 
       
-      if (protChoice.equals("a")) {          // If they choose to attack:
+      if (end.equals("a")) {          // If they choose to attack:
 
         
 
         System.out.println("You deal " + RED + prot.attack + " damage" + RESET);   // Print dealing damage 
-        this.health -= prot.attack;                                                //Changing value
+        health -= prot.attack;                                                //Changing value
 
-        System.out.println("The " + CYAN + this.type + RESET + " has " + GREEN + this.health + RESET + " health points remaining");    // Printing Remaing Health points 
+        System.out.println("The " + CYAN + type + RESET + " has " + GREEN + health + RESET + " health points remaining");    // Printing Remaing Health points 
+        // Printint out how much damage the monster does \\
 
-      }
-
-      else if (protChoice.equals("h")) {                                                  //If they choose to heal:
-        
-
-        System.out.println("You heal " + GREEN + prot.heal + " health points" + RESET);           //Printing out hwo much they heal
-        prot.health += prot.heal;                                                                 //ADd health
-        if(prot.health >= prot.truehealth){                                                       //If they have to much health
-          prot.health = prot.truehealth;                                                          //Make their health the right amount
-        }
-
-        
-
-        System.out.println("The " + CYAN + this.type + RESET + " has " + this.health + " health points remaining"); // Printing out how much health the monster has 
-      }
-
-      
-
-      else {                                          // If nothing else assume they choose Run away  
-
-        
-
-        System.out.println("You ran away");   // Printing you ran away 
-        this.health = basehealth;               //Reasting health
-        Battle.stopSound();                     //Stopping sound
-        battling = !battling;                   //End loop
-        
-        break;                                  //Break
-
-      }
-
-      // Printint out how much damage the monster does \\
-
-      System.out.println("The " + this.type + " deals " + RED + this.damage + " damage" + RESET);
-      prot.health -= this.damage;
+      System.out.println("The " + type + " deals " + RED + damage + " damage" + RESET);
+      prot.health -= damage;
 
       // Printing out your health after turn \\
 
@@ -158,9 +143,9 @@ public class Monster extends Hazard{
       // strongly recommend: use getters + setters
       if (prot.health <= 0) {
         Battle.stopSound();
-
+        
         prot.die();
-                battling = false;
+        battling = false;
       }
 
       // Warning the player of his low health \\
@@ -174,38 +159,62 @@ public class Monster extends Hazard{
 
       // Checking to see if the monster is dead \\
 
-      if (this.health <= 0) {
-        System.out.println("The " + this.type + " has fallen");
-        this.health = basehealth;
+      if (health <= 0) {
+        System.out.println("The " + type + " has fallen");
+        health = basehealth;
         Battle.stopSound();
-        this.death();
+        Monster.death();
         battling = false;
       }
 
       // Allowing the monster a chance to escape if its almost dead \\
 
-      else if (this.health <= 5) {
+      else if (health <= 5) {
 
-        System.out.println("The " + CYAN + this.type + RESET + " is dying");
-        if(random.nextInt(10) > 9){
-        System.out.println("The " + CYAN + this.type + RESET + " ran away");
-        this.health = basehealth;
+        System.out.println("The " + CYAN + type + RESET + " is dying");
+        if(random.nextInt(10) + 1 > 9){
+        System.out.println("The " + CYAN + type + RESET + " ran away");
+        health = basehealth;
         battling = !battling;
         Battle.stopSound();
         }
+      }
+    }
+      else if (end.equals("h")) {                                                  //If they choose to heal:
+        
+
+        System.out.println("You heal " + GREEN + prot.heal + " health points" + RESET);           //Printing out hwo much they heal
+        prot.health += prot.heal;                                                                 //ADd health
+        if(prot.health >= prot.truehealth){                                                       //If they have to much health
+          prot.health = prot.truehealth;                                                          //Make their health the right amount
+        }
+
+        
+
+        System.out.println("The " + CYAN + type + RESET + " has " + health + " health points remaining"); // Printing out how much health the monster has 
+      }
+
+      
+
+      else if(end.equals("r")) {                                          // If nothing else assume they choose Run away  
+
+        
+
+        System.out.println("You ran away");   // Printing you ran away 
+        health = basehealth;               //Reasting health
+        Battle.stopSound();
+        battleground.close();                     //Stopping sound
+                   //End loop                                //Break
 
       }
 
+
       // counting how many turns
-
       turn++;
-
-    }
-
   }
-  public void death() {
+  public static void death() {
     
-    this.drop = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
+    drop = wumpusDrops[random.nextInt(wumpusDrops.length)];
     System.out.println("It dropped " + GREEN + drop + RESET);
     int moneyDrop = (random.nextInt(5)) + 1;
     if(random.nextInt(100) >= 50){
@@ -222,8 +231,8 @@ public class Monster extends Hazard{
     }
     
     prot.purse += moneyDrop;
-    System.out.println("The " + this.type + " dropped " + moneyDrop + " coins.");
-    int gained = this.health * this.damage / 20;
+    System.out.println("The " + type + " dropped " + moneyDrop + " coins.");
+    int gained = health * damage / 20;
     System.out.println("You gained " + gained + " EXP!!");
     prot.EXP += gained;
     if(prot.EXP >= (50 * prot.tier) * (Protagonist.tier + 1) && Protagonist.tier < 10){
@@ -231,14 +240,14 @@ public class Monster extends Hazard{
       Protagonist.tier += 1;
       System.out.println("YOU LEVELED UP TO LEVEL " + Protagonist.tier);
     }
-    prot.inventory[prot.lastID] = this.wumpusDrops[random.nextInt(this.wumpusDrops.length)];
+    prot.inventory[prot.lastID] = wumpusDrops[random.nextInt(wumpusDrops.length)];
     if (prot.lastID == 24) {
       prot.lastID = 23;
       System.out.println(RED + "Your inventory is full! Return to the village to deposit materials.");
       System.out.println("The last item in your inventory will be overwritten" + RESET);
     }
-    this.lastID += 1;
-    if(this.type.equals("wumpus")){
+    lastID += 1;
+    if(type.equals("wumpus")){
       System.out.println("You have defeated the wumpus and completed the game!!");
       System.out.println("You ended at Level " + Protagonist.tier + " and " + prot.purse + "coins");
     }

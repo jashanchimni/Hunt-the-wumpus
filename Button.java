@@ -31,7 +31,7 @@ public void actionPerformed(ActionEvent e) {
 
         }
         else if(instance == 2){
-            System.out.println("Instance 2");
+            Monster.turnTake(this.dec);
         }
         else if(instance == 3){
 

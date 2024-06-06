@@ -40,7 +40,7 @@ public class Menu extends JFrame {
         // Add the background label and the button panel to the frame
         add(BG);
 
-        setVisible(true);
+        draw();
     }
     public void close(){
         dispose();

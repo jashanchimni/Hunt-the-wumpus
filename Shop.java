@@ -133,11 +133,7 @@ public class Shop {
         this.TyPe = "attack";
       }
 
-    else if (this.type.equalsIgnoreCase("tm")){
-        System.out.println("Welcome to " + BLUE + "Trivia Master" + RESET);
-        Trivia.main();
-
-    }
+    
 
     
 

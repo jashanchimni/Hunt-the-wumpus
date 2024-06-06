@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Trivia{
-    public static void main() {
+    public static void main( Protagonist prot) {
 
         //initializes scanner and prints intro message
         Scanner scanner = new Scanner(System.in);
@@ -49,6 +49,7 @@ public class Trivia{
             if(userAnswer == correctAnswerIndex){
                 int coinsEarned = selectedRank * 10;
                 System.out.println("Congratulations, you answered it correctly and recieved " + coinsEarned + " coins! ");
+                prot.purse += coinsEarned;
             } else {
                 System.out.println("Sorry, you got it wrong. Better luck next time!");
             }

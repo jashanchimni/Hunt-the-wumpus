@@ -107,22 +107,13 @@ public void caving(){
         System.out.println();
         System.out.println();
         choice = 6;
+        Main.main.draw();
       }
       if(num == 0){
     System.out.println("You stumble into a monster lair");
-    ArrayList<Button>monsterList = new ArrayList<Button>();
-    Button fight = new Button("Fight", "f", 2);
-    Button run = new Button("Run", "r", 2);
-    Button heal = new Button("Heal", "h", 2);
-    monsterList.add(fight);
-    monsterList.add(run);
-    monsterList.add(heal);
-    ImageIcon imageIcon = new ImageIcon("BattleGround.jpg");
-    JLabel j = new JLabel(imageIcon);
-    Menu battleground = new Menu(monsterList, j, "BattleField");
-    battleground.draw();
-    Main.main.draw();
-    monster.battle();
+    
+      monster.battle();
+      monster.battle();
         System.out.println();
         System.out.println();
         System.out.println();
