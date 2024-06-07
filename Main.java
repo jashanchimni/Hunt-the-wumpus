@@ -92,9 +92,9 @@ public class ASCIIArt {
      static Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
      static Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
 
-     static Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+    static Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
-     static Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" ); 
+    static Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" ); 
 
   // ------------------------------ Main Method -----------------------------\\
   public Main(){
