@@ -110,9 +110,6 @@ public class Cave{
       if(this.player){
         str += "p";
       }
-      else if(this.hazard != null){
-        str += this.hazard.getSymbol();
-      }
       else if(this.walls[0]){
         str += "T";
       }
