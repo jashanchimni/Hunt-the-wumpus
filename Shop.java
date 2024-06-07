@@ -70,7 +70,9 @@ public class Shop {
   static String[] Shovel;
   static String[] Helmet;
   static String[][] MasterList;
-  
+  static Menu WeaponSmith;
+  static Menu ToolSmith;
+static Menu ArmorSmith;
 
   // ----------------------------- Items in shops -----------------------------\\
 
@@ -115,16 +117,17 @@ public class Shop {
     System.out.println("You have " + prot.purse + " coins in your purse");
     this.purchased = "";
     this.type = type;
+    this.prot = prot;
 
     // Checking what type of shop it is then putting shop invetory based on shop \\
 
     if (this.type.equalsIgnoreCase("w")) {
       System.out.println("Welcome to " + BLUE + "Monster Slaying Goods" + RESET);
-      ware1 = new Button(RED + this.Swords[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 0);
-      ware2 = new Button (CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 1, 1, tierChoice, 0);
-      ware3 = new Button (CYAN + this.Knives[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 2, 1, tierChoice, 0);
-      ware4 = new Button (CYAN + this.Guns[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 3, 1, tierChoice, 0);
-      ware5 = new Button (CYAN + this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 4, 1, tierChoice, 0);
+      ware1 = new Button(this.Swords[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 0, 1, tierChoice, 0);
+      ware2 = new Button (this.Bows[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 1, 1, tierChoice, 0);
+      ware3 = new Button (this.Knives[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 2, 1, tierChoice, 0);
+      ware4 = new Button (this.Guns[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 3, 1, tierChoice, 0);
+      ware5 = new Button (this.Specials[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 4, 1, tierChoice, 0);
       waresList = new ArrayList<Button>();
       waresList.add(ware1);
       waresList.add(ware2);
@@ -135,18 +138,18 @@ public class Shop {
       j = new JLabel(imageIcon);
       j.setSize(640,480);
 
-      shopMenu = new Menu(waresList, j, "Weaponsmith");
+      WeaponSmith = new Menu(waresList, j, "Weaponsmith");
       this.list = 0;
       this.TyPe = "attack";
     }
 
     else if (this.type.equalsIgnoreCase("a")) {
       System.out.println("Welcome to " + BLUE + "Gus' Armor Shop" + RESET);
-      ware1 = new Button(BLUE + this.Armor[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 1);
-      ware2 = new Button(RED + "None Available" + RESET, 1, 1, tierChoice, 1);
-      ware3 = new Button(RED + "None Available" + RESET, 2, 1, tierChoice, 1);
-      ware4 = new Button(RED + "None Available" + RESET, 3, 1, tierChoice, 1);
-      ware5 = new Button(RED + "None Available" + RESET, 4, 1, tierChoice, 1);
+      ware1 = new Button(this.Armor[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 0, 1, tierChoice, 1);
+      ware2 = new Button("None Available", 1, 1, tierChoice, 1);
+      ware3 = new Button("None Available", 2, 1, tierChoice, 1);
+      ware4 = new Button("None Available", 3, 1, tierChoice, 1);
+      ware5 = new Button("None Available", 4, 1, tierChoice, 1);
       waresList = new ArrayList<Button>();
       waresList.add(ware1);
       waresList.add(ware2);
@@ -156,17 +159,17 @@ public class Shop {
       imageIcon = new ImageIcon("BattleGround.jpg");
       j = new JLabel(imageIcon);
       j.setSize(640,480);
-      shopMenu = new Menu(waresList, j, "Armorsmith");
+      ArmorSmith = new Menu(waresList, j, "Armorsmith");
       this.list = 5;
       this.TyPe = "health";
     }
 
     else if (this.type.equalsIgnoreCase("t")){
-      ware1 = new Button(RED + this.Pick[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 2);
-      ware2 = new Button(RED + this.Axe[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 1, 1, tierChoice, 2);
-      ware3 = new Button(RED + this.Shovel[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 2, 1, tierChoice, 2);;
-      ware4 = new Button(RED + this.Helmet[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 3, 1, tierChoice, 2);
-      ware5 = new Button(RED + "None Available" + RESET, 4, 1, tierChoice, 2);
+      ware1 = new Button(this.Pick[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 0, 1, tierChoice, 2);
+      ware2 = new Button(this.Axe[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 1, 1, tierChoice, 2);
+      ware3 = new Button(this.Shovel[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 2, 1, tierChoice, 2);;
+      ware4 = new Button(this.Helmet[tierChoice] + " Price: " + (10 +  (tierChoice*10)), 3, 1, tierChoice, 2);
+      ware5 = new Button("None Available", 4, 1, tierChoice, 2);
       waresList = new ArrayList<Button>();
       waresList.add(ware1);
       waresList.add(ware2);
@@ -176,7 +179,7 @@ public class Shop {
       imageIcon = new ImageIcon("BattleGround.jpg");
       j = new JLabel(imageIcon);
       j.setSize(640,480);
-      shopMenu = new Menu(waresList, j, "Toolsmith");
+      ToolSmith = new Menu(waresList, j, "Toolsmith");
         this.list = 6;
         this.TyPe = "attack";
       }
@@ -197,95 +200,116 @@ public static String buy(int tierChoice, int type, int shop){
 
     /// Changing the Shops So the Purchased items show Purchased \\\
     if(shop == 0){
-      if (type == 1 && !(Swords[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      if (type == 1 && !(Swords[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Swords[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        WeaponSmith.close();
         Main.main.draw();
       }
-      else if (type == 2 && !(Bows[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 2 && !(Bows[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
           Bows[tierChoice] = "Purchased";
           SoundTesting Money = new SoundTesting("!MoneyChing.wav");
           Money.playSound();
           prot.purse -= (10 + (tierChoice*10));
+          WeaponSmith.close();
           Main.main.draw();
         }
-      else if (type == 3 && !(Knives[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 3 && !(Knives[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Knives[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        WeaponSmith.close();
         Main.main.draw();
       }
-      else if (type == 4 && !(Guns[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 4 && !(Guns[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Guns[tierChoice] = "Purchased";
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        WeaponSmith.close();
         Main.main.draw();
       }
-      else if (type == 5 && !(Specials[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 5 && !(Specials[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Specials[tierChoice] = "Purchased";
 
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
         prot.purse -= (10 + (tierChoice*10));
+        WeaponSmith.close();
         Main.main.draw();
       }
       else{
         System.out.println("You are either too poor to buy this item or already have purchased it");
+        WeaponSmith.close();
+        Main.main.draw();
       }
     }
 
     else if(shop == 1){
-      if(type == 1 && !(Armor[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      if(type == 1 && !(Armor[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Armor[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
+        ArmorSmith.close();
+        Main.main.draw();
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
+        Main.main.draw();
       }
     }
     
 
     else if(shop == 2){
-      if (type == 1 && !(Pick[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      if (type == 1 && !(Pick[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Pick[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
+        ToolSmith.close();
+
+        Main.main.draw();
       }
-      else if (type == 2 && !(Axe[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 2 && !(Axe[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
           Axe[tierChoice] = "Purchased";
           prot.purse -= (10 + (tierChoice*10));
           SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
+        ToolSmith.close();
+        Main.main.draw();
         }
-      else if (type == 3 && !(Shovel[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 3 && !(Shovel[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Shovel[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
+        ToolSmith.close();
+        Main.main.draw();
       }
-      else if (type == 4 && !(Helmet[tierChoice].equals("Purchased")) && prot.purse >= Protagonist.tier * 10){
+      else if (type == 4 && !(Helmet[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Helmet[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
         SoundTesting Money = new SoundTesting("!MoneyChing.wav");
         Money.playSound();
+        ToolSmith.close();
+        Main.main.draw();
       }
       else{
         System.out.println("You are either too poor to buy this Item or already have purchased it");
+        ToolSmith.close();
+        Main.main.draw();
       }
-    }
+
   return "Hehehehe";
   }
-}
-/* 
+
+ 
     // Finding out what they bought and returning it \\
-    purchased = wares[type - 1];
+    purchased = wares[type];
 
 
     if(shop%2 == 0){
@@ -305,6 +329,6 @@ public static String buy(int tierChoice, int type, int shop){
     wumpus.lastID += 1;
     return purchased;
   }
-*/
+}
 
 // ---------------------------------------------------------------------------\\

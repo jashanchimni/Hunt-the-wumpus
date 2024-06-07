@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Trivia{
-    public static void main( Protagonist prot) {
+    public static void main(Protagonist prot) {
 
         //initializes scanner and prints intro message
         Scanner scanner = new Scanner(System.in);
@@ -50,12 +50,16 @@ public class Trivia{
                 int coinsEarned = selectedRank * 10;
                 System.out.println("Congratulations, you answered it correctly and recieved " + coinsEarned + " coins! ");
                 prot.purse += coinsEarned;
+                System.out.println(prot.purse);
+                Main.main.draw();
             } else {
                 System.out.println("Sorry, you got it wrong. Better luck next time!");
+                Main.main.draw();
             }
 
         } else {
             System.out.println("You tried to be oversmart and it did not work! Exiting the TriviaMaster now");
+            Main.main.draw();
 
         }
 

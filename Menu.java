@@ -38,12 +38,13 @@ public class Menu extends JFrame {
         }
          // Make the buttonPanel background transparent
         else{
+            add(buttonPanel);
             for (Button option : options) {
-                System.out.println("New button");
-                this.buttonPanel.add(option);
-                option.setSize(100, 100);
+
+                option.setSize(20, 20);
                 option.setVisible(true);
-        }
+                buttonPanel.add(option);
+                }
         // Add the buttons to the buttonPanel
         
 
@@ -53,10 +54,9 @@ public class Menu extends JFrame {
         draw();
     }
     public void close(){
-        dispose();
+        hide();
     }
     public void addButtons(ArrayList<Button>options){
-        System.out.println("Working?");
        // this.add(buttonPanel);
         for (Button option : options) {
             option.setSize(100,100);
