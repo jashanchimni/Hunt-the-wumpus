@@ -40,7 +40,9 @@ public void actionPerformed(ActionEvent e) {
     
     
     if(instance == 0){
-    Main.choice(this.dec);
+    Main.main.close();
+        Main.choice(this.dec);
+    
         }
         else if(instance == 1){
             Shop.buy(this.dec1, this.shopTier, this.Shops);
