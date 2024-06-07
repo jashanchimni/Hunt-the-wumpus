@@ -265,6 +265,7 @@ public static String buy(int tierChoice, int type, int shop){
     
 
     else if(shop == 2){
+      System.out.println(prot.purse);
       if (type == 1 && !(Pick[tierChoice].equals("Purchased")) && prot.purse >= tierChoice * 10){
         Pick[tierChoice] = "Purchased";
         prot.purse -= (10 + (tierChoice*10));
