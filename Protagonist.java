@@ -168,7 +168,7 @@ public void die(){
   Death.playSound();
   int randDrop = random.nextInt(5);
   System.out.println("You have fallen and dropped " + randDrop + " coins.");
-  purse -= randDrop;
+  purse -= purse * .6;
   if(purse < 0){
     purse = 0;
   }
