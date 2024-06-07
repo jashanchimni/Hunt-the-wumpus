@@ -62,6 +62,7 @@ public class Trivia{
             Main.main.draw();
 
         }
+        Main.main.draw();
 
         
     }
