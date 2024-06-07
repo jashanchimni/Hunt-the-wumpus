@@ -200,6 +200,7 @@ int e1;
         SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");           //making a sound clip
         shopEnter.playSound();                                                              //Playing the shop Sound
         
+        
         for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
           prot.inventory[t] = "";                                            // Setting player inv to nothing

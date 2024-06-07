@@ -18,10 +18,10 @@ public class SoundTesting {
 
     
     public static void playSound(){
-        clip.start();
+        clip.start(); 
     }
     public static void stopSound() {
             clip.flush();
-            clip.close();
+            clip.close(); 
     }
 }
