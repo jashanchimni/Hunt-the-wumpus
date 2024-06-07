@@ -47,7 +47,7 @@ public class Trivia{
             int userAnswer = scanner.nextInt();
 
             if(userAnswer == correctAnswerIndex){
-                int coinsEarned = selectedRank * 10;
+                int coinsEarned = selectedRank * 5;
                 System.out.println("Congratulations, you answered it correctly and recieved " + coinsEarned + " coins! ");
                 prot.purse += coinsEarned;
                 System.out.println(prot.purse);
@@ -62,7 +62,6 @@ public class Trivia{
             Main.main.draw();
 
         }
-        Main.main.draw();
 
         
     }
