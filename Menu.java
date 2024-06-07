@@ -24,21 +24,31 @@ public class Menu extends JFrame {
         // Set the size and layout of the background label
         BG.setPreferredSize(new Dimension(640, 480));
         BG.setLayout(new GridLayout(2,0,300,0));
-
+        add(BG);
         // Create a new JPanel for the buttons
-        this.buttonPanel = new JPanel(new GridLayout(0, 1, 10, 50));
+        this.buttonPanel = new JPanel(new GridLayout(0, 1, 10, 10));
+        if(options.size() == 3){
         this.buttonPanel2 = new JPanel(new GridLayout(0, 1, 10, 50));
         BG.add(buttonPanel2, BorderLayout.SOUTH);
         buttonPanel2.setOpaque(false);
         buttonPanel.setSize(100,100);
         BG.add(buttonPanel, BorderLayout.SOUTH);
-        buttonPanel.setOpaque(false); // Make the buttonPanel background transparent
-
-        // Add the buttons to the buttonPanel
+        buttonPanel.setOpaque(false);
         addButtons(options);
+        }
+         // Make the buttonPanel background transparent
+        else{
+            for (Button option : options) {
+                System.out.println("New button");
+                this.buttonPanel.add(option);
+                option.setSize(100, 100);
+                option.setVisible(true);
+        }
+        // Add the buttons to the buttonPanel
+        
 
         // Add the background label and the button panel to the frame
-        add(BG);
+    }
 
         draw();
     }
@@ -47,8 +57,6 @@ public class Menu extends JFrame {
     }
     public void addButtons(ArrayList<Button>options){
         System.out.println("Working?");
-            Button b = new Button("ha", "He", 6);
-        this.add(b);
        // this.add(buttonPanel);
         for (Button option : options) {
             option.setSize(100,100);

@@ -111,8 +111,6 @@ public void caving(){
       }
       if(num == 0){
     System.out.println("You stumble into a monster lair");
-    
-      monster.battle();
       monster.battle();
         System.out.println();
         System.out.println();

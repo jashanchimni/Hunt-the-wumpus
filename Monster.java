@@ -145,7 +145,7 @@ public static void turnTake(String end){
         Battle.stopSound();
         
         prot.die();
-        battling = false;
+        battleground.close();
       }
 
       // Warning the player of his low health \\
@@ -164,7 +164,7 @@ public static void turnTake(String end){
         health = basehealth;
         Battle.stopSound();
         Monster.death();
-        battling = false;
+        battleground.close();
       }
 
       // Allowing the monster a chance to escape if its almost dead \\
@@ -175,7 +175,7 @@ public static void turnTake(String end){
         if(random.nextInt(10) + 1 > 9){
         System.out.println("The " + CYAN + type + RESET + " ran away");
         health = basehealth;
-        battling = !battling;
+        battleground.close();
         Battle.stopSound();
         }
       }

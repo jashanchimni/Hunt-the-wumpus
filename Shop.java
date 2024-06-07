@@ -142,7 +142,7 @@ public class Shop {
 
     else if (this.type.equalsIgnoreCase("a")) {
       System.out.println("Welcome to " + BLUE + "Gus' Armor Shop" + RESET);
-      ware1 = new Button(RED + this.Armor[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 1);
+      ware1 = new Button(BLUE + this.Armor[tierChoice] + " Price: " + (10 +  (tierChoice*10)) + RESET, 0, 1, tierChoice, 1);
       ware2 = new Button(RED + "None Available" + RESET, 1, 1, tierChoice, 1);
       ware3 = new Button(RED + "None Available" + RESET, 2, 1, tierChoice, 1);
       ware4 = new Button(RED + "None Available" + RESET, 3, 1, tierChoice, 1);
@@ -156,7 +156,6 @@ public class Shop {
       imageIcon = new ImageIcon("BattleGround.jpg");
       j = new JLabel(imageIcon);
       j.setSize(640,480);
-
       shopMenu = new Menu(waresList, j, "Armorsmith");
       this.list = 5;
       this.TyPe = "health";
