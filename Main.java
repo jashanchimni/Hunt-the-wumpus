@@ -92,9 +92,9 @@ public class ASCIIArt {
      static Monster goblin = new Monster (coordinateList[0], coordinateList[1], 15, 7, "Goblin", RandomN, prot); // Creating the Goblin
      static Monster curse = new Monster (coordinateList[0], coordinateList[1], 35, 8, "Curse", RandomN, prot); // Creating the Curse 
 
-     static Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
+    static Monster[][] monsterList = new Monster[][]{{goblin, slime, curse},{goblin, giant, curse},{kraken, giant, wumpus}};
 
-     static Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" ); 
+    static Shop Weaponsmith = new Shop(1, "Monster-Slaying Goods","weapon" ); 
 
   // ------------------------------ Main Method -----------------------------\\
   public Main(){
@@ -199,6 +199,7 @@ int e1;
       else if (h.equals("s")){                            // Checking to see if the user wanted to go to the shop
         SoundTesting shopEnter = new SoundTesting("!AnvilHit.wav");           //making a sound clip
         shopEnter.playSound();                                                              //Playing the shop Sound
+        
         
         for(int t = 0; t < 25; t++){                                         // Giving the Player's inventory to their Town Storage For every spot in their inv
           prot.inventory[t] = village.Town_Inventory[t + village.value];     //Giving player inv to town
